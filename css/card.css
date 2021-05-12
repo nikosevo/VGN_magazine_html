@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family:'Poppins', sans-serif;
+}
+html,body{
+	height: 100%;
+}
+body{
+	display: grid;
+	
+}
+.page{
+	background: gray;
+
+}
+.pageNavigationBar{
+	min-height: 50px;
+	background: white;
+}
+.pagecontent{
+	padding-left: 150px;
+}
+.card{
+	border-radius: 15px ;
+	position:relative;
+	height:470px;
+	width: 340px;
+	display: block;
+	background: white;
+	box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.15);
+	transition: 0.4s linear;
+}
+.card:hover{
+	box-shadow: 0px 1px 35px 0px rgba(0,0,0,0.3);
+}
+.card:hover .bottom{
+    max-height: 500px;
+    transition: max-height 0.25s ease-in;
+    opacity: 1;
+    height: auto;
+
+    
+}
+.card .image{
+	border-radius: 15px;
+	background: black;
+	height: 400px;
+	overflow: hidden;
+}
+.image img{
+
+	height: 100%;
+	width:100%;
+	transition: 0.3s;
+}
+.card:hover .image img{
+	opacity: 0.6;
+	transform: scale(1.1);
+}
+.card .content{
+	position: absolute;
+	bottom: 0px;
+	background: white;
+	width: 100%;
+	text-align: center;
+	padding: 20px 30px;
+	border-radius: 15px;
+}
+.content .title{
+	font-size: 24px;
+	font-weight: 600;
+	color: #333333;
+	
+}
+.content .subtitle{
+	font-size: 18px;
+	font-weight: 500;
+	color: #13D0D0;
+	margin-bottom: 10px;
+}
+.bottom p{
+	color: #666666;
+	font-size: 16px;
+	text-align: justify;
+	line-height: 1.8em;
+}
+.bottom button{
+	float: left;
+	padding: 7px 15px;
+	font-size: 17px;
+	background: #13D0D0;
+	color: white;
+	margin: 10px 0;
+	border: none;
+	cursor: pointer;
+	transition: 0.3s ease;
+	font-weight: 500;
+}
+.bottom button:hover{
+	transform: scale(0.9);
+	background: #13D0D0;
+}
+.bottom{
+    
+	transition: opacity 0.7s ease-out;
+    opacity: 0;
+    transition: max-height 0.15s ease-out;
+    max-height: 0;
+    overflow: hidden;
+    
+}
