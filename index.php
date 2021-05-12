@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    test 1 2 
+<?php include: 'Contact.php'; ?>
+
 </body>
 </html>
