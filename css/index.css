@@ -1,0 +1,27 @@
+.wrapper{
+    margin: 10px auto;;
+    width:80%;
+    height: 600px;
+    display:grid;
+    grid-template-columns: .33fr .33fr .33fr;
+    text-align:center;
+
+}
+
+.container{
+    display:block;
+
+    border: 1px solid red;
+}
+
+.container{
+    
+}
+
+
+
+
+
+
+
+
