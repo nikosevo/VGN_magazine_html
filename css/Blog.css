@@ -1,0 +1,30 @@
+.wrapper{
+    margin: 10px auto;
+    width:70vw;
+    grid-gap: 100px;
+
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+
+}
+
+@media(min-width :1200px){
+    .wrapper{
+        width:1000px;
+    }
+}
+
+@media(max-width: 100px){
+    .wrapper{
+        width: 80vw;
+    }
+}
+
+
+
+
+
+
+
+
+
