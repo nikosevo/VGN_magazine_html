@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php 
-    $link = mysqli_connect("localhost","root","","database");
+    $link = mysqli_connect("localhost","root","","database2");
     if ($link===false){
         die("ERROR: Den egine sindesi sthn vasi");
     }
@@ -47,34 +47,17 @@
 
     <!--make it so it loads everything from the server-->
     <?php 
-        $sql1 = "SELECT * FROM posts WHERE postID='1'";
+        $sql1 = "SELECT * FROM posts";
         $result1 = mysqli_query($link,$sql1);
+
+        $sql2 = "SELECT * FROM users WHERE userID=";
     ?>
 
+
+    <div class="wrapper">
     <?php 
     while ($row = mysqli_fetch_array($result1)) {
     ?>
-
-    <div class="wrapper">
-
-            
-            
-            <!--first post-->
-            <div class="card">
-                <div class="image">
-                    <img src="assets/circle.jpg" />
-                </div>
-                <div class="content">
-                    <div class="title"><?php echo $row['title']; ?></div>
-                    <div class="subtitle">Some more info</div>
-                    <div class="bottom">
-                        <p><?php echo $row['content']; ?></p>
-                        <button>Read More</button>
-                    </div>
-                </div>
-            </div>
-        
-        <?php } ?>
             <!--first post-->
             <div class="card">
                 <div class="image">
@@ -82,70 +65,17 @@
                 </div>
                 <div class="content">
                     <div class="title"><?php echo $row['title']; ?></div>
-                    <div class="subtitle">Arthora</div>
+                    <div class="subtitle"><?php echo $row['userID']; ?></div>
                     <div class="bottom">
                         <p><?php echo $row['description']; ?></p>
                         <button>Read More</button>
                     </div>
                 </div>
             </div>
-        
-       
-            <!--first post-->
-            <div class="card">
-                <div class="image">
-                    <img src="assets/images2.jpg" />
-                </div>
-                <div class="content">
-                    <div class="title">Title of Article</div>
-                    <div class="subtitle">Some more info</div>
-                    <div class="bottom">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium consequatur earum
-                            enim
-                            vero eius labore debitis, perferendis aliquam eaque minima.</p>
-                        <button>Read More</button>
-                    </div>
-                </div>
-            </div>
-        
-        
-            <!--first post-->
-            <div class="card">
-                <div class="image">
-                    <img src="assets/random.jpg" />
-                </div>
-                <div class="content">
-                    <div class="title">Title of Article</div>
-                    <div class="subtitle">Some more info</div>
-                    <div class="bottom">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium consequatur earum
-                            enim
-                            vero eius labore debitis, perferendis aliquam eaque minima.</p>
-                        <button>Read More</button>
-                    </div>
-                </div>
-            </div>
-        
-        
-            <!--first post-->
-            <div class="card">
-                <div class="image">
-                    <img src="assets/circle.jpg" />
-                </div>
-                <div class="content">
-                    <div class="title">Title of Article</div>
-                    <div class="subtitle">Some more info</div>
-                    <div class="bottom">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium consequatur earum
-                            enim
-                            vero eius labore debitis, perferendis aliquam eaque minima.</p>
-                        <button>Read More</button>
-                    </div>
-                </div>
-            </div>
+    <?php } ?>        
+            
         
     </div>
-
 
 
 
