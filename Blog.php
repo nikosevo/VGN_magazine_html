@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php 
+    $link = mysqli_connect("localhost","root","","test");
+    if ($link===false){
+        die("ERROR: Den egine sindesi sthn vasi");
+    }
+
+?>
+
 <html lang="en">
 
 <head>
@@ -38,12 +46,35 @@
     </div>
 
     <!--make it so it loads everything from the server-->
+    <?php 
+        $sql1 = "SELECT * FROM posts WHERE postID='1'";
+        $result1 = mysqli_query($link,$sql1);
+    ?>
+
+    <?php 
+    while ($row = mysqli_fetch_array($result1)) {
+    ?>
 
     <div class="wrapper">
 
-        <div class="page">
-            <div class="pageNavigationBar">
+            
+            
+            <!--first post-->
+            <div class="card">
+                <div class="image">
+                    <img src="assets/circle.jpg" />
+                </div>
+                <div class="content">
+                    <div class="title"><?php echo $row['title']; ?></div>
+                    <div class="subtitle">Some more info</div>
+                    <div class="bottom">
+                        <p><?php echo $row['content']; ?></p>
+                        <button>Read More</button>
+                    </div>
+                </div>
             </div>
+        
+        <?php } ?>
             <!--first post-->
             <div class="card">
                 <div class="image">
@@ -60,10 +91,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="page">
-            <div class="pageNavigationBar">
-            </div>
+        
+       
             <!--first post-->
             <div class="card">
                 <div class="image">
@@ -80,10 +109,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="page">
-            <div class="pageNavigationBar">
-            </div>
+        
+        
             <!--first post-->
             <div class="card">
                 <div class="image">
@@ -100,10 +127,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="page">
-            <div class="pageNavigationBar">
-            </div>
+        
+        
             <!--first post-->
             <div class="card">
                 <div class="image">
@@ -120,27 +145,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="page">
-            <div class="pageNavigationBar">
-            </div>
-            <!--first post-->
-            <div class="card">
-                <div class="image">
-                    <img src="assets/circle.jpg" />
-                </div>
-                <div class="content">
-                    <div class="title">Title of Article</div>
-                    <div class="subtitle">Some more info</div>
-                    <div class="bottom">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium consequatur earum
-                            enim
-                            vero eius labore debitis, perferendis aliquam eaque minima.</p>
-                        <button>Read More</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </div>
 
 
