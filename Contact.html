@@ -23,7 +23,7 @@
 		<nav>
 			<ul class="nav__links">
 				<li><a href="index.html" style="font-weight: 600;">home</a></li>
-				<li><a href="blog.html">Blog</a></li>
+				<li><a href="blog.php">Blog</a></li>
 				<li><a href="contact.html">Contact</a></li>
 			</ul>
 		</nav>
@@ -34,14 +34,14 @@
 		<a class="close">&times;</a>
 		<div class="overlay__content">
 			<a href="index.html">home</a>
-			<a href="blog.html">Blog</a>
+			<a href="blog.php">Blog</a>
 			<a href="contact.html">Contact</a>
 		</div>
 	</div>
 
 
     <div class="container-box">
-        <div class="wrapper">
+        <form id="form" class="wrapper" action="mail.php" method="POST">
             <h1>Contact Us</h1>
 
             <div class="form">
@@ -51,27 +51,27 @@
                 </label>
             </div>
             <div class="form">
-                <input type="text" name="name" autocomplete="off" required />
+                <input type="text" name="email" autocomplete="off" required />
                 <label for="name" class="label-name">
                     <span class="content-name">email</span>
                 </label>
             </div>
             <div class="form">
-                <input type="text" name="name" autocomplete="off" required />
+                <input type="text" name="subject" autocomplete="off" required />
                 <label for="name" class="label-name">
                     <span class="content-name">subject</span>
                 </label>
             </div>
             <div class="form">
-                <input type="text" name="name" autocomplete="off" required />
+                <input type="text" name="thoughts" autocomplete="off" required />
                 <label for="name" class="label-name">
-                    <span class="content-name">tell us your thoughs</span>
+                    <span class="content-name">tell us your thoughts</span>
                 </label>
             </div>
             <div class="btnWrap">
-                <button class="glow-on-hover" type="button">Sent</button>
+                <button class="glow-on-hover" type="button" onclick="document.getElementById('form').submit();">Sent</button>
             </div>
-        </div>
+        </form>
     </div>
 
     <!--Scripts-->
