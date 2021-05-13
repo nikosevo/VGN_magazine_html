@@ -62,13 +62,13 @@
             <!--first post-->
             <div class="card">
                 <div class="image">
-                    <img src="assets/circle.jpg" />
+                    <img <?php echo "src=".$row['image'];?> />
                 </div>
                 <div class="content">
                     <div class="title"><?php echo $row['title']; ?></div>
-                    <div class="subtitle">Some more info</div>
+                    <div class="subtitle"></div>
                     <div class="bottom">
-                        <p><?php echo $row['content']; ?></p>
+                        <p><?php echo $row['description']; ?></p>
                         <button>Read More</button>
                     </div>
                 </div>
