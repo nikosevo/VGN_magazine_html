@@ -29,7 +29,7 @@
         <nav>
             <ul class="nav__links">
                 <li><a href="index.html" style="font-weight: 600;">home</a></li>
-                <li><a href="blog.html">Blog</a></li>
+                <li><a href="blog.php">Blog</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -40,7 +40,7 @@
         <a class="close">&times;</a>
         <div class="overlay__content">
             <a href="index.html">home</a>
-            <a href="blog.html">Blog</a>
+            <a href="blog.php">Blog</a>
             <a href="contact.html">Contact</a>
         </div>
     </div>
@@ -78,15 +78,13 @@
             <!--first post-->
             <div class="card">
                 <div class="image">
-                    <img src="assets/circle.jpg" />
+                    <img <?php echo "src=".$row['image'];?> />
                 </div>
                 <div class="content">
-                    <div class="title">Title of Article</div>
-                    <div class="subtitle">Some more info</div>
+                    <div class="title"><?php echo $row['title']; ?></div>
+                    <div class="subtitle">Arthora</div>
                     <div class="bottom">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium consequatur earum
-                            enim
-                            vero eius labore debitis, perferendis aliquam eaque minima.</p>
+                        <p><?php echo $row['description']; ?></p>
                         <button>Read More</button>
                     </div>
                 </div>
@@ -96,7 +94,7 @@
             <!--first post-->
             <div class="card">
                 <div class="image">
-                    <img src="assets/circle.jpg" />
+                    <img src="assets/images2.jpg" />
                 </div>
                 <div class="content">
                     <div class="title">Title of Article</div>
@@ -114,7 +112,7 @@
             <!--first post-->
             <div class="card">
                 <div class="image">
-                    <img src="assets/circle.jpg" />
+                    <img src="assets/random.jpg" />
                 </div>
                 <div class="content">
                     <div class="title">Title of Article</div>
