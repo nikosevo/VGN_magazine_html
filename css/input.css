@@ -1,5 +1,12 @@
+.container-box {
+    background-color: rgb(255, 255, 255);
+    margin: 100px auto;
+    padding-bottom: 30px;
+    width: 500px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.2);
+}
 .wrapper {
-    height:100%;
     padding-top: 70px;
     margin: 10px auto;
     width: 75%;
@@ -70,4 +77,20 @@
 .form input:focus+ .label-name::after,
 .form input:valid+.label-name::after {
     transform: translateX(0%);
+}
+
+@media (max-width: 768px){
+    .container-box {
+        width: 400px;
+        
+    }
+}
+
+@media(max-height:800px){
+    .container-box {
+        width: 400px;
+        margin-top: 10px;
+        padding-bottom:0px;
+        
+    }
 }

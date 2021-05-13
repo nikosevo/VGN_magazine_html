@@ -1,0 +1,12 @@
+.container{
+    width: 80%;
+    margin: 20px auto;
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(500,1fr));
+    
+}
+
+.container div{
+    border: 1px solid blue;
+    width: 300px;
+}
