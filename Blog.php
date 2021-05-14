@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php 
-    $link = mysqli_connect("localhost","root","","database2");
+    $link = mysqli_connect("localhost","root","","test");
     if ($link===false){
         die("ERROR: Den egine sindesi sthn vasi");
     }
@@ -67,13 +67,13 @@
             <!--first post-->
             <div class="card">
                 <div class="image">
-                    <img <?php echo "src=".$row['image'];?> />
+                    <img <?php echo "src=".$usrRow['image'];?> />
                 </div>
                 <div class="content">
-                    <div class="title"><?php echo $row['title']; ?></div>
-                    <div class="subtitle"><?php echo $usrRow['username']; ?></div>
+                    <div class="title"><?php echo $usrRow['title']; ?></div>
+                    <div class="subtitle"><?php echo $usrRow['username'] , "  " ,date('d-m-Y',strtotime($usrRow['date'])); ?></div>
                     <div class="bottom">
-                        <p><?php echo $row['description']; ?></p>
+                        <p><?php echo $usrRow['description']; ?></p>
                         <button>Read More</button>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
 
 
     <!--Scripts-->
-    <script type="text/javascript" src="js/mobile.js"></script>
+    <!-- <script type="text/javascript" src="js/mobile.js"></script> -->
 
 </body>
 
