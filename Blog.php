@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php 
-    $link = mysqli_connect("localhost","root","","test");
+    $link = mysqli_connect("localhost","root","","database");
     if ($link===false){
         die("ERROR: Den egine sindesi sthn vasi");
     }
