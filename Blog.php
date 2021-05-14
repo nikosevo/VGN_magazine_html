@@ -68,7 +68,7 @@
                 </div>
                 <div class="content">
                     <div class="title"><?php echo $row['title']; ?></div>
-                    <div class="subtitle"><?php echo $row['username']; ?></div>
+                    <div class="subtitle"><?php echo $row['username'] ,"     ", $row['date']; ?></div>
                     <div class="bottom">
                         <p><?php echo $row['description']; ?></p>
                         <button>Read More</button>
