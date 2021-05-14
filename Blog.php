@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php 
-    $link = mysqli_connect("localhost","root","","test");
+    $link = mysqli_connect("localhost","root","","database2");
     if ($link===false){
         die("ERROR: Den egine sindesi sthn vasi");
     }
@@ -47,19 +47,22 @@
 
     <!--make it so it loads everything from the server-->
     <?php 
-        $sql1 = "SELECT  *
-        FROM posts, users
-        WHERE postID=1
-        AND posts.userID = users.userID;";
+        $sql1 = "SELECT * FROM posts";
         $result1 = mysqli_query($link,$sql1);
-
-        $sql2 = "SELECT * FROM users WHERE userID= ";
+        
     ?>
 
 
     <div class="wrapper">
     <?php 
     while ($row = mysqli_fetch_array($result1)) {
+        $postid = $row['postID'];
+        $sql2 = "SELECT  *
+        FROM posts, users
+        WHERE postID=$postid
+        AND posts.userID = users.userID;";
+        $result2 = mysqli_query($link,$sql2);
+        $usrRow = mysqli_fetch_array($result2);
     ?>
             <!--first post-->
             <div class="card">
@@ -68,7 +71,7 @@
                 </div>
                 <div class="content">
                     <div class="title"><?php echo $row['title']; ?></div>
-                    <div class="subtitle"><?php echo $row['username'] ,"     ", $row['date']; ?></div>
+                    <div class="subtitle"><?php echo $usrRow['username']; ?></div>
                     <div class="bottom">
                         <p><?php echo $row['description']; ?></p>
                         <button>Read More</button>
