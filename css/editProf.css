@@ -1,0 +1,14 @@
+.container{
+    display: grid;
+    grid-template-columns: .5fr .5fr;
+}
+
+.uploadPhoto{
+    border: 1px solid red;
+    
+}
+
+.uploadPhoto + input{
+    font-weight: bold;
+}
+
