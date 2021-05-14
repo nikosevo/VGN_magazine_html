@@ -1,4 +1,60 @@
 <!DOCTYPE html>
+
+<?php 
+$link = mysqli_connect("localhost","root","","database");
+if ($link===false){
+    die("ERROR: Den egine sindesi sthn vasi");
+}
+//defining variables
+$fullname = "";
+$password = "";
+$password2 = "";
+$email = "";
+?>
+
+<?php 
+if(isset($_POST['submit']) && $_POST['submit']== "Insert"){
+    $fullname = $_POST['fullname'];
+    $password = $_POST['password'];
+    $password2 = $_POST['password2'];
+    $email = $_POST['email'];
+
+    $error = 0;
+
+    if($fullname == ""){
+        echo "<font color=\"#FF0000\">Πρεπει να συμπληρώσετε το Όνομα!<br></font>";
+        $error = 1;
+    }
+    if($password == ""){
+        echo "<font color=\"#FF0000\">Πρεπει να συμπληρώσετε τον κωδικό!<br></font>";
+        $error = 1;
+    }
+    if($password != $password2){
+        echo "<font color=\"#FF0000\">Οι κωδικοί δεν ειναι ίδιοι!<br></font>";
+        $error = 1;
+    }
+    if($email == ""){
+        echo "<font color=\"#FF0000\">Πρεπει να συμπληρώσετε το mail!<br></font>";
+        $error = 1;
+    }
+    if($error){
+        echo "<font color=\"#FF0000\">Η εγγραφή ακυρώθηκε λόγω λαθών στα στοιχεία εισόδου!<br></font>" ;
+    }else{
+        mysqli_autocommit($link, false);
+        $sql = "insert into users(userID,avatar,fullname,username,email,passwd,bio,roleID) values('','','$fullname','','$email','$password','','1')";
+        $result = mysqli_query($link,$sql) ;
+        if($result){
+            mysqli_commit($link);
+            echo"<font color=\"#3300FF\"><strong><br>Η εγγραφή ολοκληρώθηκε με επιτυχία!<br></font>";
+        }else{
+            mysqli_rollback($link);
+            echo"<font color=\"#FF0000\"><strong><br>Η εγγραφή ακυρώθηκε λόγω λαθών !<br></font>";
+        }
+    }
+}
+
+?>
+
 <html lang="en">
 
 <head>
@@ -46,25 +102,25 @@
             <h1>Register</h1>
 
             <div class="form">
-                <input type="text" name="name" autocomplete="off" required />
+                <input type="text" name="fullname" autocomplete="off" required value=<?php echo $fullname ?>>
                 <label for="name" class="label-name">
                     <span class="content-name">full name</span>
                 </label>
             </div>
             <div class="form">
-                <input type="text" name="email" autocomplete="off" required />
+                <input type="text" name="email" autocomplete="off" required value=<?php echo $email ?>>
                 <label for="name" class="label-name">
                     <span class="content-name">email</span>
                 </label>
             </div>
             <div class="form">
-                <input type="password" name="password" autocomplete="off" required />
+                <input type="password" name="password" autocomplete="off" required value=<?php echo $password ?>>
                 <label for="name" class="label-name">
                     <span class="content-name">password</span>
                 </label>
             </div>
             <div class="form">
-                <input type="password" name="confirmation" autocomplete="off" required />
+                <input type="password" name="password2" autocomplete="off" required value=<?php echo $password2 ?>>
                 <label for="name" class="label-name">
                     <span class="content-name">confirm password</span>
                 </label>
@@ -72,7 +128,7 @@
 
            
             <div class="btnWrap">
-                <button class="glow-on-hover" type="submit">log in</button>
+                <button class="glow-on-hover" type="submit" name="submit" value="Insert" >register</button>
             </div>
         </form>
     </div>
