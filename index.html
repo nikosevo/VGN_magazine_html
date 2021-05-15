@@ -42,7 +42,7 @@
 		<div>object2</div>
 	</div>
 
-	
+
 
 
 	<div>
@@ -52,40 +52,40 @@
 			</div>
 		</div>
 		<div class="carousel">
-			<div class="revolver">
-				
-				<div id="skyline" class="revolver__item">
-					<img src="assets/random.jpg" alt="..." class="revolver__image">
+			<div class="revolver" id="scroll_container">
+
+				<div class="revolver__item">
+					<img src="assets/random.jpg" class="revolver__image">
 				</div>
-				<div id="great-wall-of-china" class="revolver__item">
-					<img src="assets/random.jpg" alt="..." class="revolver__image">
+				<div class="revolver__item">
+					<img src="assets/random.jpg" class="revolver__image">
 				</div>
-				<div id="sunset-on-the-li-river" class="revolver__item">
-					<img src="assets/random.jpg" alt="..." class="revolver__image">
+				<div class="revolver__item">
+					<img src="assets/random.jpg" class="revolver__image">
 				</div>
-				<div id="sunset-on-the-li-river" class="revolver__item">
-					<img src="assets/random.jpg" alt="..." class="revolver__image">
+				<div class="revolver__item">
+					<img src="assets/random.jpg" class="revolver__image">
 				</div>
-				<div id="sunset-on-the-li-river" class="revolver__item">
-					<img src="assets/random.jpg" alt="..." class="revolver__image">
+				<div class="revolver__item">
+					<img src="assets/random.jpg" class="revolver__image">
 				</div>
-				<div id="sunset-on-the-li-river" class="revolver__item">
-					<img src="assets/random.jpg" alt="..." class="revolver__image">
+				<div class="revolver__item">
+					<img src="assets/random.jpg" class="revolver__image">
 				</div>
-				<div id="sunset-on-the-li-river" class="revolver__item">
-					<img src="assets/random.jpg" alt="..." class="revolver__image">
+				<div class="revolver__item">
+					<img src="assets/random.jpg" class="revolver__image">
 				</div>
-				<div id="sunset-on-the-li-river" class="revolver__item">
-					<img src="assets/random.jpg" alt="..." class="revolver__image">
+				<div class="revolver__item">
+					<img src="assets/random.jpg" class="revolver__image">
 				</div>
-				<div id="sunset-on-the-li-river" class="revolver__item">
-					<img src="assets/random.jpg" alt="..." class="revolver__image">
+				<div class="revolver__item">
+					<img src="assets/random.jpg" class="revolver__image">
 				</div>
-				<div id="sunset-on-the-li-river" class="revolver__item">
-					<img src="assets/random.jpg" alt="..." class="revolver__image">
+				<div class="revolver__item">
+					<img src="assets/random.jpg" class="revolver__image">
 				</div>
-				<div id="sunset-on-the-li-river" class="revolver__item">
-					<img src="assets/random.jpg" alt="..." class="revolver__image">
+				<div class="revolver__item">
+					<img src="assets/random.jpg" class="revolver__image">
 				</div>
 
 			</div>
@@ -97,7 +97,20 @@
 
 	<!--Scripts-->
 	<script type="text/javascript" src="js/mobile.js"></script>
-	<script type="text/javascript" src="js/scroller.js"></script>
+	<script>
+			var mouseWheelEvt = function (event) {
+				if (document.getElementById('scroll_container').doScroll)
+					document.getElementById('scroll_container').doScroll(event.wheelDelta > 0 ? "left" : "right");
+				else if ((event.wheelDelta || event.detail) > 0)
+					document.getElementById('scroll_container').scrollLeft -= 150;
+				else
+					document.getElementById('scroll_container').scrollLeft += 150;
+
+				return false;
+			}
+			document.getElementById('scroll_container').addEventListener("mousewheel", mouseWheelEvt);
+
+		</script>
 </body>
 
 </html>
