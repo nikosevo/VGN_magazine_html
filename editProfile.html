@@ -37,44 +37,45 @@
             <a href="contact.html">Contact</a>
         </div>
     </div>
-    <div class="container">
+
 
         <form action="upload.php" method="POST" enctype="multipart/form-data">
-            <input type="file" name="file" class="uploadPhoto">
-            <button type="submit" name="submit">Upload</button>
-        </form>
-        <div class="container-box">
-            <div class="">
-                <div class="form">
-                    <input type="text" name="name" autocomplete="off" required />
-                    <label for="name" class="label-name">
-                        <span class="content-name">Username</span>
-                    </label>
+            <div class="container">
+                <div class="gridContent">
+                   <input type="file" name="file" class="uploadPhoto"> <img src="assets/profiles/default.jpg" alt="avatar" class="avatar">
+                    <button type="submit" name="submit" class="glow-on-hover" id="uploadBtn">save Changes</button>
                 </div>
-                <div class="form">
-                    <input type="text" name="email" autocomplete="off" required />
-                    <label for="name" class="label-name">
-                        <span class="content-name">email</span>
-                    </label>
-                </div>
-                <div class="form">
-                    <input type="text" name="password" autocomplete="off" required />
-                    <label for="name" class="label-name">
-                        <span class="content-name">new password</span>
-                    </label>
-                </div>
-                <div class="form">
-                    <input type="text" name="fewWords" autocomplete="off" required />
-                    <label for="name" class="label-name">
-                        <span class="content-name">fewWords</span>
-                    </label>
+                
+                <div id="wrap">
+                    <div class="grid">
+                        <div class="form">
+                            <input type="text" name="name" autocomplete="off" required />
+                            <label for="name" class="label-name">
+                                <span class="content-name">Username</span>
+                            </label>
+                        </div>
+                        <div class="form">
+                            <input type="text" name="email" autocomplete="off" required />
+                            <label for="name" class="label-name">
+                                <span class="content-name">email</span>
+                            </label>
+                        </div>
+                        <div class="form">
+                            <input type="text" name="password" autocomplete="off" required />
+                            <label for="name" class="label-name">
+                                <span class="content-name">new password</span>
+                            </label>
+                        </div>
+                        <div class="form">
+                            <input type="text" name="fewWords" autocomplete="off" required />
+                            <label for="name" class="label-name">
+                                <span class="content-name">fewWords</span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-
-
+        </form>
 
 
 </body>

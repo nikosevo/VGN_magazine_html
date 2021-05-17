@@ -1,14 +1,48 @@
 .container{
     display: grid;
     grid-template-columns: .5fr .5fr;
+    width: 80%;
+    margin: 0 auto;
+
+}
+
+.gridContent{
+    padding-top: 10vh;
+    padding-left: 10vw;
+}
+
+
+.container form input:hover{
+    cursor:pointer;
 }
 
 .uploadPhoto{
-    border: 1px solid red;
-    
+    position: absolute;
+    align-self: center;
+    height: 20vw;
+    width:20vw;
+    opacity:0;
+ 
 }
 
-.uploadPhoto + input{
-    font-weight: bold;
+.uploadPhoto:hover{
+    cursor: pointer;
+
 }
+.avatar{
+    border: 2px solid #FC0EDC;
+    border-radius:50%;
+    width:20vw;
+}
+
+#uploadBtn{
+    width:150px;
+    margin-left: 5vw;
+}
+
+#wrap{
+    width: 400px;
+    margin-top: 10vh;
+}
+
 
