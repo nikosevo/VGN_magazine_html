@@ -29,22 +29,9 @@
 <body>
 	<!--Navbar-->
 	<header>
-<<<<<<< HEAD:index.html
-		<a class="logo" href="/"><img src="assets/logo.png" alt="logo"></a>
-		<div>
-			<ul class="nav__links">
-				<li><a href="index.html" style="font-weight: 600;">home</a></li>
-				<li><a href="blog.php">Blog</a></li>
-				<li><a href="contact.html">Contact</a></li>
-			</ul>
-		</div>
-		<a class="cta" href="editProfile.html"><i class="fa fa-user" style="font-size:30px;"></i></a>
-		<p class="menu"><i class="fa fa-bars" style="font-size:30px;"></i></p>
-=======
 		<?php 
         include("navbar.html"); 
         ?>
->>>>>>> ff07d85b5e8e0cd5bec7905eb9afa6587ddf457e:index.php
 	</header>
 	
 
