@@ -39,7 +39,7 @@
     <div class="overlay">
         <a class="close">&times;</a>
         <div class="overlay__content">
-            <a href="index.html">home</a>
+            <a href="index.html">Home</a>
             <a href="blog.php">Blog</a>
             <a href="contact.html">Contact</a>
         </div>
@@ -74,7 +74,7 @@
                     <div class="subtitle"><?php echo $usrRow['username'] , "  " ,date('d-m-Y',strtotime($usrRow['date'])); ?></div>
                     <div class="bottom">
                         <p><?php echo $usrRow['description']; ?></p>
-                        <button>Read More</button>
+                        <a href='Post.html'><button >Read More</button></a>
                     </div>
                 </div>
             </div>
