@@ -1,0 +1,41 @@
+.carousel {
+    background-color: #00AEFB;
+    height: 700px;
+
+}
+
+.categories {
+    background-color: #00AEFB;
+    box-shadow:  10px 10px 20px #0097da,
+             -10px -10px 20px #34cdfb;
+    width: 250px;
+
+    border-radius: 13px;
+    display: inline-block
+}
+.carousel .carousel-item {
+
+    width: 200px !important;
+}
+
+.categories div {
+    margin: 20px auto !important;
+    border-radius: 50%;;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    flex-shrink: 0.08;
+    overflow: hidden;
+    display:flex;
+}
+
+.categories p {
+    margin: 0 auto;
+    width: 90%;
+    color: white ;
+    text-align: center;
+}
+.categories h3{
+    color: white;
+    text-align: center;
+}
