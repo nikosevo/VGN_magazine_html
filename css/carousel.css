@@ -4,7 +4,7 @@
 
 }
 
-.carousel {
+.authors-carousel {
   display: flex;
   flex-wrap: nowrap;
   background-color: rgba(3, 12, 29, 0.904);
@@ -30,18 +30,18 @@
 .svg{
   position: absolute;
   margin-top: 10vh;
-  margin-left: 6vw;
+  margin-left: 6.6vw;
   width: 10vw;
   z-index: 10;
 }
 
 
 .txt2 {
-
+  color: white;
   margin-left: 3vw;
   margin-top: 2vh;
   width: 5px;
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.472);
+  text-shadow: 1px 1px white;
   word-wrap: break-word;
   font-size: 1.8vw;
   font-weight: bold;
