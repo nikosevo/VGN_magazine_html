@@ -25,25 +25,11 @@
     <!--Navbar-->
     <!--Navbar-->
     <header>
-        <a class="logo" href="/"><img src="assets/logo.png" alt="logo"></a>
-        <nav>
-            <ul class="nav__links">
-                <li><a href="index.html" style="font-weight: 600;">home</a></li>
-                <li><a href="blog.php">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        <a class="cta" href="login.html"><i class="fa fa-user" style="font-size:30px;"></i></a>
-        <p class="menu"><i class="fa fa-bars" style="font-size:30px;"></i></p>
+    <?php 
+        include("navbar.html"); 
+        ?>
     </header>
-    <div class="overlay">
-        <a class="close">&times;</a>
-        <div class="overlay__content">
-            <a href="index.html">home</a>
-            <a href="blog.php">Blog</a>
-            <a href="contact.html">Contact</a>
-        </div>
-    </div>
+    
 
     <!--make it so it loads everything from the server-->
     <?php 
