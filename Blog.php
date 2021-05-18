@@ -27,7 +27,7 @@
     <header>
     <?php 
         include("navbar.html"); 
-        ?>
+    ?>
     </header>
     
 
