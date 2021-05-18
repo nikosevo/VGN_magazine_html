@@ -11,3 +11,8 @@ a{
     color: #00AEFB;
 }
 
+.error {
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('assets/show_error.png');
+}

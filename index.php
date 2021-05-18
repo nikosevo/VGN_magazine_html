@@ -29,6 +29,7 @@
 <body>
 	<!--Navbar-->
 	<header>
+<<<<<<< HEAD:index.html
 		<a class="logo" href="/"><img src="assets/logo.png" alt="logo"></a>
 		<div>
 			<ul class="nav__links">
@@ -39,15 +40,13 @@
 		</div>
 		<a class="cta" href="editProfile.html"><i class="fa fa-user" style="font-size:30px;"></i></a>
 		<p class="menu"><i class="fa fa-bars" style="font-size:30px;"></i></p>
+=======
+		<?php 
+        include("navbar.html"); 
+        ?>
+>>>>>>> ff07d85b5e8e0cd5bec7905eb9afa6587ddf457e:index.php
 	</header>
-	<div class="overlay">
-		<a class="close">&times;</a>
-		<div class="overlay__content">
-			<a href="index.html">home</a>
-			<a href="blog.php">Blog</a>
-			<a href="contact.html">Contact</a>
-		</div>
-	</div>
+	
 
 	<div class="container">
 		<div class="container__item">
