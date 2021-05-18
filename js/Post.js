@@ -18,4 +18,5 @@ function scrollNav() {
       return false;
     });
   }
+  
   scrollNav();
