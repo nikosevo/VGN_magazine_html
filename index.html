@@ -9,6 +9,8 @@
 	<link rel="stylesheet" href="css/global.css">
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="css/carousel.css">
+	<link rel="stylesheet" href="css/scroll.css">
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
 
@@ -38,79 +40,91 @@
 	</div>
 
 	<div class="container">
-		<div>object1</div>
-		<div>object2</div>
-	</div>
-
-
-
-
-	<div>
-		<div class="bluebox">
-			<div class="txt2">
-				AUTHORS
+		<div class="container__item">
+			<h2>Science to Fasion</h2>
+			<h1>More that just your usual<br> Magazine</h1>
+			<div id="links">
+				<a href="#" id="container__item__cta">Sign up now</a>
+				<a href="#">Read a post</a>
 			</div>
 		</div>
+		<div>
+			<div class="card">
+				<div class="image">
+					<img src="assets/photo1.jpg" />
+				</div>
+				<div class="content">
+					<div class="title">Title</div>
+					<div class="subtitle">Some stuff</div>
+					<div class="bottom">
+						<p>Here we just add a description</p>
+						<button>Read More</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="scroll">
+		<div class="mouse">
+		</div>
+	</div>
+
 		<div class="carousel">
-			<div class="revolver" id="scroll_container">
+			<div class="bluebox">
+				<div class="svg"><img src="assets/SVG/Asset 3.svg" alt="dots"></div>
+				<div class="txt2">AUTHORS</div>
+			</div>
+			<div class="carousel__container">
+				<div class="revolver" id="scroll_container" onmouseover="mouseStatus(true);"
+					onmouseout="mouseStatus(false);">
 
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
+					<div class="revolver__item">
+						<img src="assets/random.jpg" class="revolver__image">
+					</div>
+					<div class="revolver__item">
+						<img src="assets/random.jpg" class="revolver__image">
+					</div>
+					<div class="revolver__item">
+						<img src="assets/random.jpg" class="revolver__image">
+					</div>
+					<div class="revolver__item">
+						<img src="assets/random.jpg" class="revolver__image">
+					</div>
+					<div class="revolver__item">
+						<img src="assets/random.jpg" class="revolver__image">
+					</div>
+					<div class="revolver__item">
+						<img src="assets/random.jpg" class="revolver__image">
+					</div>
+					<div class="revolver__item">
+						<img src="assets/random.jpg" class="revolver__image">
+					</div>
+					<div class="revolver__item">
+						<img src="assets/random.jpg" class="revolver__image">
+					</div>
+					<div class="revolver__item">
+						<img src="assets/random.jpg" class="revolver__image">
+					</div>
+					<div class="revolver__item">
+						<img src="assets/random.jpg" class="revolver__image">
+					</div>
+					<div class="revolver__item">
+						<img src="assets/random.jpg" class="revolver__image">
+					</div>
 
+				</div>
 			</div>
 
 
 		</div>
-	</div>
+
 
 
 	<!--Scripts-->
 	<script type="text/javascript" src="js/mobile.js"></script>
-	<script>
-			var mouseWheelEvt = function (event) {
-				if (document.getElementById('scroll_container').doScroll)
-					document.getElementById('scroll_container').doScroll(event.wheelDelta > 0 ? "left" : "right");
-				else if ((event.wheelDelta || event.detail) > 0)
-					document.getElementById('scroll_container').scrollLeft -= 150;
-				else
-					document.getElementById('scroll_container').scrollLeft += 150;
-
-				return false;
-			}
-			document.getElementById('scroll_container').addEventListener("mousewheel", mouseWheelEvt);
-
-		</script>
+	<script type="text/javascript" src="js/authorsScroll.js"></script>
 </body>
+
+<footer>This is a temp footer</footer>
 
 </html>

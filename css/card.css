@@ -51,6 +51,8 @@
 	font-size: 24px;
 	font-weight: 600;
 	color: #333333;
+	cursor: default;
+
 	
 }
 .content .subtitle{
@@ -58,12 +60,15 @@
 	font-weight: 500;
 	color: #13D0D0;
 	margin-bottom: 10px;
+	cursor: default;
+
 }
 .bottom p{
 	color: #666666;
 	font-size: 16px;
 	text-align: justify;
 	line-height: 1.8em;
+	cursor: default;
 }
 .bottom button{
 	float: left;

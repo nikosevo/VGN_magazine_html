@@ -1,12 +1,51 @@
 .container{
-    width: 80%;
+    width: 70%;
     margin: 20px auto;
     display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(500,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(500px,1fr));
     
 }
 
-.container div{
-    border: 1px solid blue;
-    width: 300px;
+.container__item * {
+    margin-top:20px;
 }
+
+.container__item h2{
+    font-weight: 20vw;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    font-size: 1vw;
+    color: #00AEFB;
+    margin-top: 3vw;
+}
+
+
+.container__item h1{
+    font-size: 2.5vw;
+    font-weight: bold;
+}
+
+
+#links{
+    margin-top:3vw;
+}
+
+.container__item a{
+     margin-left: 30px;
+    color: black;
+    text-decoration: line;
+    font-size: 1.5vw;
+    
+}
+
+
+#container__item__cta{
+    margin-left: 0;
+    font-size: 1.3vw;
+    border-radius: 12px;
+    background-color: #00AEFB;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+

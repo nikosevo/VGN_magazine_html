@@ -1,78 +1,99 @@
+.carousel__container {
+  margin-left: 20%;
+  margin-top: 50px;
+
+}
+
 .carousel {
-    display: flex;
-    flex-wrap: nowrap;
-    background-color: rgba(3, 12, 29, 0.904);
-    height: 35vh;
-    width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: rgba(3, 12, 29, 0.904);
+  height: 50vh;
+  width: 100%;
+  margin-top:10vw;
 
-  }
-  
+}
+/*almost blue box to be more accurate its more like green or smt idk*/
+.bluebox {
+  text-align: center;
+  margin-left: -3vw;
+  margin-top: -2vw;
+  padding: 1px 20px;
+  padding-right: 4vw;
+  background-color: #51ECC2;
+  height: 40vh;
+
+  color: rgb(0, 0, 0);
+  border-radius: 20vmin;
+}
+
+.svg{
+  position: absolute;
+  margin-top: 10vh;
+  margin-left: 6vw;
+  width: 10vw;
+  z-index: 10;
+}
 
 
-  .bluebox{
-      margin-left: -25px;
-      position :relative;
-      word-wrap: nowrap;
-      z-index: 1;
-      top: 20vh;
-      background-color:rgb(85, 238, 205);
-      height: 25vh;
-      width: 5%;
-      color: rgb(0, 0, 0);
-      border-radius:20vmin;
-  }
-  .bluebox > .txt2{
-    margin:55%;
-    width:5px;
-    text-shadow: 1px 1px rgba(0, 0, 0, 0.472);
-    font-size: 3vmin;
-    word-wrap: break-word;
-    font-family: monospace; /* this is just for good looks */
-  }
-  .revolver {
-    height:98%;
-    padding-left: 28vw;
-    padding-top: 7vh;
-    display:flex;
-    overflow-x:scroll;
-    overflow-y: hidden;
-    scroll-behavior:smooth;    
-        
-  }
+.txt2 {
+
+  margin-left: 3vw;
+  margin-top: 2vh;
+  width: 5px;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.472);
+  word-wrap: break-word;
+  font-size: 1.8vw;
+  font-weight: bold;
+  /* this is just for good looks */
+}
+
+.revolver {
+  margin-top: 3.5vh;
+  height: 80%;
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  width: 90%;
   
-  .revolver__item {
-    margin-top: 7vh;
-    width: 50%;
-    flex-shrink: 0.08;
-    scroll-behavior: smooth;
-    
-  }
+}
+
+.revolver__item {
+  margin-top: 7vh;
+  width: 50%;
+  flex-shrink: 0.08;
+  scroll-behavior: smooth;
+}
+
+.revolver__image {
+  border-radius: 50%;
+  width: 8vw;
+  height: 8vw;
   
-  .revolver__image {
-    border-radius: 50%;
-    width: 112px;
-    height: 112px;
-    
-  }
+}
 
 .revolver::-webkit-scrollbar {
-    width: 2px;
-    scroll-behavior: smooth;
+  width: 1px;
+  scroll-behavior: smooth;
 }
 
 /* Track */
+
 .revolver::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 1px rgba(128, 128, 128, 0); 
-    border-radius: 15px;
+  box-shadow: inset 0 0 1px rgba(128, 128, 128, 0);
+  border-radius: 15px;
 }
 
 /* Handle */
+
 .revolver::-webkit-scrollbar-thumb {
-    background: rgba(7, 7, 7, 0.726); 
-    border-radius: 15px;
+  background: rgba(7, 7, 7, 0.726);
+  border-radius: 15px;
 }
 
 /* Handle on hover */
+
 .revolver::-webkit-scrollbar-thumb:hover {
-    background: #009eb3d5; 
+  background: #009eb3d5;
 }
