@@ -7,6 +7,7 @@ if ($link===false){
 }
 //defining variables
 $fullname = "";
+$username = "";
 $password = "";
 $password2 = "";
 $email = "";
@@ -15,6 +16,7 @@ $email = "";
 <?php 
 if(isset($_POST['submit']) && $_POST['submit']== "Insert"){
     $fullname = $_POST['fullname'];
+    $username = $_POST['username'];
     $password = $_POST['password'];
     $password2 = $_POST['password2'];
     $email = $_POST['email'];
@@ -24,6 +26,21 @@ if(isset($_POST['submit']) && $_POST['submit']== "Insert"){
     if($fullname == ""){
         echo "<font color=\"#FF0000\">Πρεπει να συμπληρώσετε το Όνομα!<br></font>";
         $error = 1;
+    }
+    if($username == ""){
+        
+
+        echo "<font color=\"#FF0000\">Username cannot be empty!<br></font>";
+        $error = 1;
+
+    }else{
+        $sql = "SELECT * FROM users WHERE username='$username'";
+		$result = mysqli_query($link, $sql) or die(mysqli_error($link));
+		$count = mysqli_num_rows($result);
+        if($count > 0 ){
+            echo "<font color=\"#FF0000\">Username already exist. Please try something else<br></font>";
+            $error = 1;
+        }
     }
     if($password == ""){
         echo "<font color=\"#FF0000\">Πρεπει να συμπληρώσετε τον κωδικό!<br></font>";
@@ -41,7 +58,7 @@ if(isset($_POST['submit']) && $_POST['submit']== "Insert"){
         echo "<font color=\"#FF0000\">Η εγγραφή ακυρώθηκε λόγω λαθών στα στοιχεία εισόδου!<br></font>" ;
     }else{
         mysqli_autocommit($link, false);
-        $sql = "insert into users(userID,avatar,fullname,username,email,passwd,bio,roleID) values('','','$fullname','','$email','$password','','1')";
+        $sql = "insert into users(userID,avatar,fullname,username,email,passwd,bio,roleID) values('','','$fullname','$username','$email','$password','','1')";
         $result = mysqli_query($link,$sql) ;
         if($result){
             mysqli_commit($link);
@@ -91,6 +108,12 @@ if(isset($_POST['submit']) && $_POST['submit']== "Insert"){
                 <input type="text" name="fullname" autocomplete="off" required value=<?php echo $fullname ?>>
                 <label for="name" class="label-name">
                     <span class="content-name">full name</span>
+                </label>
+            </div>
+            <div class="form">
+                <input type="text" name="username" autocomplete="off" required value=<?php echo $username ?>>
+                <label for="name" class="label-name">
+                    <span class="content-name">username</span>
                 </label>
             </div>
             <div class="form">
