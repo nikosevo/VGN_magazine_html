@@ -1,0 +1,109 @@
+.navmenu > .outer {
+  position: inherit;
+  left:15px;
+  transform: skewX(25deg);
+}
+.cta{
+  margin-left: 25px;
+}
+.navmenu #option {
+  display: block;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: Arial, Helvetica;
+  font-size: 14px;
+}		
+
+#inner:hover {
+  background: #e74c3c;
+}		
+
+.navmenu > .submenu > #option {
+  padding: 1em 2em;
+}
+
+/* Dropdown */
+.submenu {
+  margin-top: 50px;
+  position: inherit;
+  width: 200px;
+   margin-left: -95px;
+  transform: skewX(-25deg);
+  transform-origin: left top;
+}
+#dropper {
+  margin-left:-25px;
+}
+
+.submenu li {
+  background-color: #51a7fd;
+  position: inherit;
+  overflow: hidden;		
+}						
+
+.submenu > li > a {
+  padding: 1em 2em;			
+}
+
+.submenu > #inner:after {
+  content: '';
+  position: inherit;
+  top: -150%;
+  height: 100%;
+  width: 100%;			
+  box-shadow: 0 0 50px rgba(0, 0, 0, .9);			
+}		
+
+/* Odd stuff */
+.submenu > li:nth-child(odd){
+  transform: skewX(-25deg) translateX(0);
+}
+
+.submenu > li:nth-child(odd) > a {
+  transform: skewX(25deg);
+}
+
+.submenu > li:nth-child(odd)::after {
+  right: -50%;
+  transform: skewX(-25deg) rotate(3deg);
+}				
+
+/* Even stuff */
+.submenu > li:nth-child(even){
+  transform: skewX(25deg) translateX(0);
+}
+
+.submenu > li:nth-child(even) > a {
+  transform: skewX(-25deg);
+}
+
+.submenu > li:nth-child(even)::after {
+  left: -50%;
+  transform: skewX(25deg) rotate(3deg);
+}
+
+/* Show dropdown */
+.submenu,
+.submenu li {
+  opacity: 0;
+  visibility: hidden;			
+}
+
+.submenu li {
+  transition: .2s ease transform;
+}
+
+.navmenu > .outer:hover .submenu,
+.navmenu > .outer:hover .submenu li {
+  opacity: 1;
+  visibility: visible;
+}		
+
+.navmenu > .outer:hover .submenu li:nth-child(even){
+  transform: skewX(25deg) translateX(15px);			
+}
+
+.navmenu > .outer:hover .submenu li:nth-child(odd){
+  transform: skewX(-25deg) translateX(-15px);			
+}

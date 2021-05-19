@@ -27,7 +27,9 @@
     <header>
     <?php 
         include("navbar.html"); 
-    ?>
+        include("burger.html");
+        ?>
+        
     </header>
     
 

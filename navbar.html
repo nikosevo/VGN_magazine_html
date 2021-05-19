@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 
 <a class="logo" href="/"><img src="assets/logo.png" alt="logo"></a>
+
 <div>
-    <ul class="nav__links">
+
+    <ul class="nav__links navmenu">
         <li><a href="index.php" style="font-weight: 600;">home</a></li>
-        <li><a href="blog.php">Blog</a></li>
-        <li><a href="editProfile.php">Contact</a></li>
+        <li><a href="blog.php" >Blog</a></li>
+        <li><a href="contact.php">Contact</a></li>
+
+        <a class="cta" href="login.php"><i class="fa fa-user" style="font-size:30px;"></i></a>
+        <li class="outer">
+            <ul class="submenu">
+                <li id="inner"><a id="option" href="">Make a post</a></li>
+                <li id="inner"><a id="option" href="viewProfile.php">view profile</a></li>
+                <li id="inner"><a id="option" href="">Log out</a></li>
+            </ul>
+        </li>
+
     </ul>
+
 </div>
-<a class="cta" href="login.php"><i class="fa fa-user" style="font-size:30px;"></i></a>
+
 <p class="menu"><i class="fa fa-bars" style="font-size:30px;"></i></p>
 
 <div class="overlay">
@@ -18,10 +31,12 @@
         <a href="blog.php">Blog</a>
         <a href="contact.php">Contact</a>
     </div>
+
 </div>
 
-<div class="bubble active">
-    <div class="content"></div>
-    <div class="content"></div>
-    <div class="content"></div>
-</div>
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="css/profiledropdown.css">

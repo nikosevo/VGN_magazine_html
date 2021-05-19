@@ -9,6 +9,8 @@
 		session_start();
 		include "connect.php";
 		include "functions.php";
+		include "common.php";
+
 		$_SESSION['roleID'] = 0;
 		$username = mysqli_real_escape_string($link,$_POST['username']);
 		$password = mysqli_real_escape_string($link, $_POST['password']);
@@ -31,6 +33,7 @@
 			$_SESSION['username'] = $username;
 			$_SESSION['passwd'] = $password;
 			$_SESSION['roleID'] = $role;
+			$_SESSION['userID'] = $row['userID'];
 			} else {
 			send_message('Wrong Credentials Try Again', 'error');
             
@@ -41,7 +44,7 @@
 		switch ($_SESSION['roleID']) {
 		case 1: //admin
             echo "success!";
-            // header("Location: admin.php");
+            header("Location: index.php");
             // exit();
             break;
 		case 2: //writer
