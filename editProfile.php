@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+session_start();
+include("functions.php");
+?>
 
 <head>
     <meta charset="UTF-8">
