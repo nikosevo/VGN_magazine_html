@@ -1,32 +1,25 @@
-
-
-/* Main level */
-.navmenu {			
-}
-
-.navmenu > #presub {
-  float: left;
+.navmenu > .outer {
   position: inherit;
+  left:15px;
   transform: skewX(25deg);
 }
 .cta{
   margin-left: 25px;
 }
-.navmenu > #submenu{
+.navmenu #option {
   display: block;
   color: #fff;
   text-transform: uppercase;
   text-decoration: none;
   font-family: Arial, Helvetica;
-  font-size: 11px;
+  font-size: 14px;
 }		
 
 #inner:hover {
   background: #e74c3c;
 }		
 
-.navmenu > #presub > a {
-  transform: skewX(-25deg);
+.navmenu > .submenu > #option {
   padding: 1em 2em;
 }
 
@@ -53,7 +46,7 @@
   padding: 1em 2em;			
 }
 
-.submenu > #inner::after {
+.submenu > #inner:after {
   content: '';
   position: inherit;
   top: -150%;
@@ -63,29 +56,29 @@
 }		
 
 /* Odd stuff */
-.submenu > #inner:nth-child(odd){
+.submenu > li:nth-child(odd){
   transform: skewX(-25deg) translateX(0);
 }
 
-.submenu > #inner:nth-child(odd) > a {
+.submenu > li:nth-child(odd) > a {
   transform: skewX(25deg);
 }
 
-.submenu > #inner:nth-child(odd)::after {
+.submenu > li:nth-child(odd)::after {
   right: -50%;
   transform: skewX(-25deg) rotate(3deg);
 }				
 
 /* Even stuff */
-.submenu > #inner:nth-child(even){
+.submenu > li:nth-child(even){
   transform: skewX(25deg) translateX(0);
 }
 
-.submenu > #inner:nth-child(even) > a {
+.submenu > li:nth-child(even) > a {
   transform: skewX(-25deg);
 }
 
-.submenu > #inner:nth-child(even)::after {
+.submenu > li:nth-child(even)::after {
   left: -50%;
   transform: skewX(25deg) rotate(3deg);
 }
@@ -101,16 +94,16 @@
   transition: .2s ease transform;
 }
 
-.navmenu > #presub:hover .submenu,
-.navmenu > #presub:hover .submenu #inner {
+.navmenu > .outer:hover .submenu,
+.navmenu > .outer:hover .submenu li {
   opacity: 1;
   visibility: visible;
 }		
 
-.navmenu > #presub:hover .submenu #inner:nth-child(even){
+.navmenu > .outer:hover .submenu li:nth-child(even){
   transform: skewX(25deg) translateX(15px);			
 }
 
-.navmenu > #presub:hover .submenu #inner:nth-child(odd){
+.navmenu > .outer:hover .submenu li:nth-child(odd){
   transform: skewX(-25deg) translateX(-15px);			
 }
