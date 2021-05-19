@@ -4,7 +4,7 @@
 .navmenu {			
 }
 
-.navmenu > li {
+.navmenu > #presub {
   float: left;
   position: inherit;
   transform: skewX(25deg);
@@ -12,20 +12,20 @@
 .cta{
   margin-left: 25px;
 }
-.navmenu a {
+.navmenu > #submenu{
   display: block;
   color: #fff;
   text-transform: uppercase;
   text-decoration: none;
   font-family: Arial, Helvetica;
-  font-size: 14px;
+  font-size: 11px;
 }		
 
 #inner:hover {
   background: #e74c3c;
 }		
 
-.navmenu > li > a {
+.navmenu > #presub > a {
   transform: skewX(-25deg);
   padding: 1em 2em;
 }
@@ -53,7 +53,7 @@
   padding: 1em 2em;			
 }
 
-.submenu > li::after {
+.submenu > #inner::after {
   content: '';
   position: inherit;
   top: -150%;
@@ -63,29 +63,29 @@
 }		
 
 /* Odd stuff */
-.submenu > li:nth-child(odd){
+.submenu > #inner:nth-child(odd){
   transform: skewX(-25deg) translateX(0);
 }
 
-.submenu > li:nth-child(odd) > a {
+.submenu > #inner:nth-child(odd) > a {
   transform: skewX(25deg);
 }
 
-.submenu > li:nth-child(odd)::after {
+.submenu > #inner:nth-child(odd)::after {
   right: -50%;
   transform: skewX(-25deg) rotate(3deg);
 }				
 
 /* Even stuff */
-.submenu > li:nth-child(even){
+.submenu > #inner:nth-child(even){
   transform: skewX(25deg) translateX(0);
 }
 
-.submenu > li:nth-child(even) > a {
+.submenu > #inner:nth-child(even) > a {
   transform: skewX(-25deg);
 }
 
-.submenu > li:nth-child(even)::after {
+.submenu > #inner:nth-child(even)::after {
   left: -50%;
   transform: skewX(25deg) rotate(3deg);
 }
@@ -101,16 +101,16 @@
   transition: .2s ease transform;
 }
 
-.navmenu > li:hover .submenu,
-.navmenu > li:hover .submenu li {
+.navmenu > #presub:hover .submenu,
+.navmenu > #presub:hover .submenu #inner {
   opacity: 1;
   visibility: visible;
 }		
 
-.navmenu > li:hover .submenu li:nth-child(even){
+.navmenu > #presub:hover .submenu #inner:nth-child(even){
   transform: skewX(25deg) translateX(15px);			
 }
 
-.navmenu > li:hover .submenu li:nth-child(odd){
+.navmenu > #presub:hover .submenu #inner:nth-child(odd){
   transform: skewX(-25deg) translateX(-15px);			
 }
