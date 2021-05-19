@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 
 <?php 
-$link = mysqli_connect("localhost","root","","database");
-if ($link===false){
-    die("ERROR: Den egine sindesi sthn vasi");
-}
+session_start();
+include "connect.php";
+include "functions.php";
 //defining variables
 $fullname = "";
 $password = "";
