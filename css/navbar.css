@@ -15,9 +15,10 @@ header {
 
 .logo {
     cursor: pointer;
+    margin-bottom: 10vh;
 }
 
-.nav__links a, .cta, .overlay__content a {
+.nav__links a,  .overlay__content a {
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
     font-weight: 500;
@@ -130,7 +131,7 @@ header {
 }
 
 @media only screen and (max-width: 800px) {
-    .nav__links, .cta {
+    .nav__links, .navmenu {
         display: none;
     }
     .menu {

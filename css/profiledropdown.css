@@ -1,72 +1,51 @@
-/* Clearing floats */
-.cf:before,
-.cf:after {
-  content: " ";
-  display: table;
-}
 
-.cf:after {
-  clear: both;
-}
-
-.cf {
-  *zoom: 1;
-}
-
-/* Mini reset, no margins, paddings or bullets */
-.menu,
-.submenu {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
 
 /* Main level */
-.menu {			
-  margin: 50px auto;
-  width: 800px;
-  width: -moz-fit-content;
-  width: -webkit-fit-content;
-  width: fit-content;	
+.navmenu {			
 }
 
-.menu > li {
-  background: #34495e;
+.navmenu > #presub {
   float: left;
-  position: relative;
+  position: inherit;
   transform: skewX(25deg);
 }
-
-.menu a {
+.cta{
+  margin-left: 25px;
+}
+.navmenu > #submenu{
   display: block;
   color: #fff;
   text-transform: uppercase;
   text-decoration: none;
   font-family: Arial, Helvetica;
-  font-size: 14px;
+  font-size: 11px;
 }		
 
-.menu li:hover {
-  background: #d6675a;
+#inner:hover {
+  background: #e74c3c;
 }		
 
-.menu > li > a {
+.navmenu > #presub > a {
   transform: skewX(-25deg);
   padding: 1em 2em;
 }
 
 /* Dropdown */
 .submenu {
-  position: absolute;
+  margin-top: 50px;
+  position: inherit;
   width: 200px;
-  left: 50%; margin-left: -100px;
+   margin-left: -95px;
   transform: skewX(-25deg);
   transform-origin: left top;
+}
+#dropper {
+  margin-left:-25px;
 }
 
 .submenu li {
   background-color: #51a7fd;
-  position: relative;
+  position: inherit;
   overflow: hidden;		
 }						
 
@@ -74,39 +53,39 @@
   padding: 1em 2em;			
 }
 
-.submenu > li::after {
+.submenu > #inner::after {
   content: '';
-  position: absolute;
-  top: -125%;
+  position: inherit;
+  top: -150%;
   height: 100%;
   width: 100%;			
   box-shadow: 0 0 50px rgba(0, 0, 0, .9);			
 }		
 
 /* Odd stuff */
-.submenu > li:nth-child(odd){
+.submenu > #inner:nth-child(odd){
   transform: skewX(-25deg) translateX(0);
 }
 
-.submenu > li:nth-child(odd) > a {
+.submenu > #inner:nth-child(odd) > a {
   transform: skewX(25deg);
 }
 
-.submenu > li:nth-child(odd)::after {
+.submenu > #inner:nth-child(odd)::after {
   right: -50%;
   transform: skewX(-25deg) rotate(3deg);
 }				
 
 /* Even stuff */
-.submenu > li:nth-child(even){
+.submenu > #inner:nth-child(even){
   transform: skewX(25deg) translateX(0);
 }
 
-.submenu > li:nth-child(even) > a {
+.submenu > #inner:nth-child(even) > a {
   transform: skewX(-25deg);
 }
 
-.submenu > li:nth-child(even)::after {
+.submenu > #inner:nth-child(even)::after {
   left: -50%;
   transform: skewX(25deg) rotate(3deg);
 }
@@ -122,16 +101,16 @@
   transition: .2s ease transform;
 }
 
-.menu >  a:hover + .submenu,
-.menu >a:hover + .submenu li {
+.navmenu > #presub:hover .submenu,
+.navmenu > #presub:hover .submenu #inner {
   opacity: 1;
   visibility: visible;
 }		
 
-.menu > a:hover + .submenu li:nth-child(even){
+.navmenu > #presub:hover .submenu #inner:nth-child(even){
   transform: skewX(25deg) translateX(15px);			
 }
 
-.menu > a:hover + .submenu li:nth-child(odd){
+.navmenu > #presub:hover .submenu #inner:nth-child(odd){
   transform: skewX(-25deg) translateX(-15px);			
 }
