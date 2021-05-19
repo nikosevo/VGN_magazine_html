@@ -13,21 +13,33 @@
 </head>
 <body>
 
-    <!--here we include the nav bar with php lata--><pre>
-        NAV BAR KAI KALA                                                        LINKS LINKS LINKS SQR
-    
-    
-    </pre>
+    <!--here we include the nav bar with php lata-->
+    <header>
+		<?php 
+        include("navbar.html"); 
+        include "common.php";
+        require_once "connect.php";
+        session_start();
+
+        $var = $_SESSION['userID'];
+
+        $sql1 = "SELECT * FROM users WHERE userID='$var'";
+        $result1 = mysqli_query($link,$sql1);
+        $user = mysqli_fetch_array($result1);
+        
+        ?>
+    </header>
     <!-- profile sections-->
     <div class="container">
         <div class="container__profile">
             <div class="black-box">
                 <span>author</span>
                 <div class="img-container"><img src="assets/profiles/default.jpg" alt=""></div>
-                <a href="#"><i class="fas fa-user-edit"></i></a>
+                <a href="editProfile.php"><i class="fas fa-user-edit"></i></a>
             </div>
             <div class="details">
-                <h1>fullname</h1>
+                <?php echo"<h1> '$user[username]'</h1>"?>
+                <h1><?php echo".$user['fullname'].";?></h1>
                 <h2>username</h2>
                 <p>some bullshit about you boring life we dont really care we just wanna show it to leoboomer</p>
             </div>
