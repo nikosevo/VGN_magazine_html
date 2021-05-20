@@ -70,7 +70,7 @@
 	line-height: 1.8em;
 	cursor: default;
 }
-.bottom button{
+.bottom a{
 	float: left;
 	padding: 7px 15px;
 	font-size: 17px;
@@ -82,7 +82,7 @@
 	transition: 0.3s ease;
 	font-weight: 500;
 }
-.bottom button:hover{
+.bottom a:hover{
 	transform: scale(0.9);
 	background: #13D0D0;
 }

@@ -62,7 +62,7 @@
                     <div class="subtitle"><?php echo $usrRow['username'] , "  " ,date('d-m-Y',strtotime($usrRow['date'])); ?></div>
                     <div class="bottom">
                         <p><?php echo $usrRow['description']; ?></p>
-                        <button>Read More</button>
+                        <a href="Post.php" style="text-decoration: none;">Read More</a>
                     </div>
                 </div>
             </div>
