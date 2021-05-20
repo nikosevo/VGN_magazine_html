@@ -4,6 +4,7 @@
     if ($link===false){
         die("ERROR: Den egine sindesi sthn vasi");
     }
+    session_start();
 
 ?>
 
@@ -45,6 +46,7 @@
     <?php 
     while ($row = mysqli_fetch_array($result1)) {
         $postid = $row['postID'];
+        $_SESSION['postID'] = $row['postID'];
         $sql2 = "SELECT  *
         FROM posts, users
         WHERE postID=$postid
@@ -62,7 +64,8 @@
                     <div class="subtitle"><?php echo $usrRow['username'] , "  " ,date('d-m-Y',strtotime($usrRow['date'])); ?></div>
                     <div class="bottom">
                         <p><?php echo $usrRow['description']; ?></p>
-                        <a href="Post.php" style="text-decoration: none;">Read More</a>
+                        <a href="Post.php">Read More</a>
+                        <!-- <button href="Post.php">Read More</button> -->
                     </div>
                 </div>
             </div>

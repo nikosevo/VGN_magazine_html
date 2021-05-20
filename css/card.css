@@ -71,6 +71,7 @@
 	cursor: default;
 }
 .bottom a{
+	text-decoration: none;
 	float: left;
 	padding: 7px 15px;
 	font-size: 17px;
