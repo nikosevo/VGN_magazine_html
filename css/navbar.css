@@ -74,7 +74,7 @@ header {
     opacity: .8;
     overflow:hidden;
     height: 0;
-    width: 15%;
+    width: 300px;
     position: fixed;
     z-index: 5;
     right: 0;
