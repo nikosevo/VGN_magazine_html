@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+session_start();
+include "connect.php";
+include "article.php";
+
+?>
 
 <head>
 
@@ -25,15 +31,12 @@
 
         <div class="content">
             <article id="s1">
-                <h1>Zoom Hero Image on Scroll</h1>
                 <div class="squeezed">
-                    <h1 class="entry-title">UI Frameworks Review: Vue.js vs React in 2019</h1>
+                    <h1 class="entry-title"><?php echo $_SESSION['title']; ?></h1>
 
 
                     <div class="entry-excerpt">
-                        <p>The front-end is a central battleground for JavaScript. Two combatants that are constantly
-                            struggling
-                            to outdo each other are Vue.js and React.</p>
+                        <p><?php echo $_SESSION['description']; ?></p>
                     </div>
             </article>
             <br>
@@ -45,7 +48,7 @@
                             <img class="author-avatar" src="assets/profiles/default.jpg" alt="DesignRevision Editorial">
                         </div>
                         <div class="author-details vcard author author_name">
-                            <p class="fn">Author name</p>
+                            <p class="fn"><?php echo $_SESSION['postID']; ?></p>
                         </div>
                     </a>
                 </div>
