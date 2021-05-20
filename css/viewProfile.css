@@ -1,0 +1,146 @@
+.container{
+    display:grid;
+    width: 70%;
+    margin: 20px auto;
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+}
+
+
+.container__profile{
+    display:inline-block;
+}
+
+.black-box{
+    float:right;
+    display:grid;
+    grid-template-columns: .8fr .1fr .2fr;
+    text-align:center;
+    align-items:center;
+    background-color: #1B2329;
+    margin-right: 4vw;
+    padding-right: 0;
+    border-radius: 3vw;
+    height: 5vw;
+    width: 160%;    
+    
+}
+.black-box span{
+    color:#707070;
+    font-size: 3vw;
+    font-weight: bold;
+}
+
+.black-box .img-container{
+    margin: -25% 0;
+    margin-right: 10px;
+    height: 10vw;
+    width: 10vw;
+    border: 3px solid #FC0EDC; 
+    border-radius: 50%;
+    overflow:hidden;
+}
+
+.black-box img{
+    height:130%;
+    width: 130%;
+    margin-left: -15%;
+}
+
+.black-box a {
+    
+    color:white;
+    text-align: center;
+    font-size: 1.2vw;
+    width:2vw;
+    height: 2vw;
+    background-color:#0694F3 ;
+    border-radius: .3vw;
+}
+
+ i {
+    margin:.4vw;
+}
+
+
+h1{
+   padding-top: 10vw;
+   font-size: 3vw;
+}
+h2{
+   font-size: 1.5vw;
+    margin-top: -2vw;
+    font-weight: lighter;
+    letter-spacing: 10px;
+}
+p{
+    margin-top: 5vw;
+    font-size:1.5vw;
+    width: 10vw;
+}
+
+
+/* HERE STARTS THE RIGHT SIDE */
+
+
+.container__articles{
+    border-left: 1px solid #FCA50E;
+    grid-column: auto / span 2;
+}
+
+.head{
+    display: flex;
+}
+
+.head h2 {
+    padding: 3vw;
+}
+.head a{
+    margin-top: 1vw;
+    color:white;
+    text-align: center;
+    font-size: 1.2vw;
+    width:2vw;
+    height: 2vw;
+    background-color:#FCA50E ;
+    border-radius: 2vw;
+}
+
+.title{
+    width:100%;
+    
+    
+}
+
+.articles-wrapper{
+
+    width: 100%;
+    display:grid;
+    grid-template-columns: .5fr .5fr;
+}
+
+.article{
+    margin: 2vw;
+    border: 2px solid #707070;
+    border-radius: 13px;
+    text-decoration: none;
+    
+}
+
+.article i{
+    float: right;
+}
+
+.article h1{
+    padding: 1vw;
+    color: black;
+    font-size: 1.3vw;
+}
+
+.article h2{
+    color: #707070 ;
+    font-weight: bolder;
+    padding: 1vw;
+    font-size: 1vw;
+    letter-spacing: .2vw;
+}
