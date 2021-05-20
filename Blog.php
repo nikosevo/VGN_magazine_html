@@ -14,9 +14,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/blog.css">
     <link rel="stylesheet" href="css/card.css">
+    <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
     <title>VGN Magazine | Welcome</title>
@@ -24,14 +24,18 @@
 
 <body>
     <!--Navbar-->
-    <!--Navbar-->
     <header>
     <?php 
         include("navbar.html"); 
-        include("burger.html");
-        ?>
-        
+    ?>
     </header>
+    <div>
+    <?php 
+        include("burger.html");
+    ?>
+        
+
+    </div>
     
 
     <!--make it so it loads everything from the server-->

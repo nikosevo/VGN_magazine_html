@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="burger.css" />
+  <link rel="stylesheet" href="css/burger.css" />
 
 
 </head>
@@ -14,9 +14,11 @@
 <body>
   <div class="burger">
     <div class="cont">
-      <p>Home</p>
-      <p>CSSSCRIPT.COM</p>
-      <p>About Us</p>
+      <a href="">Sports</a>
+      <a href="">Sports</a>
+      <a href="">Sports</a>
+      <a href="">Sports</a>
+      <a href="">Sports</a>
     </div>
   </div>
   <div class="burger__toggler"><span></span></div>
@@ -39,6 +41,11 @@
 
     ga('create', 'UA-46156385-1', 'cssscript.com');
     ga('send', 'pageview');
+
+    document.addEventListener("scroll", () =>{
+      toggler.classList.remove('active');
+      menu.classList.remove('active');
+    })
 
   </script>
 </body>

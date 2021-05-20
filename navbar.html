@@ -1,60 +1,49 @@
 <!DOCTYPE html>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="css/navbar.css">
 
-<a class="logo" href="/"><img src="assets/logo.png" alt="logo"></a>
 
-<div>
-    <ul class="nav__links">
-        <li><a href="index.php" style="font-weight: 600;">home</a></li>
-        <li><a href="blog.php">Blog</a></li>
-        <li><a href="contact.php">Contact</a></li>
-        <a class="cta " onclick="myFunction()" ><p onclick="myFunction()" class="fa fa-user " style="font-size:30px;color: aliceblue;"></p></a>
-    </ul>
-</div>
+
+<a class="logo" href="index.php"><img src="assets/logo.png" alt="logo"></a>
+<ul class="nav__links">
+  <li><a href="index.php">home</a></li>
+  <li><a href="blog.php">Blog</a></li>
+  <li><a href="contact.php">Contact</a></li>
+</ul>
+<button id="desktop-cta" class="usr-avatar"><img src="assets/SVG/default-user.svg" alt=""></button>
 
 <div class="dropdown">
-    <div id="myDropdown" class="dropdown-content">
-        <a href="#">New Post :3</a>
-        <a href="#">Edit UwU</a>
-        <a href="#">Log Out</a>
-    </div>
+  <div class="dropdown__content">
+    <a href="index.php">new Post  <i class="fas fa-plus"></i></a>
+    <a href="blog.php">View Profile  <i class="fas fa-address-card"></i></a>
+    <a href="contact.php">logg out  <i class="fas fa-sign-out-alt"></i></a>
+    <a class="dropdown__close"><i class="fas fa-window-close"></i></a>
+  </div>
 </div>
-<p class="menu"><i class="fa fa-bars" style="font-size:30px;"></i></p>
+
+
+
+
+
+
+
+<div class="menu"><button class="usr-avatar"><img src="assets/SVG/default-user.svg" alt=""></button></div>
+
 
 <div class="overlay">
-    <a class="close">&times;</a>
-    <div class="overlay__content">
-        <a href="index.php">home</a>
-        <a href="blog.php">Blog</a>
-        <a href="contact.php">Contact</a>
-    </div>
+  <a class="close">&times;</a>
+  <div class="overlay__content">
+    <a href="index.php">home</a>
+    <a href="blog.php">Blog</a>
+    <a href="contact.php">Contact</a>
+    <a href="index.php">new Post  <i class="fas fa-plus"></i></a>
+    <a href="blog.php">View Profile  <i class="fas fa-address-card"></i></a>
+    <a href="contact.php">logg out  <i class="fas fa-sign-out-alt"></i></a>
+  </div>
 
 </div>
 
 
-<link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/navbar.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="css/profiledropdown.css">
-
-<script>
-    /* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.cta')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-</script>
+<script src="js/navbar.js"></script>

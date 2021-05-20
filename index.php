@@ -7,19 +7,15 @@
 	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-		integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
 
 
 
 	<link rel="stylesheet" href="css/card.css">
-	<link rel="stylesheet" href="css/navbar.css">
-	<link rel="stylesheet" href="css/global.css">
 	<link rel="stylesheet" href="css/index.css">
-	<link rel="stylesheet" href="css/carousel.css">
-	<link rel="stylesheet" href="css/scroll.css">
+	<link rel="stylesheet" href="css/global.css">
 	<link rel="stylesheet" href="css/cardCarousel.css">
+	<link rel="stylesheet" href="css/carousel.css">
 
 
 
@@ -72,7 +68,7 @@ getpost();
 
 	<div class="authors-carousel">
 		<div class="bluebox">
-			<div class="svg"><img src="assets/SVG/Asset 3.svg" alt="dots"></div>
+			<div class="svg"><img src="assets/SVG/dots.svg" alt="dots"></div>
 			<div class="txt2">AUTHORS</div>
 		</div>
 		<div class="carousel__container">
@@ -183,7 +179,6 @@ getpost();
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
 		integrity="sha512-NiWqa2rceHnN3Z5j6mSAvbwwg3tiwVNxiAQaaSMSXnRRDh5C2mk/+sKQRw8qjV1vN4nf8iK2a0b048PnHbyx+Q=="
 		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script type="text/javascript" src="js/mobile.js"></script>
 	<script type="text/javascript" src="js/authorsScroll.js"></script>
 	<script type="text/javascript" src="js/cardCarousel.js"></script>
 

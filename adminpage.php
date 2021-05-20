@@ -54,8 +54,6 @@
                             <td>Gio</td>
                             <td><a href="" class="edit">edit</a></td>
                             <td><a href="" class="delete">delete</a></td>
-                            
-                            
                         </tr>
                     </tbody>
                 </table>
