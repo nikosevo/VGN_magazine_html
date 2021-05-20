@@ -1,5 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php 
+    $link = mysqli_connect("localhost","root","","database");
+    if ($link===false){
+        die("ERROR: Den egine sindesi sthn vasi");
+    }
+    session_start();
+
+?>
+ <?php 
+        $sql1 = "SELECT avatar FROM users WHERE roleID=2;";
+        $result1 = mysqli_query($link,$sql1);
+        
+    ?>
+
 
 <head>
 	<meta charset="UTF-8">
@@ -20,6 +34,13 @@
 
 
 </head>
+<?php 
+
+include "functions.php";
+getpost();
+
+
+?>
 
 <body>
 	<!--Navbar-->
@@ -32,8 +53,8 @@
 
 	<div class="container">
 		<div class="container__item">
-			<h2>Science to Fasion</h2>
-			<h1>More that just your usual<br> Magazine</h1>
+			<h2>Science to Fashion</h2>
+			<h1>More than just your usual<br> Magazine</h1>
 			<div id="links">
 				<a href="#" id="container__item__cta">Sign up now</a>
 				<a href="#">Read a post</a>
@@ -42,14 +63,14 @@
 		<div>
 			<div class="card">
 				<div class="image">
-					<img src="assets/photo1.jpg" />
+					<img src=<?php echo $_SESSION['image']; ?> />
 				</div>
 				<div class="content">
-					<div class="title">Title</div>
+					<div class="title"><?php echo $_SESSION['title']?></div>
 					<div class="subtitle">Some stuff</div>
 					<div class="bottom">
-						<p>Here we just add a description</p>
-						<a>Read More</a>
+						<p><?php echo $_SESSION['description']; ?></p>
+						<button onclick="idgiver(this.id)" id=<?php echo 2; ?> href="Post.php" class="readmore">Read More</button>
 					</div>
 				</div>
 			</div>
@@ -68,40 +89,15 @@
 		<div class="carousel__container">
 			<div class="revolver" id="scroll_container" onmouseover="mouseStatus(true);"
 				onmouseout="mouseStatus(false);">
-
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
+	<?php while ($row = mysqli_fetch_array($result1)) {
+    
+        $_SESSION['image'] = $row['avatar'];
+    ?>
+            <!--first post-->
+            <div class="revolver__item">
+					<img src=<?php echo $_SESSION['image']; ?> class="revolver__image">
 				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
+    <?php } ?> 
 
 			</div>
 		</div>
@@ -158,6 +154,15 @@
 
 
 	<!--Scripts-->
+
+	<script>
+       function idgiver(id) {
+           
+        window.location.href="Post.php?uid=" + id;
+        }
+           
+    </script>
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
 		integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
 		crossorigin="anonymous" referrerpolicy="no-referrer"></script>

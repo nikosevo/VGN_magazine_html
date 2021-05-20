@@ -68,7 +68,7 @@
                     <div class="subtitle"><?php echo $usrRow['username'] , "  " ,date('d-m-Y',strtotime($usrRow['date'])); ?></div>
                     <div class="bottom">
                         <p><?php echo $usrRow['description']; ?></p>
-                        <a href="Post.php">Read More</a>
+                        <button onclick="idgiver(this.id)" id=<?php echo $_SESSION['postID']; ?> href="Post.php" class="readmore">Read More</button>
                         <!-- <button href="Post.php">Read More</button> -->
                     </div>
                 </div>
@@ -84,8 +84,18 @@
 
 
     <!--Scripts-->
+    <script>
+       function idgiver(id) {
+           
+        window.location.href="Post.php?uid=" + id;
+        }
+           
+    </script>
     <!-- <script type="text/javascript" src="js/mobile.js"></script> -->
 
 </body>
+
+
+
 
 </html>

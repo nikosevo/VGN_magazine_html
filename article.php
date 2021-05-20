@@ -5,8 +5,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	</head>
 
+
+
     <?php
-		session_start();
 		include "connect.php";
 		include "functions.php";
 		include "common.php";
@@ -14,7 +15,7 @@
         $sql = "SELECT  *
         FROM posts, users
         WHERE postID=$postID
-        AND posts.userID = users.userID;";
+        AND posts.userID = users.userID";
         $result = mysqli_query($link, $sql) or die(mysqli_error($link));
         $row = mysqli_fetch_assoc($result);
         $title = $row['title'];
