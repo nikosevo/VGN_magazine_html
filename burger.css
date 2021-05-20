@@ -1,7 +1,7 @@
 .burger__toggler {
     position:absolute;
-    top: 15vh;
-    left: 15vw;
+    top: 5vh;
+    left: 5vw;
     z-index: 999;
     height: 28px;
     width: 28px;
@@ -45,13 +45,14 @@
   
   .burger {
     position: absolute;
+    bottom: -10%;
     left: -30%;
     z-index: 998;
     color: #005c9c;
     background: rgba(235, 245, 245, 0.74);
     -webkit-clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
             clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
-    width: 30%;
+    width: 25%;
     height: 100%;
     padding: 100px;
     display: flex;
@@ -71,9 +72,11 @@
   }
   .burger p {
     font-size: 1.4rem;
-    margin-bottom: 15vh;
+    margin-bottom: 5vh;
   }
-  
+  .cont{
+    top: 50%;
+  }
   /*
    * BASIC STYLES
    */

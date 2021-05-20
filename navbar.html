@@ -3,25 +3,21 @@
 <a class="logo" href="/"><img src="assets/logo.png" alt="logo"></a>
 
 <div>
-
-    <ul class="nav__links navmenu">
+    <ul class="nav__links">
         <li><a href="index.php" style="font-weight: 600;">home</a></li>
-        <li><a href="blog.php" >Blog</a></li>
+        <li><a href="blog.php">Blog</a></li>
         <li><a href="contact.php">Contact</a></li>
-
-        <a class="cta" href="login.php"><i class="fa fa-user" style="font-size:30px;"></i></a>
-        <li class="outer">
-            <ul class="submenu">
-                <li id="inner"><a id="option" href="">Make a post</a></li>
-                <li id="inner"><a id="option" href="viewProfile.php">view profile</a></li>
-                <li id="inner"><a id="option" href="">Log out</a></li>
-            </ul>
-        </li>
-
+        <a class="cta " onclick="myFunction()" ><p onclick="myFunction()" class="fa fa-user " style="font-size:30px;color: aliceblue;"></p></a>
     </ul>
-
 </div>
 
+<div class="dropdown">
+    <div id="myDropdown" class="dropdown-content">
+        <a href="#">New Post :3</a>
+        <a href="#">Edit UwU</a>
+        <a href="#">Log Out</a>
+    </div>
+</div>
 <p class="menu"><i class="fa fa-bars" style="font-size:30px;"></i></p>
 
 <div class="overlay">
@@ -40,3 +36,25 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <link rel="stylesheet" href="css/profiledropdown.css">
+
+<script>
+    /* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.cta')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
