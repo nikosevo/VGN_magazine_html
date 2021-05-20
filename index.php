@@ -14,9 +14,8 @@
 
 
 	<link rel="stylesheet" href="css/card.css">
-	<link rel="stylesheet" href="css/navbar.css">
-	<link rel="stylesheet" href="css/global.css">
 	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/global.css">
 	<link rel="stylesheet" href="css/carousel.css">
 	<link rel="stylesheet" href="css/scroll.css">
 	<link rel="stylesheet" href="css/cardCarousel.css">

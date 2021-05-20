@@ -1,13 +1,17 @@
 <!DOCTYPE html>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+<link rel="stylesheet" href="css/profiledropdown.css">
+<link rel="stylesheet" href="css/navbar.css">
 <a class="logo" href="/"><img src="assets/logo.png" alt="logo"></a>
 
 <div>
     <ul class="nav__links">
-        <li><a href="index.php" style="font-weight: 600;">home</a></li>
+        <li><a href="index.php">home</a></li>
         <li><a href="blog.php">Blog</a></li>
         <li><a href="contact.php">Contact</a></li>
-        <a class="cta " onclick="myFunction()" ><p onclick="myFunction()" class="fa fa-user " style="font-size:30px;color: aliceblue;"></p></a>
+        <a class="cta " onclick="myFunction()"><i class="fa fa-user"></i></a>
     </ul>
 </div>
 
@@ -31,12 +35,8 @@
 </div>
 
 
-<link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/navbar.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="css/profiledropdown.css">
-
+<script src="js/mobile.js"></script>
 <script>
     /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
@@ -46,7 +46,7 @@ function myFunction() {
 
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function(event) {
-  if (!event.target.matches('.cta')) {
+  if (event.target.matches('.cta') && !event.target.matches('.cta') ) {
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
