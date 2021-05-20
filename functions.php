@@ -22,7 +22,6 @@ function send_message($string, $type) {
 
 
 function getpost(){
-    session_start();
     include "connect.php";
     $postID=2;
     $sql = "SELECT  *

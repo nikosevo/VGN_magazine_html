@@ -1,5 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php 
+    $link = mysqli_connect("localhost","root","","database");
+    if ($link===false){
+        die("ERROR: Den egine sindesi sthn vasi");
+    }
+    session_start();
+
+?>
+ <?php 
+        $sql1 = "SELECT avatar FROM users WHERE roleID=2;";
+        $result1 = mysqli_query($link,$sql1);
+        
+    ?>
+
 
 <head>
 	<meta charset="UTF-8">
@@ -21,6 +35,7 @@
 
 </head>
 <?php 
+
 include "functions.php";
 getpost();
 
@@ -74,40 +89,15 @@ getpost();
 		<div class="carousel__container">
 			<div class="revolver" id="scroll_container" onmouseover="mouseStatus(true);"
 				onmouseout="mouseStatus(false);">
-
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
+	<?php while ($row = mysqli_fetch_array($result1)) {
+    
+        $_SESSION['image'] = $row['avatar'];
+    ?>
+            <!--first post-->
+            <div class="revolver__item">
+					<img src=<?php echo $_SESSION['image']; ?> class="revolver__image">
 				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
-				<div class="revolver__item">
-					<img src="assets/random.jpg" class="revolver__image">
-				</div>
+    <?php } ?> 
 
 			</div>
 		</div>

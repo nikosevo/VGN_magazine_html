@@ -42,7 +42,7 @@ include "article.php";
                 <div class="entry-author">
                     <a href="#author">
                         <div>
-                            <img class="author-avatar" src="assets/profiles/default.jpg" alt="DesignRevision Editorial">
+                            <img class="author-avatar" src=<?php echo $_SESSION['avatar']; ?> alt="DesignRevision Editorial">
                         </div>
                         <div class="author-details vcard author author_name">
                             <p class="fn">By <span><?php echo $_SESSION['fullname']; ?></span></p>
