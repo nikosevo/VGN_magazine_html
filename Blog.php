@@ -27,10 +27,15 @@
     <header>
     <?php 
         include("navbar.html"); 
-        include("burger.html");
-        ?>
-        
+    ?>
     </header>
+    <div>
+    <?php 
+        include("burger.html");
+    ?>
+        
+
+    </div>
     
 
     <!--make it so it loads everything from the server-->

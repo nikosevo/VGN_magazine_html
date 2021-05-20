@@ -5,12 +5,13 @@
 }
 
 header {
-    border: 1px solid red;
+    margin: 0 auto;
+    width: 90%;
     display: grid;
-    grid-template-columns: .9fr .1fr .1fr ;
-    justify-content: space-around;
+    grid-template-columns: .9fr .1fr .01fr;
+    justify-content: space-between;
     align-items: center;
-    padding: 30px 10%;
+    padding: 30px;
     
 }
 
@@ -44,25 +45,72 @@ header {
     color: #00AEFB;
 }
 
-.cta {
+.usr-avatar {
+    overflow: hidden;
     width:50px;
     height:50px;
-    text-align:center;
-    padding-top: 9px;
     background-color: #00AEFB;
+    color: white;
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease 0s;
-    right:4.5%;
+    transition: all 0.5s ease 0s;
+
 }
 
-.cta:hover {
-    background-color: #00AEFB;
+
+
+.usr-avatar img {
+    pointer-events: none;
+    width: 60%;
 }
-.cta > li{
-color:#edf0f1
+
+.button-rotate{
+    transform: rotate(720deg);
 }
+
+/* DropDown*/
+.dropdown{
+    opacity: .8;
+    overflow:hidden;
+    height: 0;
+    width: 15%;
+    position: fixed;
+    z-index: 5;
+    right: 0;
+    top: 0;
+    background-color: #1B2329;
+    overflow-x: hidden;
+    transition: height 0.5s ease 0s;
+}
+
+.dropdown--active{
+    height: 50%;
+}
+
+.dropdown__close:hover{
+    cursor: pointer;
+}
+
+.dropdown__content{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown a {
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    display: block;
+    transition: color 0.3s ease 0s;
+}
+.dropdown a:hover, .dropdown a:focus {
+    color: #00AEFB ;
+}
+
 /* Mobile Nav */
 
 .menu {
@@ -78,10 +126,10 @@ color:#edf0f1
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 5;
     left: 0;
     top: 0;
-    background-color: #24252a;
+    background-color: #1B2329;
     overflow-x: hidden;
     transition: width 0.5s ease 0s;
 }
@@ -134,6 +182,9 @@ color:#edf0f1
 }
 
 @media only screen and (max-width: 800px) {
+    #desktop-cta{
+        display: none;
+    }
     .nav__links {
         display: none;
       
