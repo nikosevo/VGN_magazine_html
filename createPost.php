@@ -19,7 +19,9 @@
     ?>
 </header>
 
-<body><div class="admin-wrapper">
+<body>
+    
+<div class="admin-wrapper">
         <!-- Left Sidebar -->
         <div class="left-sidebar">
             <ul>
