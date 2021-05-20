@@ -46,13 +46,13 @@
     <?php 
     while ($row = mysqli_fetch_array($result1)) {
         $postid = $row['postID'];
-        $_SESSION['postID'] = $row['postID'];
         $sql2 = "SELECT  *
         FROM posts, users
         WHERE postID=$postid
         AND posts.userID = users.userID;";
         $result2 = mysqli_query($link,$sql2);
         $usrRow = mysqli_fetch_array($result2);
+        $_SESSION['postID'] = $usrRow['postID'];
     ?>
             <!--first post-->
             <div class="card">
