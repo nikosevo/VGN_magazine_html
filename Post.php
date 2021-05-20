@@ -2,10 +2,14 @@
 <html lang="en">
 
 <head>
+
     <title>Post</title>
     <link rel="stylesheet" href="css/Post.css">
 </head>
 <header class="zoom">
+    <?php 
+        include("navbar.html"); 
+    ?>
     <img src="assets/photo1.jpg">
 </header>
 
