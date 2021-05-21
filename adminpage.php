@@ -74,7 +74,7 @@
                             <td><?php echo $usrRow['postID']; ?></td>
                             <td><?php echo $usrRow['title']; ?></td>
                             <td><?php echo $usrRow['fullname']; ?></td>
-                            <td><a onclick="idgiver(this.id)" id=<?php echo $_SESSION['postID']; ?> href="editPost.php" class="edit">edit</a></td>
+                            <td><button onclick="idgiver(this.id)" id=<?php echo $_SESSION['postID']; ?> href="editPost.php" class="edit">edit</button></td>
                             <td><a href="" class="delete">delete</a></td>
                         </tr>
                     <?php }?>
@@ -89,7 +89,7 @@
     <script>
        function idgiver(id) {
            
-        window.location.href="editPost.php?uid=" + id;
+        window.location.href="editPost.php?pid=" + id;
         }
            
     </script>
