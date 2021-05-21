@@ -9,6 +9,11 @@
 
 ?>
  <?php 
+ 		error_reporting(0);  //to hide initial error messages delete this if we need to see errors
+		$userID=$_SESSION['userID'];
+		$roleID=$_SESSION['roleID'];
+
+
         $sql1 = "SELECT avatar FROM users WHERE roleID=2;";
         $result1 = mysqli_query($link,$sql1);
 		$sql2 = "SELECT * FROM groups ;";
@@ -48,7 +53,7 @@ getpost();
 	<!--Navbar-->
 	<header>
 		<?php 
-        include("navbar.html"); 
+        include("navbar.php"); 
         ?>
 	</header>
 	
@@ -58,7 +63,7 @@ getpost();
 			<h2>Science to Fashion</h2>
 			<h1>More than just your usual<br> Magazine</h1>
 			<div id="links">
-				<a href="#" id="container__item__cta">Sign up now</a>
+				<a href="register.php" id="container__item__cta">Sign up now</a>
 				<a href="#">Read a post</a>
 			</div>
 		</div>
@@ -72,7 +77,7 @@ getpost();
 					<div class="subtitle">Some stuff</div>
 					<div class="bottom">
 						<p><?php echo $_SESSION['description']; ?></p>
-						<button onclick="idgiver(this.id)" id=<?php echo 2; ?> href="Post.php" class="readmore">Read More</button>
+						<button onclick="idgiver2(this.id)" id=<?php echo 2; ?> href="Post.php" class="readmore">Read More</button>
 					</div>
 				</div>
 			</div>
@@ -152,6 +157,13 @@ getpost();
         }
            
     </script>
+		<script>
+       function idgiver2(id) {
+           
+        window.location.href="Post.php?uid=" + id;
+        }
+           
+    </script>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
 		integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
@@ -162,7 +174,9 @@ getpost();
 	<script type="text/javascript" src="js/authorsScroll.js"></script>
 	<script type="text/javascript" src="js/cardCarousel.js"></script>
 
-
-
+<!-- to make sure that the user data is kept the same at the end of the page -->
+<?php
+$_SESSION['userID']=$userID;
+$_SESSION['roleID']=$roleID;?>
 </body>
 </html>

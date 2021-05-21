@@ -11,13 +11,14 @@
   <li><a href="blog.php">Blog</a></li>
   <li><a href="contact.php">Contact</a></li>
 </ul>
+
 <button id="desktop-cta" class="usr-avatar"><img src="assets/SVG/default-user.svg" alt=""></button>
 
 <div class="dropdown">
   <div class="dropdown__content">
     <a href="createPost.php">new Post  <i class="fas fa-plus"></i></a>
-    <a href="viewProfile.php">View Profile  <i class="fas fa-address-card"></i></a>
-    <a href="#">logg out  <i class="fas fa-sign-out-alt"></i></a>
+    <a href="editProfile.php">View Profile  <i class="fas fa-address-card"></i></a>
+    <a href="#"><?php echo $_SESSION['userID'] ?>  <i class="fas fa-sign-out-alt"></i></a>
     <a class="dropdown__close"><i class="fas fa-window-close"></i></a>
   </div>
 </div>
@@ -38,12 +39,21 @@
     <a href="blog.php">Blog</a>
     <a href="contact.php">Contact</a>
     <a href="createPost.php">new Post  <i class="fas fa-plus"></i></a>
-    <a href="viewProfile.php">View Profile  <i class="fas fa-address-card"></i></a>
+    <a href="editProfile.php">View Profile  <i class="fas fa-address-card"></i></a>
     <a href="#">logg out  <i class="fas fa-sign-out-alt"></i></a>
   </div>
 
 </div>
 
+<!-- CHECK THE USER ID IN ORDER TO SHOW THE RIGHT DROPDOWN CONTENT OR REDIRECT TO SIGN IN -->
 
-
-<script src="js/navbar.js"></script>
+<?php 
+if(!isset($_SESSION['userID']))
+{
+  $loggedIn = "false";
+}
+elseif(isset($_SESSION['userID'])){
+  $loggedIn = "true";
+}
+?>
+        <script id="searcher" loggedIn=<?php echo $loggedIn?> src="js/navbar.js" ></script>
