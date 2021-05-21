@@ -18,7 +18,7 @@
   <div class="dropdown__content">
     <a href="createPost.php">new Post  <i class="fas fa-plus"></i></a>
     <a href="editProfile.php">View Profile  <i class="fas fa-address-card"></i></a>
-    <a href="#"><?php echo $_SESSION['userID'] ?>  <i class="fas fa-sign-out-alt"></i></a>
+    <a href="#">Log out <i class="fas fa-sign-out-alt"></i></a>
     <a class="dropdown__close"><i class="fas fa-window-close"></i></a>
   </div>
 </div>

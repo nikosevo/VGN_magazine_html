@@ -24,7 +24,7 @@ include "connect.php";
 
 <header>
     <?php 
-    include("navbar.html"); 
+    include("navbar.php"); 
     ?>
 </header>
 
