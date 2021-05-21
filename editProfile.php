@@ -23,7 +23,7 @@ include("functions.php");
     <!--Navbar-->
     <header>
         <?php 
-        include("navbar.html"); 
+        include("navbar.php"); 
         ?>
     </header>
     

@@ -8,7 +8,9 @@ const avatarButton = doc.querySelector("#desktop-cta");
 const dropdownClose = doc.querySelector(".dropdown__close");
 const dropdown = doc.querySelector(".dropdown");
 
-loggedIn = true;
+var script_tag = document.getElementById('searcher');
+var loggedIn = script_tag.getAttribute("loggedIn");
+
 
 menuOpen.addEventListener("click", () => {
   overlay.classList.add("overlay--active");
@@ -17,8 +19,7 @@ menuOpen.addEventListener("click", () => {
 menuClose.addEventListener("click", () => {
   overlay.classList.remove("overlay--active");
 });
-
-if(loggedIn){
+if(loggedIn=="true"){
   avatarButton.addEventListener("click", () =>{
     dropdown.classList.add("dropdown--active");
     avatarButton.classList.add("button-rotate");
@@ -28,7 +29,8 @@ if(loggedIn){
     avatarButton.classList.remove("button-rotate");
 
   });
-}else{
+}
+if(loggedIn=="false"){
   avatarButton.addEventListener("click", () => {
     window.location.href = "Login.php";
   })

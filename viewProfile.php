@@ -16,7 +16,7 @@
     <!--here we include the nav bar with php lata-->
     <header>
 		<?php 
-        include("navbar.html"); 
+        include("navbar.php"); 
         include "common.php";
         require_once "connect.php";
         session_start();

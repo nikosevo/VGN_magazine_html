@@ -19,7 +19,7 @@ if(isset($_POST['submit']) && $_POST['submit']== "Insert"){
     $password = $_POST['password'];
     $password2 = $_POST['password2'];
     $email = $_POST['email'];
-
+    $avatar = "assets/images/default.jpg";
     $error = 0;
 
     if($fullname == ""){
@@ -40,6 +40,13 @@ if(isset($_POST['submit']) && $_POST['submit']== "Insert"){
             echo "<font color=\"#FF0000\">Username already exist. Please try something else<br></font>";
             $error = 1;
         }
+        $sql = "SELECT * FROM users WHERE email='$email'";
+		$result = mysqli_query($link, $sql) or die(mysqli_error($link));
+		$count = mysqli_num_rows($result);
+        if($count > 0 ){
+            echo "<font color=\"#FF0000\">Email already exist. Please try something else<br></font>";
+            $error = 1;
+        }
     }
     if($password == ""){
         echo "<font color=\"#FF0000\">Πρεπει να συμπληρώσετε τον κωδικό!<br></font>";
@@ -57,7 +64,7 @@ if(isset($_POST['submit']) && $_POST['submit']== "Insert"){
         echo "<font color=\"#FF0000\">Η εγγραφή ακυρώθηκε λόγω λαθών στα στοιχεία εισόδου!<br></font>" ;
     }else{
         mysqli_autocommit($link, false);
-        $sql = "insert into users(userID,avatar,fullname,username,email,passwd,bio,roleID) values('','','$fullname','$username','$email','$password','','1')";
+        $sql = "insert into users(userID,avatar,fullname,username,email,passwd,bio,roleID) values('','$avatar','$fullname','$username','$email','$password','','1')";
         $result = mysqli_query($link,$sql) ;
         if($result){
             mysqli_commit($link);
