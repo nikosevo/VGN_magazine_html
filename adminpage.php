@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+
+<?php
+    session_start();
+    include "connect.php";
+?>
 <html lang="en">
 
 <head>
@@ -33,9 +38,15 @@
         <!-- Left Sidebar -->
 
         <!-- Admin Content -->
+        <?php 
+        $sql1 = "SELECT * FROM posts";
+        $result1 = mysqli_query($link,$sql1);
+        ?>
+
+    
         <div class="admin-content">
             <div class="button-group">
-                <a href="createPost.php"class="btn-big">Create Post</a>
+                <a href="createPostAdmin.php"class="btn-big">Create Post</a>
                 <a href="adminpage.php" class="btn-big">Manage Posts</a>
             </div>
             <div class="admContent">
@@ -48,13 +59,26 @@
                         <th colspan="2">Action</th>
                     </thead>  
                     <tbody>
+                    <?php 
+                    while ($row = mysqli_fetch_array($result1)) {
+                    $postid = $row['postID'];
+                    $sql2 = "SELECT  *
+                    FROM posts, users
+                    WHERE postID=$postid
+                    AND posts.userID = users.userID;";
+                    $result2 = mysqli_query($link,$sql2);
+                    $usrRow = mysqli_fetch_array($result2);
+                    $_SESSION['postID'] = $usrRow['postID'];
+                    ?>
                         <tr>
-                            <td>1</td>
-                            <td>This is the first post</td>
-                            <td>Gio</td>
-                            <td><a href="" class="edit">edit</a></td>
+                            <td><?php echo $usrRow['postID']; ?></td>
+                            <td><?php echo $usrRow['title']; ?></td>
+                            <td><?php echo $usrRow['fullname']; ?></td>
+                            <td><a onclick="idgiver(this.id)" id=<?php echo $_SESSION['postID']; ?> href="editPost.php" class="edit">edit</a></td>
                             <td><a href="" class="delete">delete</a></td>
                         </tr>
+                    <?php }?>
+                        
                     </tbody>
                 </table>
                 
@@ -62,6 +86,12 @@
         </div>
         <!-- Admin Content -->
     </div>
-
+    <script>
+       function idgiver(id) {
+           
+        window.location.href="editPost.php?uid=" + id;
+        }
+           
+    </script>
 </body>
 </html>
