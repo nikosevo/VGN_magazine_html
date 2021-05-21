@@ -2,7 +2,11 @@
 
 <?php
 session_start();
-$_SESSION['postID'] = $_GET["pid"];   //the most important line ever dont move or change it thanks to this everythin works -valantis- :3
+if(isset($_GET["pid"])){
+    $_SESSION['postID'] = $_GET["pid"];   //the most important line ever dont move or change it thanks to this everythin works -valantis- :3
+}
+
+
 include "connect.php";
 ?>
 <html lang="en">
@@ -24,10 +28,56 @@ include "connect.php";
 
 <header>
     <?php 
-    include("navbar.html"); 
+    include("navbar.php"); 
+    include("functions.php"); 
     ?>
 </header>
+        <?php
+        if(isset($_POST['submit'])){
+            $file = $_FILES['file'];
+            $fileName = $_FILES['file']['name']; 
+            $fileTmpName = $_FILES['file']['tmp_name']; 
+            $fileSize = $_FILES['file']['size']; 
+            $fileError = $_FILES['file']['error']; 
+            $fileType = $_FILES['file']['type']; 
+            $fileDestination="";
 
+            $fileExt = explode('.', $fileName);
+            $fileActualExt = strtolower(end($fileExt));
+
+            $allowed = array('jpg','jpeg','png');
+
+            if(in_array($fileActualExt,$allowed)){
+                if($fileError === 0){
+                    if($fileSize < 500000){
+                        echo $fileActualExt;
+                        $fileNameNew = uniqid('',true).".".$fileActualExt;
+                        echo $fileNameNew;
+                        $fileDestination='assets/'.$fileNameNew;
+                        echo $fileDestination;
+                        move_uploaded_file($fileTmpName,$fileDestination);
+                    }else{
+                        echo "Very large file";
+                    }
+                    
+                }else{
+                    echo "There was an error uploading your file";
+                }
+            }else{
+                echo "You cannot upload files of this type";
+            }
+
+
+        
+            $newtitle = $_POST['title'];
+            $newdescription = $_POST['description'];
+            $newcontent = $_POST['content'];
+            
+            $sql = "UPDATE posts SET title = '$newtitle' , description = '$newdescription' ,  content = '$newcontent' , image = '$fileDestination' WHERE postID = 1;";
+            $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+           
+        }
+        ?> 
 <body>
 
     <?php 
@@ -59,7 +109,8 @@ include "connect.php";
             
             <div class="admContent">
                 <h2 class="page-title">Edit Post</h2>
-                <form action="newPost.php">
+                
+    <form class="wrapper" method="post" enctype="multipart/form-data" action="editPost.php">
         <div class="container">
             <div class="textFields">
 
@@ -72,12 +123,12 @@ include "connect.php";
                 
                 <div>
                     <label>Description</label>
-                    <span class="textarea" role="textbox" contenteditable><?php echo $description ; ?></span>
                     
+                    <textarea name="description"  ><?php echo $description ; ?></textarea>
                 </div>
                 <div>
                     <label>Body</label>
-                    <textarea name="body" id="body" ><?php echo $content ; ?></textarea>
+                    <textarea name="content" id="body" ><?php echo $content ; ?></textarea>
                 </div>
 
             </div>
@@ -92,17 +143,20 @@ include "connect.php";
                     <option value="Nature">Nature</option>
                     </select>
                 </div>
-
-                <input type="file" id="file" accept="image/*" name="image">
+                
+                <input type="file" id="file" accept="image/*" name="file">
                 <label for="file"><i class="fas fa-upload"></i></label>
                 
                 <div class="btnWrap">
-                    <button class="glow-on-hover" type="button" onclick="document.getElementById('form').submit();">save</button>
+                    
+                    <button class="glow-on-hover" type="submit" name="submit" value="Insert">save</button>
+                    
                 </div>
                 
             </div>
         </div>
     </form>
+    
                 
             </div>
         </div>
@@ -112,6 +166,7 @@ include "connect.php";
 
     <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
     <script src="js/scripts.js"></script>
+    
     
 
     
