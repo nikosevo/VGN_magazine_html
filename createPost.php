@@ -112,16 +112,18 @@
             <div class="options">
                 <input type="file" id="file" accept="image/*" name="image">
                 <label for="file"><i class="fas fa-upload"></i></label>
-                <select id="selectbox" data-selected="">
-                    <option value="" selected="selected" disabled="disabled">Select a category</option>
-                    <option value="1">sports</option>
-                    <option value="2">fassion</option>
-                    <option value="3">cars</option>
-                    <option value="4">Cityscape</option>
-                    <option value="5">Workshop</option>
-                </select>
+                <div class="custom-select" style="width:200px;">
+                    <select>
+                        <option value="0">Select car:</option>
+                        <option value="1">Audi</option>
+                        <option value="2">BMW</option>
+                        <option value="3">Citroen</option>
+                        <option value="4">Ford</option>
+                        <option value="5">Honda</option>
+                    </select>
+                </div>
                 <div class="btnWrap">
-                    <button class="glow-on-hover" type="button" onclick="document.getElementById('form').submit();" style="width:14vw;margin-left:-5vw;">save changes</button>
+                    <button class="glow-on-hover" type="button" onclick="document.getElementById('form').submit();">save</button>
                 </div>
                 
             </div>
