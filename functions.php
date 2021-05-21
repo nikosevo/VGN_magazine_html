@@ -11,9 +11,7 @@ function print_message() {
     }
 }
 
-// function print_message() {
-//     echo "<script>alert(".$_SESSION['message'].")</script>";
-// }
+
 
 function send_message($string, $type) {
     $_SESSION['message'] = $string;
@@ -52,8 +50,7 @@ function getpost(){
     $_SESSION['fullname'] = $fullname;
     $_SESSION['avatar'] = $avatar;
 
-
-
 }
+
 
 ?>

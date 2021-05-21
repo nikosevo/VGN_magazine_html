@@ -28,10 +28,11 @@ include("functions.php");
     </header>
     
 
-
-        <form action="upload.php" method="POST" enctype="multipart/form-data">
+<!-- na painei ta panta  -->
+        <form action="editprofilescripts.php" method="POST" enctype="multipart/form-data">
             <div class="container">
                 <div class="gridContent">
+                    
                    <input type="file" name="file" class="uploadPhoto"> <img src="assets/profiles/default.jpg" alt="avatar" class="avatar">
                     <button type="submit" name="submit" class="glow-on-hover" id="uploadBtn">save Changes</button>
                 </div>
