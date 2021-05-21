@@ -11,6 +11,8 @@
  <?php 
         $sql1 = "SELECT avatar FROM users WHERE roleID=2;";
         $result1 = mysqli_query($link,$sql1);
+		$sql2 = "SELECT * FROM groups ;";
+		$result2 = mysqli_query($link,$sql2);
         
     ?>
 
@@ -106,43 +108,31 @@ getpost();
 	</div>
 
 	<!-- the sider-->
+	
 	<div class="carousel">
-		<a href="#one" class="carousel-item">
-			<div class="categories">
-				<div>
-					<img src="assets/images2.jpg" alt="other image">
-				</div>
-				<p>merikes lepromeris gia thn malakia pou kanoyme</p>
-				<h3>Titlos</h3>
-			</div>
-		</a>
-		<a href="#two" class="carousel-item">
-			<div class="categories">
-				<div>
-					<img src="assets/images2.jpg" alt="other image">
-				</div>
-				<p>merikes lepromeris gia thn malakia pou kanoyme</p>
-				<h3>Titlos</h3>
-			</div>
-		</a>
-		<a href="#three" class="carousel-item">
-			<div class="categories">
-				<div>
-					<img src="assets/images2.jpg" alt="other image">
-				</div>
-				<p>merikes lepromeris gia thn malakia pou kanoyme</p>
-				<h3>Titlos</h3>
-			</div>
-		</a>
-		<a href="#four" class="carousel-item">
-			<div class="categories">
-				<div>
-					<img src="assets/images2.jpg" alt="other image">
-				</div>
-				<p>merikes lepromeris gia thn malakia pou kanoyme</p>
-				<h3>Titlos</h3>
-			</div>
-		</a>
+		<?php while ($row = mysqli_fetch_array($result2)) {
+    
+    $_SESSION['groupID'] = $row['groupID'];
+    $_SESSION['groupName'] = $row['groupName'];
+    $_SESSION['groupDescription'] = $row['groupDescription'];
+	    $_SESSION['groupImage'] = $row['groupImage'];?>
+
+
+	<a   class="carousel-item">
+	<div class="categories">
+    <div>
+        <img src=<?php echo $_SESSION['groupImage']; ?> alt="other image">
+    </div>
+    <p><?php echo $_SESSION['groupDescription']; ?></p>
+    <h3><?php echo $_SESSION['groupName']; ?></h3>
+	<button onclick="idgiver(this.id)" id=<?php echo $_SESSION['groupID'];?> href="Blog.php"> take me to this category</button>
+		</div>
+</a>
+	<?php } 
+	
+	unset($_SESSION['groupID']);
+
+	?> 
 
 	</div>
 
@@ -158,7 +148,7 @@ getpost();
 	<script>
        function idgiver(id) {
            
-        window.location.href="Post.php?uid=" + id;
+        window.location.href="Blog.php?gid=" + id;
         }
            
     </script>
