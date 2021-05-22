@@ -1,6 +1,8 @@
 <?php 
-function Logout() {
-session_start();    
+include "common.php";
+
+function Logout() {  
+  session_start();    
   unset($_SESSION['username']);
   unset($_SESSION['passwd']);
   $_SESSION['roleID'] = 0;

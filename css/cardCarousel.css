@@ -15,7 +15,7 @@
 }
 .carousel .carousel-item {
 
-    width: 200px !important;
+    width: 100px !important;
 }
 
 .categories div {
@@ -38,4 +38,12 @@
 .categories h3{
     color: white;
     text-align: center;
+}
+
+.carousel button{
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    opacity: .5;
 }

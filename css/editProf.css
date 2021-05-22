@@ -1,48 +1,91 @@
-.container{
+.container {
     display: grid;
     grid-template-columns: .5fr .5fr;
     width: 80%;
     margin: 0 auto;
-
 }
 
-.gridContent{
+.gridContent {
     padding-top: 10vh;
     padding-left: 10vw;
 }
 
-
-.container form input:hover{
-    cursor:pointer;
-}
-
-.uploadPhoto{
-    position: absolute;
-    align-self: center;
-    height: 20vw;
-    width:20vw;
-    opacity:0;
- 
-}
-
-.uploadPhoto:hover{
+.container form input:hover {
     cursor: pointer;
-
 }
-.avatar{
+
+.uploadPhoto {
+    border-radius: 50%;
+    position: absolute;
+    /*this take the element and moves it from the left 50%*/
+    /*this just move the elemnt a bit to the rigth based on its width*/
+    height: 20vw;
+    width: 20vw;
+    opacity: 0;
+}
+
+.uploadPhoto:hover {
+    cursor: pointer;
+}
+
+.avatar {
     border: 2px solid #FC0EDC;
-    border-radius:50%;
-    width:20vw;
+    border-radius: 50%;
+    width: 20vw;
+    margin: 0 auto;
 }
 
-#uploadBtn{
-    width:150px;
-    margin-left: 5vw;
+#uploadBtn {
+    width: 150px;
+    margin: 20% 20%;
 }
 
-#wrap{
-    width: 400px;
-    margin-top: 10vh;
+#wrap {
+    width: 30vw;
+    margin: 0 auto;
+    padding-top: 12vh;
+    flex-direction: column;
 }
 
+#wrap .grid {
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (max-width:1500px) {
+    .container {
+        display: block;
+    }
+    .gridContent {
+        padding-top: 10vh;
+        padding-left: 10vw;
+    }
+    .uploadPhoto {
+        position: absolute;
+        left: 50%;
+        /*this just move the elemnt a bit to the rigth based on its width*/
+        transform: translateX(-50%);
+        height: 300px;
+        width: 300px;
+        border-radius: 50%;
+        z-index: 10;
+    }
+    .avatar {
+        position: absolute;
+        /*this take the element and moves it from the left 50%*/
+        left: 50%;
+        /*this just move the elemnt a bit to the rigth based on its width*/
+        transform: translateX(-50%);
+        width: 300px;
+    }
+    #uploadBtn {
+        position: relative;
+        margin: 90px 50px;
+        left: 50%;
+        
+    }
+    #wrap{
+        width: 400px;
+    }
+}
 

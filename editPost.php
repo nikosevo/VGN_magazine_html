@@ -124,7 +124,7 @@ include "connect.php";
                 <div>
                     <label>Description</label>
                     
-                    <textarea name="description"  ><?php echo $description ; ?></textarea>
+                    <textarea name="description" id="styled"  ><?php echo $description ; ?></textarea>
                 </div>
                 <div>
                     <label>Body</label>
@@ -133,7 +133,7 @@ include "connect.php";
 
             </div>
             <div class="options">
-                <div class="custom-select" style="width:200px;">
+                <!-- <div class="custom-select" style="width:200px;">
                     <select>
                     <option value="Sports">Sports</option>
                     <option value="Technology">Technology</option>
@@ -142,7 +142,7 @@ include "connect.php";
                     <option value="Politics">Politics</option>
                     <option value="Nature">Nature</option>
                     </select>
-                </div>
+                </div> -->
                 
                 <input type="file" id="file" accept="image/*" name="file">
                 <label for="file"><i class="fas fa-upload"></i></label>

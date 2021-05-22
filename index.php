@@ -44,6 +44,8 @@
 	<link rel="stylesheet" href="css/global.css">
 	<link rel="stylesheet" href="css/cardCarousel.css">
 	<link rel="stylesheet" href="css/carousel.css">
+	<link rel="stylesheet" href="css/scroll.css">
+	
 
 
 
@@ -74,7 +76,7 @@ getpost();
 				<a href="#">Read a post</a>
 			</div>
 		</div>
-		<div>
+		<div class="container__item-2">
 			<div class="card">
 				<div class="image">
 					<img src=<?php echo $_SESSION['image']; ?> />
@@ -122,6 +124,7 @@ getpost();
 	<!-- the sider-->
 	
 	<div class="carousel">
+		<h1 style="color: white;">categories</h1>
 		<?php while ($row = mysqli_fetch_array($result2)) {
     
     $_SESSION['groupID'] = $row['groupID'];
