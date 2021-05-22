@@ -1,48 +1,101 @@
-.container{
+.container {
     display: grid;
     grid-template-columns: .5fr .5fr;
     width: 80%;
     margin: 0 auto;
-
 }
 
-.gridContent{
+.gridContent {
     padding-top: 10vh;
     padding-left: 10vw;
 }
 
-
-.container form input:hover{
-    cursor:pointer;
-}
-
-.uploadPhoto{
-    position: absolute;
-    align-self: center;
-    height: 20vw;
-    width:20vw;
-    opacity:0;
- 
-}
-
-.uploadPhoto:hover{
+.container form input:hover {
     cursor: pointer;
-
 }
-.avatar{
+
+.uploadPhoto {
+    position: absolute;
+    /*this take the element and moves it from the left 50%*/
+    left: 50%;
+    /*this just move the elemnt a bit to the rigth based on its width*/
+    transform: translateX(-50%);
+    height: 20vw;
+    width: 20vw;
+    opacity: 0;
+}
+
+.uploadPhoto:hover {
+    cursor: pointer;
+}
+
+.avatar {
     border: 2px solid #FC0EDC;
-    border-radius:50%;
-    width:20vw;
+    border-radius: 50%;
+    width: 20vw;
+    margin: 0 auto;
 }
 
-#uploadBtn{
-    width:150px;
-    margin-left: 5vw;
+#uploadBtn {
+    width: 150px;
+    margin: 20% 20%;
 }
 
-#wrap{
-    width: 400px;
-    margin-top: 10vh;
+#wrap {
+    width: 30vw;
+    margin: 0 auto;
+    padding-top: 15vh;
+    flex-direction: column;
 }
 
+#wrap .grid {
+    display: flex;
+    flex-direction: column;
+}
 
+@media only screen and (max-width:2000px) {
+    .container {
+        display: block;
+    }
+    .gridContent {
+        padding-top: 10vh;
+        padding-left: 10vw;
+    }
+    .uploadPhoto {
+        position: relative;
+        left: 50%;
+        /*this just move the elemnt a bit to the rigth based on its width*/
+        transform: translateX(-57%);
+        opacity: .1;
+        height: 300px;
+        width: 300px;
+        border-radius: 50%;
+        z-index: 10;
+    }
+    .avatar {
+        position: absolute;
+        /*this take the element and moves it from the left 50%*/
+        left: 50%;
+        /*this just move the elemnt a bit to the rigth based on its width*/
+        transform: translateX(-50%);
+        width: 300px;
+    }
+    #uploadBtn {
+        position: absolute;
+        /*this take the element and moves it from the left 50%*/
+        left: 50%;
+        /*this just move the elemnt a bit to the rigth based on its width*/
+        transform: translateX(-50%);
+        bottom: 20vh;
+        margin: 0;
+    }
+    #wrap{
+        padding-top: 0;
+    }
+}
+
+@media only screen and (max-width:500px){
+    #wrap{
+       width: 100%;
+    }
+}
