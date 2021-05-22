@@ -9,15 +9,7 @@
 
 ?>
  <?php 
- 		error_reporting(0);  //to hide initial error messages delete this if we need to see errors
-		$userID=$_SESSION['userID'];
-		$roleID=$_SESSION['roleID'];
 
-
-        $sql1 = "SELECT avatar FROM users WHERE roleID=2;";
-        $result1 = mysqli_query($link,$sql1);
-		$sql2 = "SELECT * FROM groups ;";
-		$result2 = mysqli_query($link,$sql2);
         
     ?>
 
@@ -177,9 +169,6 @@ getpost();
 	<script type="text/javascript" src="js/authorsScroll.js"></script>
 	<script type="text/javascript" src="js/cardCarousel.js"></script>
 
-<!-- to make sure that the user data is kept the same at the end of the page -->
-<?php
-$_SESSION['userID']=$userID;
-$_SESSION['roleID']=$roleID;?>
+
 </body>
 </html>

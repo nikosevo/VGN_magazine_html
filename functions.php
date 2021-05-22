@@ -20,7 +20,7 @@ function send_message($string, $type) {
 
 
 function getpost(){
-    include "connect.php";
+    require_once "connect.php";
     $postID=2;
     $sql = "SELECT  *
     FROM posts, users
@@ -37,11 +37,11 @@ function getpost(){
     $content= $row['content'];
     $fullname=$row['fullname'];
     $avatar=$row['avatar'];
-    $userID=$row['userID'];
+    $username=$row['username'];
     
 
     $_SESSION['title'] = $title;
-    $_SESSION['userID'] = $userID;
+    $_SESSION['username'] = $username;
     $_SESSION['image'] = $image;
     $_SESSION['groupID'] = $groupID;
     $_SESSION['description'] = $description;

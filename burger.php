@@ -1,4 +1,21 @@
+
 <!doctype html>
+<?php
+
+  require_once("connect.php");
+
+  echo"<script> alert(".$_SESSION['userID']."</script>";
+  
+
+  $sql = "SELECT  groupName
+  FROM groups,subscribedto,users
+  WHERE groups.groupID=subscribedto.GroupId AND users.userID = subscribedto.UserId AND users.userID=1"
+  $var = 3;
+
+  $result = mysql_query($link,$sql);
+  echo"<script> alert(".$var.")</script>";
+
+?>
 <html>
 
 <head>
@@ -14,11 +31,9 @@
 <body>
   <div class="burger">
     <div class="cont">
-      <a href="">Sports</a>
-      <a href="">Sports</a>
-      <a href="">Sports</a>
-      <a href="">Sports</a>
-      <a href="">Sports</a>
+      <?php while($row = mysql_fetch_array($result)){?>
+        <a href="#"><?php $row['groupName']?></a>
+      <?php }?>
     </div>
   </div>
   <div class="burger__toggler"><span></span></div>
