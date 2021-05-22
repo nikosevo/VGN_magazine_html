@@ -1,8 +1,41 @@
 <!DOCTYPE html>
 
-<?php
-    session_start();
-    include "connect.php";
+<?php 
+session_start();
+include "connect.php";
+$_SESSION['postID'] = $_GET["pid"];
+
+?>
+
+<?php 
+if(isset($_POST['submit']) ){
+    $postID = $_SESSION['postID'];
+    $error = 0;
+
+    
+    $sql = "SELECT * FROM users WHERE username='$username'";
+    $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+    $count = mysqli_num_rows($result);
+    
+    $sql = "SELECT * FROM users WHERE email='$email'";
+    $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+    $count = mysqli_num_rows($result);
+        
+    
+    else{
+        mysqli_autocommit($link, false);
+        $sql = "insert into users(userID,avatar,fullname,username,email,passwd,bio,roleID) values('','$avatar','$fullname','$username','$email','$password','','1')";
+        $result = mysqli_query($link,$sql) ;
+        if($result){
+            mysqli_commit($link);
+            echo"<font color=\"#3300FF\"><strong><br>Η εγγραφή ολοκληρώθηκε με επιτυχία!<br></font>";
+        }else{
+            mysqli_rollback($link);
+            echo"<font color=\"#FF0000\"><strong><br>Η εγγραφή ακυρώθηκε λόγω λαθών !<br></font>";
+        }
+    }
+}
+
 ?>
 <html lang="en">
 
@@ -75,7 +108,7 @@
                             <td><?php echo $usrRow['title']; ?></td>
                             <td><?php echo $usrRow['fullname']; ?></td>
                             <td><button onclick="idgiver(this.id)" id=<?php echo $_SESSION['postID']; ?> href="editPost.php" class="edit">edit</button></td>
-                            <td><button onclick="idgiver(this.id)" id=<?php echo $_SESSION['postID']; ?> href="deletePost.php" class="delete">delete</button></td>
+                            <td><button onclick="idgiver2(this.id)" id=<?php echo $_SESSION['postID']; ?> href="adminpage.php" name="submit" class="delete">delete</button></td>
                             
                         </tr>
                     <?php }?>
@@ -91,6 +124,9 @@
        function idgiver(id) {
            
         window.location.href="editPost.php?pid=" + id;
+        }
+        function idgiver2(id) {
+        window.location.href="adminpage.php?pid=" + id;
         }
            
     </script>
