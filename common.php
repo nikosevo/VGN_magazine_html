@@ -1,3 +1,4 @@
 <?php
-    $currentlyLoggedUserId = null;
+session_start();
+    $currentlyLoggedUserId = $_SESSION['userID'];
 ?>

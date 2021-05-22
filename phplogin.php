@@ -41,21 +41,16 @@
 			exit();
 		}
 		
-		switch ($_SESSION['roleID']) {
-		case 1: //admin
-            echo "success!";
-            header("Location: index.php");
-            // exit();
-            break;
-		case 2: //writer
-            header("Location: writer.php");
-            exit();
-            break;
-		case 3: //reader
-            header("Location: reader.php");
-            exit();
-            break;
-		}   
+		if($_SESSION['roleID']==1)
+		{
+			echo "success!";
+            header("Location: adminpage.php");
+		}
+        else{
+			header("Location: index.php");
+		}  
+		
+			
         }
 		
 	?>

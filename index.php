@@ -9,9 +9,16 @@
 
 ?>
  <?php 
- 		error_reporting(0);  //to hide initial error messages delete this if we need to see errors
-		$userID=$_SESSION['userID'];
-		$roleID=$_SESSION['roleID'];
+ 		  //to hide initial error messages delete this if we need to see errors
+		   if (isset($_SESSION['userID'] ) && $_SESSION['userID']!=0){
+			   $userID=$_SESSION['userID'];
+			   $roleID=$_SESSION['roleID'];
+		   }
+		else{
+			$userID=0;
+			$roleID=0;
+		}
+		
 
 
         $sql1 = "SELECT avatar FROM users WHERE roleID=2;";
@@ -61,7 +68,7 @@ getpost();
 	<div class="container">
 		<div class="container__item">
 			<h2>Science to Fashion</h2>
-			<h1>More than just your usual<br> Magazine</h1>
+			<h1>More than just your usual<br> <?php echo $_SESSION['userID'];?></h1>
 			<div id="links">
 				<a href="register.php" id="container__item__cta">Sign up now</a>
 				<a href="#">Read a post</a>

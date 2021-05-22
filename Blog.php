@@ -5,7 +5,6 @@
         die("ERROR: Den egine sindesi sthn vasi");
     }
     session_start();
-    error_reporting(0);
     $_SESSION['groupID'] = $_GET["gid"];
 ?>
 
@@ -32,7 +31,9 @@
     </header>
     <div>
     <?php 
-        include("burger.html");
+    $userID=$_SESSION['userID'];
+        include("common.php");
+        include("burger.php");
     ?>
         
 

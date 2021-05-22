@@ -100,7 +100,7 @@ if(isset($_POST['submit']) && $_POST['submit']== "Insert"){
     <!--Navbar-->
 	<header>
     <?php 
-        include("navbar.html"); 
+        include("navbar.php"); 
         ?>
 	</header>
 	

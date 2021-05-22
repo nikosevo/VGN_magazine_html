@@ -14,11 +14,20 @@
 <body>
   <div class="burger">
     <div class="cont">
+    <?php 
+    
+    while ($row = mysqli_fetch_array($result2)) {
+        $groupID = $_SESSION['groupID'];
+        $postId = $row['postID'];
+        $sql3 = "SELECT  *
+        FROM posts,users
+        WHERE groups.groupID=subscribedto.GroupId AND users.userID = subscribedto.UserId AND users.userID=$currentlyLoggedUserId;";
+        $result3 = mysqli_query($link,$sql3);
+        $usrRow = mysqli_fetch_array($result3);
+    ?>
+      
       <a href="">Sports</a>
-      <a href="">Sports</a>
-      <a href="">Sports</a>
-      <a href="">Sports</a>
-      <a href="">Sports</a>
+      <?php }?>
     </div>
   </div>
   <div class="burger__toggler"><span></span></div>
