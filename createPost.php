@@ -16,6 +16,8 @@
 
 </head>
 <?php
+        require_once "connect.php";
+
         if(isset($_POST['submit'])){
             $file = $_FILES['file'];
             $fileName = $_FILES['file']['name']; 
@@ -37,8 +39,14 @@
                         $fileNameNew = uniqid('',true).".".$fileActualExt;
                         echo $fileNameNew;
                         $fileDestination='assets/'.$fileNameNew;
-                        echo $fileDestination;
                         move_uploaded_file($fileTmpName,$fileDestination);
+                                
+                        $newtitle = $_POST['title'];
+                        $newdescription = $_POST['description'];
+                        $newcontent = $_POST['content'];
+                        
+                        $sql = "INSERT INTO `posts` (`postID`, `date`, `title`, `description`, `content`, `image`, `userID`, `groupID`) VALUES (NULL, NULL, '$newtitle', '$newdescription', '$newcontent', '$fileDestination', '1', '1')";
+                        $result = mysqli_query($link, $sql) or die(mysqli_error($link));
                     }else{
                         echo "Very large file";
                     }
@@ -51,24 +59,18 @@
             }
 
 
-        
-            $newtitle = $_POST['title'];
-            $newdescription = $_POST['description'];
-            $newcontent = $_POST['content'];
-            
-            $sql = "UPDATE posts SET title = '$newtitle' , description = '$newdescription' ,  content = '$newcontent' , image = '$fileDestination' WHERE postID = 1;";
-            $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+
            
         }
         ?> 
 <body>
     <header>
 		<?php 
-        include("navbar.html"); 
+        include("navbar.php"); 
         ?>
 	</header>
     <!-- we add the function to the action an we are done...well after we do all the checks and stuff-->
-    <form action="newPost.php">
+    <form action="createPost.php" method="post" enctype="multipart/form-data" >
         <div class="container">
             <div class="textFields">
                 <div class="form">
@@ -153,10 +155,10 @@
                     </ul>
                 </div>
 
-                <div id="output" contenteditable="true"></div>
+                <textarea id="output" name="content" contenteditable="true"></textarea>
             </div>
             <div class="options">
-                <input type="file" id="file" accept="image/*" name="image">
+                <input type="file" id="file" accept="image/*" name="file">
                 <label for="file"><i class="fas fa-upload"></i></label>
                 <div class="custom-select" style="width:200px;">
                     <select>
@@ -169,7 +171,7 @@
                     </select>
                 </div>
                 <div class="btnWrap">
-                    <button class="glow-on-hover" type="button" onclick="document.getElementById('form').submit();">save</button>
+                    <button class="glow-on-hover" type="submit" name="submit" value="Insert">save</button>
                 </div>
                 
             </div>
