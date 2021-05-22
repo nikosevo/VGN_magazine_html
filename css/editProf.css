@@ -15,11 +15,10 @@
 }
 
 .uploadPhoto {
+    border-radius: 50%;
     position: absolute;
     /*this take the element and moves it from the left 50%*/
-    left: 50%;
     /*this just move the elemnt a bit to the rigth based on its width*/
-    transform: translateX(-50%);
     height: 20vw;
     width: 20vw;
     opacity: 0;
@@ -44,7 +43,7 @@
 #wrap {
     width: 30vw;
     margin: 0 auto;
-    padding-top: 15vh;
+    padding-top: 12vh;
     flex-direction: column;
 }
 
@@ -53,7 +52,7 @@
     flex-direction: column;
 }
 
-@media only screen and (max-width:2000px) {
+@media only screen and (max-width:1500px) {
     .container {
         display: block;
     }
@@ -62,11 +61,10 @@
         padding-left: 10vw;
     }
     .uploadPhoto {
-        position: relative;
+        position: absolute;
         left: 50%;
         /*this just move the elemnt a bit to the rigth based on its width*/
-        transform: translateX(-57%);
-        opacity: .1;
+        transform: translateX(-50%);
         height: 300px;
         width: 300px;
         border-radius: 50%;
@@ -81,21 +79,13 @@
         width: 300px;
     }
     #uploadBtn {
-        position: absolute;
-        /*this take the element and moves it from the left 50%*/
+        position: relative;
+        margin: 90px 50px;
         left: 50%;
-        /*this just move the elemnt a bit to the rigth based on its width*/
-        transform: translateX(-50%);
-        bottom: 20vh;
-        margin: 0;
+        
     }
     #wrap{
-        padding-top: 0;
+        width: 400px;
     }
 }
 
-@media only screen and (max-width:500px){
-    #wrap{
-       width: 100%;
-    }
-}

@@ -22,7 +22,7 @@
 			exit();
 		}
 		else{
-        $sql = "SELECT username, passwd, roleID FROM users WHERE username='$username' and passwd='$password'";
+        $sql = "SELECT username, passwd, roleID ,userID FROM users WHERE username='$username' and passwd='$password'";
 		$result = mysqli_query($link, $sql) or die(mysqli_error($link));
 		$count = mysqli_num_rows($result);
 		
@@ -40,7 +40,6 @@
 			header("Location: Login.php");
 			exit();
 		}
-		
 		switch ($_SESSION['roleID']) {
 		case 1: //admin
             echo "success!";
