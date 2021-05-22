@@ -45,7 +45,7 @@
 		case 1: //admin
             echo "success!";
             header("Location: index.php");
-            // exit();
+            exit();
             break;
 		case 2: //writer
             header("Location: writer.php");
