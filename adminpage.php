@@ -75,7 +75,8 @@
                             <td><?php echo $usrRow['title']; ?></td>
                             <td><?php echo $usrRow['fullname']; ?></td>
                             <td><button onclick="idgiver(this.id)" id=<?php echo $_SESSION['postID']; ?> href="editPost.php" class="edit">edit</button></td>
-                            <td><a href="" class="delete">delete</a></td>
+                            <td><button onclick="idgiver(this.id)" id=<?php echo $_SESSION['postID']; ?> href="deletePost.php" class="delete">delete</button></td>
+                            
                         </tr>
                     <?php }?>
                         
