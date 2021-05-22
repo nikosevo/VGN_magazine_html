@@ -18,7 +18,7 @@
   <div class="dropdown__content">
     <a href="createPost.php">new Post  <i class="fas fa-plus"></i></a>
     <a href="editProfile.php">View Profile  <i class="fas fa-address-card"></i></a>
-    <a href="#">Log out <i class="fas fa-sign-out-alt"></i></a>
+    <a href="LogoutScript.php" >Log out <?php echo $_SESSION['roleID']?> <i class="fas fa-sign-out-alt"></i></a>
     <a class="dropdown__close"><i class="fas fa-window-close"></i></a>
   </div>
 </div>
@@ -45,15 +45,19 @@
 
 </div>
 
-<!-- CHECK THE USER ID IN ORDER TO SHOW THE RIGHT DROPDOWN CONTENT OR REDIRECT TO SIGN IN -->
+<!-- CHECKS THE USER ID IN ORDER TO SHOW THE RIGHT DROPDOWN CONTENT OR REDIRECT TO SIGN IN -->
 
 <?php 
-if(!isset($_SESSION['userID']))
+if($_SESSION['roleID']==0)
 {
   $loggedIn = "false";
 }
-elseif(isset($_SESSION['userID'])){
+elseif(!$_SESSION['roleID']==0){
   $loggedIn = "true";
 }
 ?>
         <script id="searcher" loggedIn=<?php echo $loggedIn?> src="js/navbar.js" ></script>
+
+
+
+        
