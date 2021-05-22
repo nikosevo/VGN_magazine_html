@@ -33,7 +33,7 @@ include("functions.php");
             <div class="container">
                 <div class="gridContent">
                     
-                   <input type="file" name="file" class="uploadPhoto"> <img src="assets/profiles/default.jpg" alt="avatar" class="avatar">
+                   <input type="file" name="file" class="uploadPhoto"> <img src="assets/profiles/default.jpg" alt="avatar" class="avatar"><br>
                     <button type="submit" name="submit" class="glow-on-hover" id="uploadBtn">save Changes</button>
                 </div>
                 
