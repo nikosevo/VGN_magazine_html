@@ -123,7 +123,7 @@ getpost();
     $_SESSION['groupID'] = $row['groupID'];
     $_SESSION['groupName'] = $row['groupName'];
     $_SESSION['groupDescription'] = $row['groupDescription'];
-	    $_SESSION['groupImage'] = $row['groupImage'];?>
+	$_SESSION['groupImage'] = $row['groupImage'];?>
 
 
 	<a   class="carousel-item">

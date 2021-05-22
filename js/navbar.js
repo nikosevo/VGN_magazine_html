@@ -19,6 +19,7 @@ menuOpen.addEventListener("click", () => {
 menuClose.addEventListener("click", () => {
   overlay.classList.remove("overlay--active");
 });
+
 if(loggedIn=="true"){
   avatarButton.addEventListener("click", () =>{
     dropdown.classList.add("dropdown--active");
@@ -30,6 +31,7 @@ if(loggedIn=="true"){
 
   });
 }
+
 if(loggedIn=="false"){
   avatarButton.addEventListener("click", () => {
     window.location.href = "Login.php";
