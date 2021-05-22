@@ -27,12 +27,13 @@
     <!--Navbar-->
     <header>
     <?php 
-        include("navbar.php"); 
+        include("navbar.php");
     ?>
     </header>
     <div>
     <?php 
-        include("burger.html");
+   
+        include("burger.php");
     ?>
         
 
