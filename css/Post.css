@@ -52,6 +52,7 @@ footer a {
   max-width: 200%;
   width: 100%;
   transform: translateX(-50%);
+  z-index: 0;
 }
 
 @media(min-height:920px) {
@@ -82,29 +83,32 @@ footer a {
 .author-avatar {
   border: 2px solid #FC0EDC;
   border-radius: 50%;
-  width: 22%;
+  width: 300px;
+  height: 300px;
 }
 
 nav {
   display: grid;
   grid-template-columns: .9fr .1fr .01fr;
   justify-content: space-between;
-  align-items: center;
-  padding:  30px 60px;
+  padding: 10px 20px;
   width: 100%;
   top: 0;
   left: 0;
   position: fixed;
   z-index: 10;
-  padding: 10px;
   background: white;
 
   
 }
+nav .logo{
+  padding: 0;
+  width: 30px;
+}
 
 nav a {
   display: inline-flex;
-  padding: 20px 30px;
+  padding: 10px 0px;
   color: #fff;
   text-decoration: none;
 }
