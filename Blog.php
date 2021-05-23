@@ -59,7 +59,6 @@
         $groupID = NULL;
         if ($groupID == 0 ){
             while ($post = mysqli_fetch_array($all_posts_result)) {?>
-                    <!--first post-->
                 <div class="card">
                     <div class="image">
                         <img <?php echo "src=".$post['image'];?> />
@@ -69,7 +68,7 @@
                         <div class="subtitle"><?php echo $post['username'] , "  " ,date('d-m-Y',strtotime($post['date'])); ?></div>
                         <div class="bottom">
                             <p><?php echo $post['description']; ?></p>
-                            <button onclick="idgiver(this.id)" id=<?php echo $_SESSION['postID']; ?> href="Post.php" class="readmore">Read More</button>
+                            <button onclick="idgiver(this.id)" id=<?php echo $post['postID']; ?> href="Post.php" class="readmore">Read More</button>
                             <!-- <button href="Post.php">Read More</button> -->
                         </div>
                     </div>
@@ -80,13 +79,9 @@
 
     <!--Scripts-->
     <script>
-       function idgiver(id) {
-           
-            window.location.href="Post.php?uid=" + id;
-        }
-           
+       function idgiver(id) {window.location.href="Post.php?uid=" + id;}     
     </script>
-    <!-- <script type="text/javascript" src="js/mobile.js"></script> -->
+    <script type="text/javascript" src="js/mobile.js"></script> 
 
 </body>
 
