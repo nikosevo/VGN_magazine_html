@@ -36,24 +36,24 @@
             if(in_array($fileActualExt,$allowed)){
                 if($fileError === 0){
                     if($fileSize < 5000000){
-                        echo $fileActualExt;
                         $fileNameNew = uniqid('',true).".".$fileActualExt;
-                        echo $fileNameNew;
                         $fileDestination='assets/'.$fileNameNew;
                         move_uploaded_file($fileTmpName,$fileDestination);
                                 
                         $newtitle = $_POST['title'];
                         $newdescription = $_POST['description'];
                         $newcontent = $_POST['content'];
-                        echo $_POST["select"];
                         if(!empty($_POST["select"])){
                             $category=$_POST["select"];
-                            
+                        }else{
+                            $category= NULL;
                         }
                         $author = $_SESSION['userID'];
-                        
+                        if($category!=NULL ){
                         $sql = "INSERT INTO `posts` (`postID`, `date`, `title`, `description`, `content`, `image`, `userID`, `groupID`) VALUES (NULL, NULL, '$newtitle', '$newdescription', '$newcontent', '$fileDestination', '$author', '$category')";
                         $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+                        }
+                        else{echo '<script>alert("Please select a category")</script>';}
                     }else{
                         echo "Very large file";
                     }
@@ -162,13 +162,13 @@
                     </ul>
                 </div>
 
-                <textarea id="output" name="content" contenteditable="true"></textarea>
+                <textarea id="output" name="content" contenteditable="true" required></textarea>
             </div>
             <div class="options">
                 <input type="file" id="file" accept="image/*" name="file">
                 <label for="file"><i class="fas fa-upload"></i></label>
                 <div class="custom-select" style="width:200px;">
-                    <select name="select">
+                    <select name="select" >
                         <option value="">Select category</option>
                         <?php 
                             $sql1 = "SELECT groupName,groupID FROM groups";
