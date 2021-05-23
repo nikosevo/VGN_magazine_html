@@ -19,6 +19,12 @@
 
 
 </head>
+<?php
+$sqlburger = "SELECT  groupName
+FROM groups,subscribedto,users
+WHERE groups.groupID=subscribedto.GroupId AND users.userID = subscribedto.UserId AND users.userID=$_SESSION['userID']";
+$result = mysqli_query($link, $sqlburger) or die(mysqli_error($link));
+?>
 
 
 <body>

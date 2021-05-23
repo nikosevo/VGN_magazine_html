@@ -18,10 +18,8 @@
     <img src=<?php echo $post['image'] ?>>
 </header>
 
-<nav class="nav">
-    <a href="#s1" class="active">Author</a>
-    <a href="#s2" >Article</a>
-    <a href="#s3">Credits</a>
+<nav>
+    <?php include "navbar.php";?>
 </nav>
 
 <body>

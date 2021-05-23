@@ -1,8 +1,30 @@
 <!DOCTYPE html>
 
-<?php
-    session_start();
-    include "connect.php";
+<?php 
+session_start();
+include "connect.php";
+include "functions.php";
+
+?>
+
+<?php 
+if(isset($_GET["pid"]) && $_GET["action"]=="delete"){
+    $_SESSION['postID'] = $_GET["pid"];
+    $postID = $_SESSION['postID'];
+    $error = 0;
+
+    
+    $sql = "DELETE FROM posts
+    WHERE postID = '$postID'";
+    $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+    
+    if($result){
+            mysqli_commit($link);
+            send_message('Post Deleted !', 'notice');
+        }
+    
+}
+
 ?>
 <html lang="en">
 
@@ -46,7 +68,7 @@
     
         <div class="admin-content">
             <div class="button-group">
-                <a href="createPostAdmin.php"class="btn-big">Create Post</a>
+                <a href="createPost.php"class="btn-big">Create Post</a>
                 <a href="adminpage.php" class="btn-big">Manage Posts</a>
             </div>
             <div class="admContent">
@@ -75,7 +97,8 @@
                             <td><?php echo $usrRow['title']; ?></td>
                             <td><?php echo $usrRow['fullname']; ?></td>
                             <td><button onclick="idgiver(this.id)" id=<?php echo $_SESSION['postID']; ?> href="editPost.php" class="edit">edit</button></td>
-                            <td><a href="" class="delete">delete</a></td>
+                            <td><button onclick="idgiver2(this.id)" id=<?php echo $_SESSION['postID']; ?> href="adminpage.php" name="del" class="delete">delete</button></td>
+                            
                         </tr>
                     <?php }?>
                         
@@ -90,6 +113,9 @@
        function idgiver(id) {
            
         window.location.href="editPost.php?pid=" + id;
+        }
+        function idgiver2(id) {
+        window.location.href="adminpage.php?pid=" + id + "&action=delete";
         }
            
     </script>

@@ -67,6 +67,12 @@ a{
     color: green;
 }
 .delete{
+    
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: large;
+    cursor: pointer;
     color: red;
 }
 .edit:hover{
