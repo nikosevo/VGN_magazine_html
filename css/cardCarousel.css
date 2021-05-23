@@ -5,6 +5,7 @@
 }
 
 .categories {
+    margin-left: -75px;
     background-color: #00AEFB;
     box-shadow:  10px 10px 20px #0097da,
              -10px -10px 20px #34cdfb;
@@ -41,8 +42,8 @@
 }
 
 .carousel button{
-    top: 0;
-    height: 125%;
+    top: 19vh;
+    height: 25%;
     width: 250%;
     position: absolute;
     opacity: 0;
