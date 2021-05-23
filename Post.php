@@ -51,7 +51,7 @@
                 </div>
 
                 <div class="updated-date">
-                    <p>Written <span class="updated"> <?php echo $post['date']; ?> </span></p>
+                    <p>Last Edited on:  <span class="updated"> <?php echo $post['date']; ?> </span></p>
                 </div>
 
             </div>

@@ -72,8 +72,9 @@ include "connect.php";
             $newtitle = $_POST['title'];
             $newdescription = $_POST['description'];
             $newcontent = $_POST['content'];
+            $currentDate = date("Y-m-d");
             
-            $sql = "UPDATE posts SET title = '$newtitle' , description = '$newdescription' ,  content = '$newcontent' , image = '$fileDestination' WHERE postID = 1;";
+            $sql = "UPDATE posts SET date = '$currentDate' ,title = '$newtitle' , description = '$newdescription' ,  content = '$newcontent' , image = '$fileDestination' WHERE postID = 1;";
             $result = mysqli_query($link, $sql) or die(mysqli_error($link));
            
         }
