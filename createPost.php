@@ -45,8 +45,10 @@
                         $newtitle = $_POST['title'];
                         $newdescription = $_POST['description'];
                         $newcontent = $_POST['content'];
-                        if(!empty($_POST["selected"])){
-                            $category=$_POST["selected"];
+                        echo $_POST["select"];
+                        if(!empty($_POST["select"])){
+                            $category=$_POST["select"];
+                            
                         }
                         $author = $_SESSION['userID'];
                         
@@ -166,7 +168,7 @@
                 <input type="file" id="file" accept="image/*" name="file">
                 <label for="file"><i class="fas fa-upload"></i></label>
                 <div class="custom-select" style="width:200px;">
-                    <select name="select[]">
+                    <select name="select">
                         <option value="">Select category</option>
                         <?php 
                             $sql1 = "SELECT groupName,groupID FROM groups";
@@ -188,16 +190,6 @@
 
     <script type="text/javascript" src="js/createPost.js"></script>"
 
-    <script >
-        function valuegetter() {
-            var a=document.querySelector("#select");
-            console.log(a);
-            var kostas = a.options[a.selectedIndex].value;
-            console.log(kostas);
-            return kostas;   
-        }
-                           
-    </script> 
     
 </body>
 </html>
