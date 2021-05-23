@@ -26,17 +26,7 @@
         $content= $row['content'];
         $fullname=$row['fullname'];
         $avatar=$row['avatar'];
-        $userID=$row['userID'];
-        
-
-        $_SESSION['title'] = $title;
-        $_SESSION['userID'] = $userID;
-        $_SESSION['image'] = $image;
-        $_SESSION['groupID'] = $groupID;
-        $_SESSION['description'] = $description;
-        $_SESSION['date'] = $date;
-        $_SESSION['content'] = $content;
-        $_SESSION['fullname'] = $fullname;
-        $_SESSION['avatar'] = $avatar;
+        $username=$row['username'];
+    
 
     ?>

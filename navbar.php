@@ -7,7 +7,6 @@ require_once("connect.php");
     $result = mysqli_query($link,$sql);
     $row = mysqli_fetch_assoc($result);
     if($row == NULL){
-      echo $row;
       $avatar = "assets/SVG/default-user.svg";}
     else{
       $avatar = $row['avatar'];}

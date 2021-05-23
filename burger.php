@@ -2,18 +2,11 @@
 <!doctype html>
 <?php
 
-  require_once("connect.php");
+  require_once "connect.php";
 
-  echo"<script> alert(".$_SESSION['userID']."</script>";
-  
+  $sql = "SELECT * FROM groups";
+  $result = mysqli_query($link, $sql);
 
-  $sql = "SELECT  groupName
-  FROM groups,subscribedto,users
-  WHERE groups.groupID=subscribedto.GroupId AND users.userID = subscribedto.UserId AND users.userID=1"
-  $var = 3;
-
-  $result = mysql_query($link,$sql);
-  echo"<script> alert(".$var.")</script>";
 
 ?>
 <html>

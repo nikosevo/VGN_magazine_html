@@ -19,7 +19,7 @@ if(isset($_POST['submit']) && $_POST['submit']== "Insert"){
     $password = $_POST['password'];
     $password2 = $_POST['password2'];
     $email = $_POST['email'];
-    $avatar = "assets/images/default.jpg";
+    $avatar = "assets/SVG/default-user.svg";
     $error = 0;
 
     if($fullname == ""){

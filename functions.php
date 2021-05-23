@@ -1,5 +1,7 @@
 <?php
 
+require_once "connect.php";
+
 function print_message() {
     if ((isset($_SESSION['type_of_message'])) && (isset($_SESSION['message'])) && ($_SESSION['type_of_message'] != '') && ($_SESSION['message'] != '')) {
         echo "<center><div class=" . $_SESSION['type_of_message'] . ">";
@@ -19,37 +21,34 @@ function send_message($string, $type) {
 }
 
 
-function getpost(){
-    require_once "connect.php";
-    $postID=2;
-    $sql = "SELECT  *
-    FROM posts, users
-    WHERE postID=$postID
-    AND posts.userID = users.userID";
+function getRandPost(){
+    include "connect.php";
+    $postID = rand(1,13);
+    $sql = "SELECT * FROM posts WHERE postID = $postID";
+
     $result = mysqli_query($link, $sql) or die(mysqli_error($link));
-    $row = mysqli_fetch_assoc($result);
+    $row = mysqli_fetch_array($result);
+    return $row;
+}
 
-    $title = $row['title'];
-    $image = $row['image'];
-    $groupID= $row['groupID'];
-    $description= $row['description'];
-    $date= $row['date'];
-    $content= $row['content'];
-    $fullname=$row['fullname'];
-    $avatar=$row['avatar'];
-    $username=$row['username'];
-    
+function getAuthorsResult(){
+    include "connect.php";
+    //4 is the id of the writer aka author...
+    $sql = "SELECT *
+    FROM users
+    INNER JOIN hasrole
+    ON users.userID = hasrole.userid 
+    WHERE hasrole.roleid = 4";
+    $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+    return $result;
+}
 
-    $_SESSION['title'] = $title;
-    $_SESSION['username'] = $username;
-    $_SESSION['image'] = $image;
-    $_SESSION['groupID'] = $groupID;
-    $_SESSION['description'] = $description;
-    $_SESSION['date'] = $date;
-    $_SESSION['content'] = $content;
-    $_SESSION['fullname'] = $fullname;
-    $_SESSION['avatar'] = $avatar;
-
+function getCategoriesResult(){
+    include "connect.php";
+    //we named categories groups for some reason
+    $sql = "SELECT * FROM groups";
+    $result = mysqli_query($link,$sql) or die(mysqli_error($link));
+    return $result;
 }
 
 

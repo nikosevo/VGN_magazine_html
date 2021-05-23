@@ -6,14 +6,13 @@
         die("ERROR: Den egine sindesi sthn vasi");
     }
     session_start();
+	include "functions.php";
+	$randPost = getRandPost(); 
+	$authors_result = getAuthorsResult();
+	$categories_result = getCategoriesResult();
+
 
 ?>
- <?php 
-
-        
-    ?>
-
-
 <head>
 	<meta charset="UTF-8">
 	<title>Welcome</title>
@@ -30,19 +29,8 @@
 	<link rel="stylesheet" href="css/cardCarousel.css">
 	<link rel="stylesheet" href="css/carousel.css">
 	<link rel="stylesheet" href="css/scroll.css">
-	
-
-
 
 </head>
-<?php 
-
-include "functions.php";
-getpost();
-
-
-?>
-
 <body>
 	<!--Navbar-->
 	<header>
@@ -61,17 +49,18 @@ getpost();
 				<a href="#">Read a post</a>
 			</div>
 		</div>
+		<!-- we get the random post in the top -->
 		<div class="container__item-2">
 			<div class="card">
 				<div class="image">
-					<img src=<?php echo $_SESSION['image']; ?> />
+					<img src=<?php echo $randPost['image']; ?> />
 				</div>
 				<div class="content">
-					<div class="title"><?php echo $_SESSION['title']?></div>
+					<div class="title"><?php echo $randPost['title']?></div>
 					<div class="subtitle">Some stuff</div>
 					<div class="bottom">
-						<p><?php echo $_SESSION['description']; ?></p>
-						<button onclick="idgiver2(this.id)" id=<?php echo 2; ?> href="Post.php" class="readmore">Read More</button>
+						<p><?php echo $randPost['description']; ?></p>
+						<button onclick="idgiver2(this.id)" id=<?php echo $randPost['postID']; ?> href="Post.php" class="readmore">Read More</button>
 					</div>
 				</div>
 			</div>
@@ -90,15 +79,12 @@ getpost();
 		<div class="carousel__container">
 			<div class="revolver" id="scroll_container" onmouseover="mouseStatus(true);"
 				onmouseout="mouseStatus(false);">
-	<?php while ($row = mysqli_fetch_array($result1)) {
-    
-        $_SESSION['image'] = $row['avatar'];
-    ?>
-            <!--first post-->
-            <div class="revolver__item">
-					<img src=<?php echo $_SESSION['image']; ?> class="revolver__image">
-				</div>
-    <?php } ?> 
+				<?php while($authors = mysqli_fetch_array($authors_result)) { ?>
+					<!--first post-->
+					<div class="revolver__item">
+							<img onclick="idgiver3(this.id)" id=<?php echo $authors['userID'];?> src=<?php echo $authors['avatar']; ?> class="revolver__image">
+						</div>
+				<?php } ?> 
 
 			</div>
 		</div>
@@ -110,29 +96,20 @@ getpost();
 	
 	<div class="carousel">
 		<h1 style="color: white;">categories</h1>
-		<?php while ($row = mysqli_fetch_array($result2)) {
-    
-    $_SESSION['groupID'] = $row['groupID'];
-    $_SESSION['groupName'] = $row['groupName'];
-    $_SESSION['groupDescription'] = $row['groupDescription'];
-	$_SESSION['groupImage'] = $row['groupImage'];?>
+		<?php while ($categories = mysqli_fetch_array($categories_result)) { ?>
 
 
-	<a   class="carousel-item">
-	<div class="categories">
-    <div>
-        <img src=<?php echo $_SESSION['groupImage']; ?> alt="other image">
-    </div>
-    <p><?php echo $_SESSION['groupDescription']; ?></p>
-    <h3><?php echo $_SESSION['groupName']; ?></h3>
-	<button onclick="idgiver(this.id)" id=<?php echo $_SESSION['groupID'];?> href="Blog.php"> take me to this category</button>
-		</div>
-</a>
-	<?php } 
-	
-	unset($_SESSION['groupID']);
-
-	?> 
+		<a   class="carousel-item">
+			<div class="categories">
+				<div>
+					<img src=<?php echo $categories['groupImage']; ?> alt="other image">
+				</div>
+				<p><?php echo  $categories['groupDescription']; ?></p>
+				<h3><?php echo  $categories['groupName']; ?></h3>
+				<button onclick="idgiver(this.id)" id=<?php echo  $categories['groupID'];?> href="Blog.php"> take me to this category</button>
+			</div>
+		</a>
+	<?php } ?> 
 
 	</div>
 
@@ -146,17 +123,9 @@ getpost();
 	<!--Scripts-->
 
 	<script>
-       function idgiver(id) {
-           
-        window.location.href="Blog.php?gid=" + id;
-        }
-           
-    </script>
-		<script>
-       function idgiver2(id) {
-           
-        window.location.href="Post.php?uid=" + id;
-        }
+       function idgiver(id) {window.location.href="Blog.php?gid=" + id;}
+       function idgiver2(id) {window.location.href="Post.php?uid=" + id;}
+       function idgiver3(id) {window.location.href="viewProfile.php?uid=" + id;}
            
     </script>
 
