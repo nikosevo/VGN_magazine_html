@@ -17,6 +17,7 @@
 </head>
 <?php
         require_once "connect.php";
+        session_start();
 
         if(isset($_POST['submit'])){
             $file = $_FILES['file'];
@@ -34,7 +35,7 @@
 
             if(in_array($fileActualExt,$allowed)){
                 if($fileError === 0){
-                    if($fileSize < 500000){
+                    if($fileSize < 5000000){
                         echo $fileActualExt;
                         $fileNameNew = uniqid('',true).".".$fileActualExt;
                         echo $fileNameNew;
@@ -44,8 +45,9 @@
                         $newtitle = $_POST['title'];
                         $newdescription = $_POST['description'];
                         $newcontent = $_POST['content'];
+                        $author = $_SESSION['userID'];
                         
-                        $sql = "INSERT INTO `posts` (`postID`, `date`, `title`, `description`, `content`, `image`, `userID`, `groupID`) VALUES (NULL, NULL, '$newtitle', '$newdescription', '$newcontent', '$fileDestination', '1', '1')";
+                        $sql = "INSERT INTO `posts` (`postID`, `date`, `title`, `description`, `content`, `image`, `userID`, `groupID`) VALUES (NULL, NULL, '$newtitle', '$newdescription', '$newcontent', '$fileDestination', '$author', '1')";
                         $result = mysqli_query($link, $sql) or die(mysqli_error($link));
                     }else{
                         echo "Very large file";
