@@ -62,7 +62,8 @@ header {
 
 .usr-avatar img {
     pointer-events: none;
-    width: 60%;
+    width: 110%;
+    margin: -5%;
 }
 
 .button-rotate{

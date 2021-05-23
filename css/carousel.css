@@ -6,7 +6,6 @@
 
 .authors-carousel {
   display: flex;
-  flex-wrap: nowrap;
   background-color: rgba(3, 12, 29, 0.904);
   height: 50vh;
   width: 100%;
@@ -49,20 +48,21 @@
 }
 
 .revolver {
+  border: 1px solid red;
   margin-top: 3.5vh;
   height: 80%;
   display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
   scroll-behavior: smooth;
-  width: 90%;
+  width: 150%;
   
 }
 
 .revolver__item {
-  margin-top: 7vh;
-  width: 50%;
-  flex-shrink: 0.08;
+  margin-top: 10vh;
+  width: 40%;
+  flex-shrink: 0.1;
   scroll-behavior: smooth;
 }
 
@@ -96,4 +96,10 @@
 
 .revolver::-webkit-scrollbar-thumb:hover {
   background: #009eb3d5;
+}
+
+@media only screen and (max-width: 1445px){
+  .authors-carousel{
+    height: 300px;
+  }
 }
