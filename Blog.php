@@ -4,9 +4,12 @@
     if ($link===false){
         die("ERROR: Den egine sindesi sthn vasi");
     }
+    $groupID = 0;
     session_start();
-    error_reporting(0);
-    $_SESSION['groupID'] = $_GET["gid"];
+    if(isset($_GET["gid"])){
+        $groupID = $_GET["gid"];
+
+    }
 ?>
 
 <html lang="en">
@@ -27,27 +30,24 @@
     <!--Navbar-->
     <header>
     <?php 
-        include("navbar.php"); 
+        include "navbar.php";
+
+
     ?>
     </header>
-    <div>
-    <?php 
-        include("burger.php");
-    ?>
-        
 
-    </div>
+
+
     
 
-    <!--make it so it loads everything from the server-->
+    <!--make it so it loads everything from the server--> 
     <?php 
-        $sql1 = "SELECT * FROM posts";
-        $result1 = mysqli_query($link,$sql1);
+        $sql = "SELECT * FROM posts";
+        $all_posts_result = mysqli_query($link,$sql);
         
-        if (isset($_SESSION['groupID'])  ){
-            $groupID = $_SESSION['groupID'];
-        $sql2 = "SELECT * FROM posts,users WHERE groupID=$groupID AND posts.userID = users.userID;";
-        $result2 = mysqli_query($link,$sql2);
+        if ($groupID != 0 ){
+            $sql2 = "SELECT * FROM posts,users WHERE groupID=$groupID AND posts.userID = users.userID;";
+            $result2 = mysqli_query($link,$sql2);
         }
     ?>
 
@@ -56,80 +56,33 @@
 
         <!--load data if groupID is not selected so it is unfiltered data-->
     <?php 
-    if (! isset($_SESSION['groupID'])  ){
-    while ($row = mysqli_fetch_array($result1)) {
-        $postid = $row['postID'];
-        $sql2 = "SELECT  *
-        FROM posts, users
-        WHERE postID=$postid
-        AND posts.userID = users.userID;";
-        $result2 = mysqli_query($link,$sql2);
-        $usrRow = mysqli_fetch_array($result2);
-        $_SESSION['postID'] = $usrRow['postID'];
-    ?>
-            <!--first post-->
-            <div class="card">
-                <div class="image">
-                    <img <?php echo "src=".$usrRow['image'];?> />
-                </div>
-                <div class="content">
-                    <div class="title"><?php echo $usrRow['title']; ?></div>
-                    <div class="subtitle"><?php echo $usrRow['username'] , "  " ,date('d-m-Y',strtotime($usrRow['date'])); ?></div>
-                    <div class="bottom">
-                        <p><?php echo $usrRow['description']; ?></p>
-                        <button onclick="idgiver(this.id)" id=<?php echo $_SESSION['postID']; ?> href="Post.php" class="readmore">Read More</button>
-                        <!-- <button href="Post.php">Read More</button> -->
+        $groupID = NULL;
+        if ($groupID == 0 ){
+            while ($post = mysqli_fetch_array($all_posts_result)) {?>
+                    <!--first post-->
+                <div class="card">
+                    <div class="image">
+                        <img <?php echo "src=".$post['image'];?> />
+                    </div>
+                    <div class="content">
+                        <div class="title"><?php echo $post['title']; ?></div>
+                        <div class="subtitle"><?php echo $post['username'] , "  " ,date('d-m-Y',strtotime($post['date'])); ?></div>
+                        <div class="bottom">
+                            <p><?php echo $post['description']; ?></p>
+                            <button onclick="idgiver(this.id)" id=<?php echo $_SESSION['postID']; ?> href="Post.php" class="readmore">Read More</button>
+                            <!-- <button href="Post.php">Read More</button> -->
+                        </div>
                     </div>
                 </div>
-            </div>
     <?php }} ?>        
-            
-        <!--load data if groupID IS selected so it is FILTERED data
-        it will alwyas gets both of them in while you
-        try and add postID so that it will take one at a time
-        
-        -->   <!-- TODO THIS NEEDS UNDRESSING-->
-        <?php 
-    if (isset($_SESSION['groupID'])  ){
-    while ($row = mysqli_fetch_array($result2)) {
-        $groupID = $_SESSION['groupID'];
-        $postId = $row['postID'];
-        $sql3 = "SELECT  *
-        FROM posts,users
-        WHERE groupID=$groupID AND posts.userID = users.userID AND posts.postID =  $postId;";
-        $result3 = mysqli_query($link,$sql3);
-        $usrRow = mysqli_fetch_array($result3);
-    ?>
-            <!--first post-->
-            <div class="card">
-                <div class="image">
-                    <img <?php echo "src=".$usrRow['image'];?> />
-                </div>
-                <div class="content">
-                    <div class="title"><?php echo $usrRow['title']; ?></div>
-                    <div class="subtitle"><?php echo $usrRow['username'] , "  " ,date('d-m-Y',strtotime($usrRow['date'])); ?></div>
-                    <div class="bottom">
-                        <p><?php echo $usrRow['description']; ?></p>
-                        <button onclick="idgiver(this.id)" id=<?php echo $_SESSION['postID']; ?> href="Post.php" class="readmore">Read More</button>
-                        <!-- <button href="Post.php">Read More</button> -->
-                    </div>
-                </div>
-            </div>
-    <?php }} ?> 
-   
-        
     </div>
-
-
-
-
-
+        
 
     <!--Scripts-->
     <script>
        function idgiver(id) {
            
-        window.location.href="Post.php?uid=" + id;
+            window.location.href="Post.php?uid=" + id;
         }
            
     </script>

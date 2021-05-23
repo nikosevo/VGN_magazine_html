@@ -18,14 +18,22 @@
 		<?php 
             require_once "connect.php";
             include("navbar.php"); 
-            $usr = $_SESSION['userID'];
+            if(isset($_GET['uid'])) {
+                $usr = $_GET['uid'];
+            }else{
+                $usr = $_SESSION['userID'];
+            }
 
 
 
 
-            $sql1 = "SELECT * FROM users WHERE userID=$usr";
-            $result = mysqli_query($link,$sql1);
+            $sql = "SELECT * FROM users WHERE userID=$usr";
+            $result = mysqli_query($link,$sql);
             $user = mysqli_fetch_array($result);
+
+            $sql = "SELECT * FROM posts WHERE userID=$usr";
+            $result = mysqli_query($link,$sql);
+
 
         
   
@@ -36,13 +44,13 @@
         <div class="container__profile">
             <div class="black-box">
                 <span>author</span>
-                <div class="img-container"><img src="assets/profiles/default.jpg" alt=""></div>
+                <div class="img-container"><img src=<?php echo $user['avatar'];?> alt=""></div>
                 <a href="editProfile.php"><i class="fas fa-user-edit"></i></a>
             </div>
             <div class="details">
                 <h1><?php echo $user['fullname'];?></h1>
                 <h2><?php echo $user['username'];?></h2>
-                <p>some bullshit about you boring life we dont really care we just wanna show it to leou</p>
+                <p><?php echo $user['bio'];?></p>
             </div>
         </div>
         <!-- my arcticles section -->
@@ -54,22 +62,14 @@
 
             <!--The articles beggin to unravel-->
             <div class="articles-wrapper">
-                <a href="#" class="article">
-                    <h1 class="title">this is a title asdfasdf  <i class="fas fa-quote-right"></i></h1>
-                    <h2>this is jsut a description</h2>
+                <?php 
+                    while($usr_articles = mysqli_fetch_array($result)) { ?>
+                    <a href="#" class="article">
+                    <h1 class="title"><?php echo $usr_articles['title'];?><i class="fas fa-quote-right"></i></h1>
+                    <h2><?php echo $usr_articles['description'];?></h2>
                 </a>
-                <a href="#" class="article">
-                    <h1 class="title">this is a title asdfasdf  <i class="fas fa-quote-right"></i></h1>
-                    <h2>this is jsut a description</h2>
-                </a>
-                <a href="#" class="article">
-                    <h1 class="title">this is a title asdfasdf  <i class="fas fa-quote-right"></i></h1>
-                    <h2>this is jsut a description</h2>
-                </a>
-                <a href="#" class="article">
-                    <h1 class="title">this is a title asdfasdf  <i class="fas fa-quote-right"></i></h1>
-                    <h2>this is jsut a description</h2>
-                </a>
+                    
+                <?php } ?> 
                
             </div>
         </div>

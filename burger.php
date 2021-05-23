@@ -1,4 +1,14 @@
+
 <!doctype html>
+<?php
+
+  require_once "connect.php";
+
+  $sql = "SELECT * FROM groups";
+  $result = mysqli_query($link, $sql);
+
+
+?>
 <html>
 
 <head>
@@ -20,10 +30,9 @@ $result = mysqli_query($link, $sqlburger) or die(mysqli_error($link));
 <body>
   <div class="burger">
     <div class="cont">
-   <?php  while ($row = mysqli_fetch_array($result)) { ?>
-      <a href=""><?php $row[0] ?></a>
-      
-   <?php}?>
+      <?php while($row = mysql_fetch_array($result)){?>
+        <a href="#"><?php $row['groupName']?></a>
+      <?php }?>
     </div>
   </div>
   <div class="burger__toggler"><span></span></div>
