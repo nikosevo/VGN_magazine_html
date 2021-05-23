@@ -1,10 +1,10 @@
 $(document).ready(function(){
     $('.carousel').carousel({
-       
-        numVisible: 4,
+        shift: -1100,
+        numVisible: 7,
         duration:200,
         indicators: true,
-        dist: -30,
+        dist: -50,
         padding: 600,
     });
 });
