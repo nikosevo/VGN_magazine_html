@@ -24,7 +24,7 @@
   <div class="burger">
     <div class="cont">
       <?php while($row = mysqli_fetch_array($result)){ ?>
-          <a onclick="idgiver4(this.id);"  <?php echo "id=".$row['groudID'];?> href=""><?php echo $row['groupName']?></a>
+          <a onclick="idgiver4(this.id);" id=<?php echo $row['groupID']; ?> href="#"><?php echo $row['groupName']?></a>
       <?php } ?>
     </div>
   </div>
@@ -34,7 +34,7 @@
 
   <script>
 
-    function idgiver4(id) {window.location.href="Blog.php?uid=" + id;}
+    function idgiver4(id) {window.location.href="Blog.php?gid=" + id;}
 
     const toggler = document.querySelector('.burger__toggler');
     const menu = document.querySelector('.burger');

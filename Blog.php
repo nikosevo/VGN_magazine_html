@@ -45,8 +45,8 @@
         $all_posts_result = mysqli_query($link,$sql);
         
         if ($groupID != 0 ){
-            $sql = "SELECT * FROM posts,users WHERE groupID=$groupID AND posts.userID = users.userID;";
-            $all_posts_result = mysqli_query($link,$sql2);
+            $sql = "SELECT * FROM posts WHERE groupID=$groupID";
+            $all_posts_result = mysqli_query($link,$sql);
         }
     ?>
 
