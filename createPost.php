@@ -45,6 +45,7 @@
                         $newtitle = $_POST['title'];
                         $newdescription = $_POST['description'];
                         $newcontent = $_POST['content'];
+                        $currentDate = date("Y-m-d");
                         echo $_POST["select"];
                         if(!empty($_POST["select"])){
                             $category=$_POST["select"];
@@ -52,7 +53,7 @@
                         }
                         $author = $_SESSION['userID'];
                         
-                        $sql = "INSERT INTO `posts` (`postID`, `date`, `title`, `description`, `content`, `image`, `userID`, `groupID`) VALUES (NULL, NULL, '$newtitle', '$newdescription', '$newcontent', '$fileDestination', '$author', '$category')";
+                        $sql = "INSERT INTO `posts` (`postID`, `date`, `title`, `description`, `content`, `image`, `userID`, `groupID`) VALUES (NULL, $currentDate, '$newtitle', '$newdescription', '$newcontent', '$fileDestination', '$author', '$category')";
                         $result = mysqli_query($link, $sql) or die(mysqli_error($link));
                     }else{
                         echo "Very large file";
