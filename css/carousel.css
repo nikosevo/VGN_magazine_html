@@ -100,6 +100,35 @@
 
 @media only screen and (max-width: 1445px){
   .authors-carousel{
-    height: 300px;
+    height: 400px;
+  }
+  .revolver {
+    border: 1px solid red;
+    margin-top: 3.5vh;
+    height: 80%;
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    width: 150%;
+    
+  }
+  .revolver__image {
+    border-radius: 50%;
+    width: 14vw;
+    height: 14vw;
+    
+    
+  }
+  .txt2 {
+    color: white;
+    margin-left: 3vw;
+    margin-top: 2vh;
+    width: 5px;
+    text-shadow: 1px 1px white;
+    word-wrap: break-word;
+    font-size: 3vw;
+    font-weight: bold;
+    /* this is just for good looks */
   }
 }
