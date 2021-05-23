@@ -3,37 +3,26 @@
 <?php 
 session_start();
 include "connect.php";
-$_SESSION['postID'] = $_GET["pid"];
+include "functions.php";
 
 ?>
 
 <?php 
-if(isset($_POST['submit']) ){
+if(isset($_GET["pid"]) && $_GET["action"]=="delete"){
+    $_SESSION['postID'] = $_GET["pid"];
     $postID = $_SESSION['postID'];
     $error = 0;
 
     
-    $sql = "SELECT * FROM users WHERE username='$username'";
+    $sql = "DELETE FROM posts
+    WHERE postID = '$postID'";
     $result = mysqli_query($link, $sql) or die(mysqli_error($link));
-    $count = mysqli_num_rows($result);
     
-    $sql = "SELECT * FROM users WHERE email='$email'";
-    $result = mysqli_query($link, $sql) or die(mysqli_error($link));
-    $count = mysqli_num_rows($result);
-        
-    
-    else{
-        mysqli_autocommit($link, false);
-        $sql = "insert into users(userID,avatar,fullname,username,email,passwd,bio,roleID) values('','$avatar','$fullname','$username','$email','$password','','1')";
-        $result = mysqli_query($link,$sql) ;
-        if($result){
+    if($result){
             mysqli_commit($link);
-            echo"<font color=\"#3300FF\"><strong><br>Η εγγραφή ολοκληρώθηκε με επιτυχία!<br></font>";
-        }else{
-            mysqli_rollback($link);
-            echo"<font color=\"#FF0000\"><strong><br>Η εγγραφή ακυρώθηκε λόγω λαθών !<br></font>";
+            send_message('Post Deleted !', 'notice');
         }
-    }
+    
 }
 
 ?>
@@ -79,7 +68,7 @@ if(isset($_POST['submit']) ){
     
         <div class="admin-content">
             <div class="button-group">
-                <a href="createPostAdmin.php"class="btn-big">Create Post</a>
+                <a href="createPost.php"class="btn-big">Create Post</a>
                 <a href="adminpage.php" class="btn-big">Manage Posts</a>
             </div>
             <div class="admContent">
@@ -108,7 +97,7 @@ if(isset($_POST['submit']) ){
                             <td><?php echo $usrRow['title']; ?></td>
                             <td><?php echo $usrRow['fullname']; ?></td>
                             <td><button onclick="idgiver(this.id)" id=<?php echo $_SESSION['postID']; ?> href="editPost.php" class="edit">edit</button></td>
-                            <td><button onclick="idgiver2(this.id)" id=<?php echo $_SESSION['postID']; ?> href="adminpage.php" name="submit" class="delete">delete</button></td>
+                            <td><button onclick="idgiver2(this.id)" id=<?php echo $_SESSION['postID']; ?> href="adminpage.php" name="del" class="delete">delete</button></td>
                             
                         </tr>
                     <?php }?>
@@ -126,7 +115,7 @@ if(isset($_POST['submit']) ){
         window.location.href="editPost.php?pid=" + id;
         }
         function idgiver2(id) {
-        window.location.href="adminpage.php?pid=" + id;
+        window.location.href="adminpage.php?pid=" + id + "&action=delete";
         }
            
     </script>

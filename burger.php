@@ -9,16 +9,21 @@
 
 
 </head>
+<?php
+$sqlburger = "SELECT  groupName
+FROM groups,subscribedto,users
+WHERE groups.groupID=subscribedto.GroupId AND users.userID = subscribedto.UserId AND users.userID=$_SESSION['userID']";
+$result = mysqli_query($link, $sqlburger) or die(mysqli_error($link));
+?>
 
 
 <body>
   <div class="burger">
     <div class="cont">
-      <a href="">Sports</a>
-      <a href="">Sports</a>
-      <a href="">Sports</a>
-      <a href="">Sports</a>
-      <a href="">Sports</a>
+   <?php  while ($row = mysqli_fetch_array($result)) { ?>
+      <a href=""><?php $row[0] ?></a>
+      
+   <?php}?>
     </div>
   </div>
   <div class="burger__toggler"><span></span></div>

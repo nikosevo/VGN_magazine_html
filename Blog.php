@@ -32,7 +32,7 @@
     </header>
     <div>
     <?php 
-        include("burger.html");
+        include("burger.php");
     ?>
         
 
