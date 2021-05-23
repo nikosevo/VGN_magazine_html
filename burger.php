@@ -1,14 +1,9 @@
 
-<!doctype html>
 <?php
-
   require_once "connect.php";
-
-  $sql = "SELECT * FROM groups";
-  $result = mysqli_query($link, $sql);
-
-
 ?>
+
+<!doctype html>
 <html>
 
 <head>
@@ -20,23 +15,27 @@
 
 </head>
 <?php
-$sqlburger = "SELECT  groupName
-FROM groups,subscribedto,users
-WHERE groups.groupID=subscribedto.GroupId AND users.userID = subscribedto.UserId AND users.userID=$_SESSION['userID']";
-$result = mysqli_query($link, $sqlburger) or die(mysqli_error($link));
+  $sqlburger = "SELECT * FROM groups";
+  $result = mysqli_query($link, $sqlburger);
 ?>
 
 
 <body>
   <div class="burger">
     <div class="cont">
-      <?php while($row = mysql_fetch_array($result)){?>
-        <a href="#"><?php $row['groupName']?></a>
-      <?php }?>
+      <?php while($row = mysqli_fetch_array($result)){ ?>
+          <a onclick="idgiver4(this.id);"  <?php echo "id=".$row['groudID'];?> href=""><?php echo $row['groupName']?></a>
+      <?php } ?>
     </div>
   </div>
   <div class="burger__toggler"><span></span></div>
+
+
+
   <script>
+
+    function idgiver4(id) {window.location.href="Blog.php?uid=" + id;}
+
     const toggler = document.querySelector('.burger__toggler');
     const menu = document.querySelector('.burger');
 
