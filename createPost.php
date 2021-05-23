@@ -43,8 +43,7 @@
                         $newtitle = $_POST['title'];
                         $newdescription = $_POST['description'];
                         $newcontent = $_POST['content'];
-                        $currentDate = date("Y-m-d");
-                        echo $_POST["select"];
+                        $currentDate = date('Y-m-d');
                         if(!empty($_POST["select"])){
                             $category=$_POST["select"];
                         }else{
@@ -52,7 +51,7 @@
                         }
                         $author = $_SESSION['userID'];
                         if($category!=NULL ){
-                        $sql = "INSERT INTO `posts` (`postID`, `date`, `title`, `description`, `content`, `image`, `userID`, `groupID`) VALUES (NULL, $currentDate, '$newtitle', '$newdescription', '$newcontent', '$fileDestination', '$author', '$category')";
+                        $sql = "INSERT INTO `posts` (`postID`, `date`, `title`, `description`, `content`, `image`, `userID`, `groupID`) VALUES (NULL, '$currentDate', '$newtitle', '$newdescription', '$newcontent', '$fileDestination', '$author', '$category')";
                         $result = mysqli_query($link, $sql) or die(mysqli_error($link));
                         }
                         else{echo '<script>alert("Please select a category")</script>';}
