@@ -17,6 +17,7 @@
 </head>
 <?php
         require_once "connect.php";
+        session_start();
 
         if(isset($_POST['submit'])){
             $file = $_FILES['file'];
@@ -34,19 +35,26 @@
 
             if(in_array($fileActualExt,$allowed)){
                 if($fileError === 0){
-                    if($fileSize < 500000){
-                        echo $fileActualExt;
+                    if($fileSize < 5000000){
                         $fileNameNew = uniqid('',true).".".$fileActualExt;
-                        echo $fileNameNew;
                         $fileDestination='assets/'.$fileNameNew;
                         move_uploaded_file($fileTmpName,$fileDestination);
                                 
                         $newtitle = $_POST['title'];
                         $newdescription = $_POST['description'];
                         $newcontent = $_POST['content'];
-                        
-                        $sql = "INSERT INTO `posts` (`postID`, `date`, `title`, `description`, `content`, `image`, `userID`, `groupID`) VALUES (NULL, NULL, '$newtitle', '$newdescription', '$newcontent', '$fileDestination', '1', '1')";
+                        $currentDate = date('Y-m-d');
+                        if(!empty($_POST["select"])){
+                            $category=$_POST["select"];
+                        }else{
+                            $category= NULL;
+                        }
+                        $author = $_SESSION['userID'];
+                        if($category!=NULL ){
+                        $sql = "INSERT INTO `posts` (`postID`, `date`, `title`, `description`, `content`, `image`, `userID`, `groupID`) VALUES (NULL, '$currentDate', '$newtitle', '$newdescription', '$newcontent', '$fileDestination', '$author', '$category')";
                         $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+                        }
+                        else{echo '<script>alert("Please select a category")</script>';}
                     }else{
                         echo "Very large file";
                     }
@@ -155,19 +163,22 @@
                     </ul>
                 </div>
 
-                <textarea id="output" name="content" contenteditable="true"></textarea>
+                <textarea id="output" name="content" contenteditable="true" required></textarea>
             </div>
             <div class="options">
                 <input type="file" id="file" accept="image/*" name="file">
                 <label for="file"><i class="fas fa-upload"></i></label>
                 <div class="custom-select" style="width:200px;">
-                    <select>
-                        <option value="0">Select car:</option>
-                        <option value="1">Audi</option>
-                        <option value="2">BMW</option>
-                        <option value="3">Citroen</option>
-                        <option value="4">Ford</option>
-                        <option value="5">Honda</option>
+                    <select name="select" >
+                        <option value="">Select category</option>
+                        <?php 
+                            $sql1 = "SELECT groupName,groupID FROM groups";
+                            $categories = mysqli_query($link,$sql1);
+                            while ($row =  mysqli_fetch_array($categories)) 
+                            {?>
+                                <option value=<?php echo $row['groupID']?>><?php echo $row['groupName']?></option>
+                            
+                        <?php }?>
                     </select>
                 </div>
                 <div class="btnWrap">
@@ -179,6 +190,7 @@
     </form>
 
     <script type="text/javascript" src="js/createPost.js"></script>"
+
     
 </body>
 </html>

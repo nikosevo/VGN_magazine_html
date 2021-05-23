@@ -19,7 +19,7 @@ if(isset($_POST['submit']) && $_POST['submit']== "Insert"){
     $password = $_POST['password'];
     $password2 = $_POST['password2'];
     $email = $_POST['email'];
-    $avatar = "assets/SVG/default-user.svg";
+    $avatar = "assets/profiles/default.jpg";
     $error = 0;
 
     if($fullname == ""){
@@ -64,6 +64,7 @@ if(isset($_POST['submit']) && $_POST['submit']== "Insert"){
         echo "<font color=\"#FF0000\">Η εγγραφή ακυρώθηκε λόγω λαθών στα στοιχεία εισόδου!<br></font>" ;
     }else{
         mysqli_autocommit($link, false);
+        $password = md5($password);
         $sql = "insert into users(userID,avatar,fullname,username,email,passwd,bio,roleID) values('','$avatar','$fullname','$username','$email','$password','','1')";
         $result = mysqli_query($link,$sql) ;
         if($result){

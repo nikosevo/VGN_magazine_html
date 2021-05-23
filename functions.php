@@ -51,5 +51,14 @@ function getCategoriesResult(){
     return $result;
 }
 
+function getLogedUser(){
+
+    include "connect.php";
+    $userID = $_SESSION['userID'];
+    $sql = "SELECT * FROM users WHERE userID = $userID";
+    $result = mysqli_query($link,$sql);
+    $loggedInUsr = mysqli_fetch_array($result);
+    return $loggedInUsr;
+}
 
 ?>

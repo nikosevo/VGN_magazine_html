@@ -1,9 +1,10 @@
+<?php
+    session_start();
+    include("functions.php");
+    $user = getLogedUser();
+?>
 <!DOCTYPE html>
 <html lang="en">
-<?php
-session_start();
-include("functions.php");
-?>
 
 <head>
     <meta charset="UTF-8">
@@ -23,7 +24,7 @@ include("functions.php");
     <!--Navbar-->
     <header>
         <?php 
-        include("navbar.php"); 
+            include("navbar.php"); 
         ?>
     </header>
     
@@ -32,33 +33,32 @@ include("functions.php");
         <form action="editprofilescripts.php" method="POST" enctype="multipart/form-data">
             <div class="container">
                 <div class="gridContent">
-                    
-                   <input type="file" name="file" class="uploadPhoto"> <img src="assets/profiles/default.jpg" alt="avatar" class="avatar"><br>
+                   <input type="file" name="file" class="uploadPhoto" onclick="updateImage()"> <img src=<?php echo $user['avatar']; ?> alt="avatar" class="avatar"><br>
                     <button type="submit" name="submit" class="glow-on-hover" id="uploadBtn">save Changes</button>
                 </div>
                 
                 <div id="wrap">
                     <div class="grid">
                         <div class="form">
-                            <input type="text" name="name" autocomplete="off" required />
+                            <input type="text" name="name" autocomplete="off" required value=<?php echo $user['username']; ?> />
                             <label for="name" class="label-name">
                                 <span class="content-name">Username</span>
                             </label>
                         </div>
                         <div class="form">
-                            <input type="text" name="email" autocomplete="off" required />
+                            <input type="text" name="email" autocomplete="off" required  value=<?php echo $user['email']; ?> />
                             <label for="name" class="label-name">
                                 <span class="content-name">email</span>
                             </label>
                         </div>
                         <div class="form">
-                            <input type="text" name="password" autocomplete="off" required />
+                            <input type="password" name="password" autocomplete="off" required  value=<?php echo $user['passwd'];?> />
                             <label for="name" class="label-name">
                                 <span class="content-name">new password</span>
                             </label>
                         </div>
                         <div class="form">
-                            <input type="text" name="fewWords" autocomplete="off" required />
+                            <input type="text" name="fewWords" autocomplete="off" required  value=<?php echo $user['bio'];?> />
                             <label for="name" class="label-name">
                                 <span class="content-name">fewWords</span>
                             </label>
@@ -67,7 +67,6 @@ include("functions.php");
                 </div>
             </div>
         </form>
-
 
 </body>
 

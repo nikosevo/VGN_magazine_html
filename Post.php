@@ -6,6 +6,7 @@
     include "article.php";
     $postID = $_GET["uid"];   //the most important line ever dont move or change it thanks to this everythin works -valantis- :3
     $post = getPost($postID);
+    $author = getAuthor($postID);
 ?>
 
 <head>
@@ -41,16 +42,16 @@
                 <div class="entry-author">
                     <a href="#author">
                         <div>
-                            <img class="author-avatar" src=<?php echo $post['avatar']; ?> alt="DesignRevision Editorial">
+                            <img class="author-avatar" src=<?php echo $author['avatar']; ?> alt="DesignRevision Editorial">
                         </div>
                         <div class="author-details vcard author author_name">
-                            <p class="fn">By <span><?php echo $post['fullname']; ?></span></p>
+                            <p class="fn">By <span><?php echo $author['fullname']; ?></span></p>
                         </div>
                     </a>
                 </div>
 
                 <div class="updated-date">
-                    <p>Written <span class="updated"> <?php echo $post['date']; ?> </span></p>
+                    <p>Last Edited on:  <span class="updated"> <?php echo $post['date']; ?> </span></p>
                 </div>
 
             </div>
