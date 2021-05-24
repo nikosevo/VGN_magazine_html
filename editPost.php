@@ -32,10 +32,10 @@
         $result = mysqli_query($link, $sqlroles) or die(mysqli_error($link));
         $row = mysqli_fetch_array($result);
 
-        $sqlowner="SELECT userID FROM posts , users WHERE posts.userID=users.userID AND posts.postID='$idofPost'";  
+        $sqlowner="SELECT users.userID FROM posts , users WHERE posts.userID=users.userID AND posts.postID='$idofPost'";  
         $resultowner = mysqli_query($link, $sqlroles) or die(mysqli_error($link));
         
-        if(in_array(3,$row) || in_array(1,$row)){
+        if(in_array(1,$row) || in_array(3,$row)){
             $hasPrivilages = true;
     
         }
