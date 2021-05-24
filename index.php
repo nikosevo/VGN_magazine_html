@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
-    $link = mysqli_connect("localhost","root","","database");
-    if ($link===false){
-        die("ERROR: Den egine sindesi sthn vasi");
-    }
+    require_once "connect.php";
     session_start();
 	include "functions.php";
 	$randPost = getRandPost(); 
