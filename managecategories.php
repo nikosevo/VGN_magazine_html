@@ -121,7 +121,7 @@ if(isset($_GET["uid"]) && $_GET["action"]=="delete"){
                             <td><?php echo $usrRow['groupID']; ?></td>
                             <td><?php echo $usrRow['groupName']; ?></td>
                             <td><?php echo $usrRow['groupDescription']; ?></td>
-                            <td><button onclick="idgiver(this.id)" id=<?php echo $_SESSION['groupID']; ?> href="editPost.php" class="edit">edit</button></td>
+                            <td><button onclick="idgiver(this.id)" id=<?php echo $_SESSION['groupID']; ?> href="editCategory.php" class="edit">edit</button></td>
                             <td><button onclick="idgiver2(this.id)" id=<?php echo $_SESSION['groupID']; ?> href="manageusers.php" name="del" class="delete">delete</button></td>
                             
                         </tr>
@@ -137,7 +137,7 @@ if(isset($_GET["uid"]) && $_GET["action"]=="delete"){
     <script>
        function idgiver(id) {
            
-        window.location.href="editPost.php?uid=" + id;
+        window.location.href="editCategory.php?cid=" + id;
         }
         function idgiver2(id) {
         window.location.href="managecategories.php?uid=" + id + "&action=delete";

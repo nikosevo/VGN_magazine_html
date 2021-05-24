@@ -122,7 +122,7 @@ if(isset($_GET["uid"]) && $_GET["action"]=="delete"){
                             <td><?php echo $usrRow['fullname']; ?></td>
                             <td><?php echo $usrRow['username']; ?></td>
                             <td><?php echo $usrRow['email']; ?></td>
-                            <td><button onclick="idgiver(this.id)" id=<?php echo $_SESSION['userID']; ?> href="editPost.php" class="edit">edit</button></td>
+                            <td><button onclick="idgiver(this.id)" id=<?php echo $_SESSION['userID']; ?> href="editProfile.php" class="edit">edit</button></td>
                             <td><button onclick="idgiver2(this.id)" id=<?php echo $_SESSION['userID']; ?> href="manageusers.php" name="del" class="delete">delete</button></td>
                             
                         </tr>
@@ -138,7 +138,7 @@ if(isset($_GET["uid"]) && $_GET["action"]=="delete"){
     <script>
        function idgiver(id) {
            
-        window.location.href="editPost.php?uid=" + id;
+        window.location.href="editProfile.php?uid=" + id;
         }
         function idgiver2(id) {
         window.location.href="manageusers.php?uid=" + id + "&action=delete";
