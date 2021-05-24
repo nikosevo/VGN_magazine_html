@@ -42,20 +42,20 @@
 			exit();
 		}
 		switch ($_SESSION['roleID']) {
-			case 1: //admin
-				echo "success!";
-				header("Location: adminpage.php");
-				exit();
-				break;
-			case 2: //writer
-				header("Location: index.php");
-				exit();
-				break;
-			case 3: //reader
-				header("Location: index.php");
-				exit();
-				break;
-			}   
+		case 1: //admin
+            echo "success!";
+            header("Location: graphpage.php");
+            exit();
+            break;
+		case 2: //writer
+            header("Location: index.php");
+            exit();
+            break;
+		case 3: //reader
+            header("Location: index.php");
+            exit();
+            break;
+		}   
         }
 		
 	?>
