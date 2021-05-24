@@ -6,7 +6,11 @@
     echo $userID;
     echo $groupID;
 
-    $sql = "INSERT INTO subscribedto (UserId  , GroupId) VALUES ($userID,$groupID)";
-    $result = mysqli_query($link,$sql);
-    echo "ola pena";
+    if(isset($userID) && isset($groupID)){
+        $sql = "INSERT INTO subscribedto (UserId  , GroupId) VALUES ($userID,$groupID)";
+        $result = mysqli_query($link,$sql);
+    }
+
+    header("LOCATION:Blog.php");
+    exit();
 ?>

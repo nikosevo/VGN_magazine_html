@@ -1,13 +1,8 @@
 <!DOCTYPE html>
 
 <?php
-session_start();
-if(isset($_GET["pid"])){
-    $_SESSION['postID'] = $_GET["pid"];   //the most important line ever dont move or change it thanks to this everythin works -valantis- :3
-}
-
-
-include "connect.php";
+    include "connect.php";
+    session_start();
 ?>
 <html lang="en">
 
@@ -30,9 +25,43 @@ include "connect.php";
     <?php 
     include("navbar.php"); 
     include("functions.php"); 
+
+    if(isset($_SESSION['userID'])){
+        $loggedNow = $_SESSION['userID'];
+        $sqlroles="SELECT roleId FROM hasrole WHERE userId='$loggedNow'";  
+        $result = mysqli_query($link, $sqlroles) or die(mysqli_error($link));
+        $row = mysqli_fetch_array($result);
+
+        $sqlowner="SELECT users.userID FROM posts , users WHERE posts.userID=users.userID AND posts.postID='$idofPost'";  
+        $resultowner = mysqli_query($link, $sqlroles) or die(mysqli_error($link));
+        
+        if(in_array(1,$row) || in_array(3,$row)){
+            $hasPrivilages = true;
+    
+        }
+        elseif ($resultowner) {
+            $hasPrivilages = true;
+        }
+        else{
+            
+            $hasPrivilages=false;
+        }
+    
+    
+    }
+    else{
+        
+        $hasPrivilages=false;
+    }
+    
+    if(!$hasPrivilages){
+        header("LOCATION: priv.php");
+        exit();
+    }
     ?>
 </header>
         <?php
+        $post = $_GET["pid"];
         if(isset($_POST['submit'])){
             $file = $_FILES['file'];
             $fileName = $_FILES['file']['name']; 
@@ -42,31 +71,58 @@ include "connect.php";
             $fileType = $_FILES['file']['type']; 
             $fileDestination="";
 
-            $fileExt = explode('.', $fileName);
-            $fileActualExt = strtolower(end($fileExt));
-
-            $allowed = array('jpg','jpeg','png');
-
-            if(in_array($fileActualExt,$allowed)){
-                if($fileError === 0){
-                    if($fileSize < 500000){
-                        echo $fileActualExt;
-                        $fileNameNew = uniqid('',true).".".$fileActualExt;
-                        echo $fileNameNew;
-                        $fileDestination='assets/'.$fileNameNew;
-                        echo $fileDestination;
-                        move_uploaded_file($fileTmpName,$fileDestination);
+            if($fileName != ''){
+                $fileExt = explode('.', $fileName);
+                $fileActualExt = strtolower(end($fileExt));
+    
+                $allowed = array('jpg','jpeg','png');
+    
+                if(in_array($fileActualExt,$allowed)){
+                    if($fileError === 0){
+                        if($fileSize < 5000000){
+                            $fileNameNew = uniqid('',true).".".$fileActualExt;
+                            $fileDestination='assets/'.$fileNameNew;
+                            move_uploaded_file($fileTmpName,$fileDestination);
+                        }else{
+                            echo "Very large file";
+                        }
+                        
                     }else{
-                        echo "Very large file";
+                        echo "There was an error uploading your file";
                     }
-                    
                 }else{
-                    echo "There was an error uploading your file";
+                    echo "You cannot upload files of this type";
                 }
-            }else{
-                echo "You cannot upload files of this type";
-            }
+    
+    
+            
+                $newtitle = $_POST['title'];
+                $newdescription = $_POST['description'];
+                $newcontent = $_POST['content'];
+                $currentDate = date("Y-m-d");
+                echo "<script> alert(".$fineName.");</script>";
+                echo "<script> alert('omggg noog');</script>";
 
+                $omgfack = $_SESSION['postID'];
+
+                $sql = "UPDATE posts SET date='$currentDate',title='$newtitle',description='$newdescription',content='$newcontent',image='$fileDestination' WHERE postID='$post'";
+                $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+                header("LOCATION:viewProfile.php");
+                exit();
+            }else{
+                $newtitle = $_POST['title'];
+                $newdescription = $_POST['description'];
+                $newcontent = $_POST['content'];
+                $currentDate = date("Y-m-d");
+                
+                $sql = "UPDATE posts SET date='$currentDate',title='$newtitle',description='$newdescription',content='$newcontent' WHERE postID='$post'";
+
+
+                $result = mysqli_query($link, $sql);
+                header("LOCATION:viewProfile.php");
+                exit();
+
+            }
 
         
             $newtitle = $_POST['title'];
@@ -74,19 +130,23 @@ include "connect.php";
             $newcontent = $_POST['content'];
             $currentDate = date("Y-m-d");
             
-            $sql = "UPDATE posts SET date = '$currentDate' ,title = '$newtitle' , description = '$newdescription' ,  content = '$newcontent' , image = '$fileDestination' WHERE postID = 1;";
-            $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+            if($fileDestination==""){
+                $sql = "UPDATE posts SET `date` = '$currentDate' ,title = '$newtitle' , `description` = '$newdescription' ,  content = '$newcontent'  WHERE postID = $idofPost;";
+                $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+            }
+            else{
+                $sql = "UPDATE posts SET `date` = '$currentDate' ,title = '$newtitle' , `description` = '$newdescription' ,  content = '$newcontent' , `image` = '$fileDestination' WHERE postID = $idofPost;";
+                $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+            }
            
         }
         ?> 
 <body>
 
     <?php 
-        if (isset($_SESSION['postID'])){
-            $postID = $_SESSION['postID'];
+        $postID = $_GET["pid"];
         $sql2 = "SELECT * FROM posts,users WHERE postID=$postID AND posts.userID = users.userID;";
         $result2 = mysqli_query($link,$sql2);
-        }
 
         $row = mysqli_fetch_array($result2);
         $title = $row['title'];
@@ -95,7 +155,7 @@ include "connect.php";
     ?>
 
                 
-    <form class="wrapper" method="post" enctype="multipart/form-data" action="editPost.php">
+    <form class="wrapper" method="post" enctype="multipart/form-data" action="editPost.php?pid=<?php echo $postID?>">
         <div class="container">
             <div class="textFields">
 

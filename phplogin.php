@@ -17,7 +17,7 @@
 		
 		if (empty($username) || empty($password)) {
            
-			send_message('Πρέπει να συμπληρώσετε και τα 2 πεδία (όνομα και κωδικό χρήστη)','error');
+			send_message('please fillout the form in full','error');
 
 		}
 		else{
@@ -35,6 +35,8 @@
 			$_SESSION['passwd'] = $password;
 			$_SESSION['roleID'] = $role;
 			$_SESSION['userID'] = $row['userID'];
+			echo $username;
+			echo $password;
 			} else {
 			send_message('Wrong Credentials Try Again', 'error');
             
@@ -59,3 +61,10 @@
         }
 		
 	?>
+
+Notice: Undefined index: uid in C:\xampp\htdocs\VGN\Post.php on line 7 Warning: mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in C:\xampp\htdocs\VGN\article.php on line 8 Warning: mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in C:\xampp\htdocs\VGN\article.php on line 19 Notice: Undefined index: userID in C:\xampp\htdocs\VGN\Post.php on line 10
+Notice: Undefined index: pid in C:\xampp\htdocs\VGN\Post.php on line 7
+
+Warning: mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in C:\xampp\htdocs\VGN\article.php on line 8
+
+Warning: mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in C:\xampp\htdocs\VGN\article.php on line 19

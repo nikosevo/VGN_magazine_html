@@ -1,9 +1,36 @@
 <!DOCTYPE html>
-
+<!-- 2 1 -->
 <?php 
 session_start();
 include "connect.php";
 include "functions.php";
+
+if(isset($_SESSION['userID'])){
+    $loggedNow = $_SESSION['userID'];
+    $sqlroles="SELECT roleId FROM hasrole WHERE userId='$loggedNow'";  
+    $result = mysqli_query($link, $sqlroles) or die(mysqli_error($link));
+    $row = mysqli_fetch_array($result);
+    
+    if(in_array(2,$row) || in_array(1,$row)){
+        $hasPrivilages = true;
+
+    }
+    else{
+        $msg="da";
+        $hasPrivilages=false;
+    }
+
+
+}
+else{
+    $msg= "2a";
+    $hasPrivilages=false;
+}
+
+if(!$hasPrivilages){
+    header("LOCATION: priv.php");
+    exit();
+}
 
 ?>
 

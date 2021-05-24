@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php 
+require_once "connect.php";
+session_start(); 
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,9 +19,42 @@
 	<link rel="stylesheet" href="css/input.css">
 
 </head>
+
 <?php
-        require_once "connect.php";
-        session_start();
+        
+
+        
+        if(isset($_SESSION['userID'])){
+           
+            $loggedNow = $_SESSION['userID'];
+            $sqlroles="SELECT roleId FROM hasrole WHERE userId='$loggedNow'";  
+            $result = mysqli_query($link, $sqlroles) or die(mysqli_error($link));
+            $row = [];
+            while($row = $result->fetch_row()){
+                if(in_array(4,$row) || in_array(1,$row) || in_array(3,$row)){
+                    $hasPrivilages = true;
+                    break;
+            
+                }
+                else{
+                    $hasPrivilages = false;
+                }
+            }
+            
+        
+        
+        }
+        else{
+            $hasPrivilages=false;
+        }
+        
+        if($hasPrivilages==false){
+            header("LOCATION: priv.php");
+            exit();
+        }
+        
+
+        
 
         if(isset($_POST['submit'])){
             $file = $_FILES['file'];
