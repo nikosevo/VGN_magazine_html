@@ -115,14 +115,14 @@ if(isset($_GET["pid"]) && $_GET["action"]=="delete"){
                     AND posts.userID = users.userID;";
                     $result2 = mysqli_query($link,$sql2);
                     $usrRow = mysqli_fetch_array($result2);
-                    $_SESSION['postID'] = $usrRow['postID'];
+                    $postid = $usrRow['postID'];
                     ?>
                         <tr>
                             <td><?php echo $usrRow['postID']; ?></td>
                             <td><?php echo $usrRow['title']; ?></td>
                             <td><?php echo $usrRow['fullname']; ?></td>
-                            <td><button onclick="idgiver(this.id)" id=<?php echo $_SESSION['postID']; ?> href="editPost.php" class="edit">edit</button></td>
-                            <td><button onclick="idgiver2(this.id)" id=<?php echo $_SESSION['postID']; ?> href="adminpage.php" name="del" class="delete">delete</button></td>
+                            <td><button onclick="idgiver(this.id)" id=<?php echo $postid; ?> href="editPost.php" class="edit">edit</button></td>
+                            <td><button onclick="idgiver2(this.id)" id=<?php echo $postid; ?> href="adminpage.php" name="del" class="delete">delete</button></td>
                             
                         </tr>
                     <?php }?>

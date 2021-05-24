@@ -115,15 +115,15 @@ if(isset($_GET["uid"]) && $_GET["action"]=="delete"){
                     //  AND hasrole.userID = users.userID;
                     $result2 = mysqli_query($link,$sql2);
                     $usrRow = mysqli_fetch_array($result2);
-                    $_SESSION['userID'] = $usrRow['userID'];
+                    $userid = $usrRow['userID'];
                     ?>
                         <tr>
                             <td><?php echo $usrRow['userID']; ?></td>
                             <td><?php echo $usrRow['fullname']; ?></td>
                             <td><?php echo $usrRow['username']; ?></td>
                             <td><?php echo $usrRow['email']; ?></td>
-                            <td><button onclick="idgiver(this.id)" id=<?php echo $_SESSION['userID']; ?> href="editProfile.php" class="edit">edit</button></td>
-                            <td><button onclick="idgiver2(this.id)" id=<?php echo $_SESSION['userID']; ?> href="manageusers.php" name="del" class="delete">delete</button></td>
+                            <td><button onclick="idgiver(this.id)" id=<?php echo $userid; ?> href="editProfile.php" class="edit">edit</button></td>
+                            <td><button onclick="idgiver2(this.id)" id=<?php echo $userid; ?> href="manageusers.php" name="del" class="delete">delete</button></td>
                             
                         </tr>
                     <?php }?>
