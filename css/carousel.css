@@ -10,6 +10,9 @@
   height: 50vh;
   width: 100%;
   margin-top:10vw;
+  transition: 0.6s;
+
+
 
 }
 /*almost blue box to be more accurate its more like green or smt idk*/
@@ -60,6 +63,7 @@
 }
 
 .revolver__item {
+  
   margin-top: 10vh;
   width: 40%;
   flex-shrink: 0.1;
@@ -67,6 +71,8 @@
 }
 
 .revolver__image {
+  transition: 0.4s;
+
   border-radius: 50%;
   width: 8vw;
   height: 8vw;
@@ -99,10 +105,14 @@
 }
 
 @media only screen and (max-width: 1445px){
+  
   .authors-carousel{
     height: 400px;
+    transition: 0.6s;
   }
   .revolver__item {
+    transition: 0.6s;
+
     margin-top: 7.5vh;
     width: 40%;
     flex-shrink: 0.1;
@@ -120,9 +130,11 @@
     
   }
   .revolver__image {
+    transition: 0.4s;
+
     border-radius: 50%;
-    width: 13vw;
-    height: 13vw;
+    width: 12vw;
+    height: 12vw;
     
     
   }
@@ -137,4 +149,85 @@
     font-weight: bold;
     /* this is just for good looks */
   }
+
+  .bluebox {
+    text-align: center;
+    margin-left: -3vw;
+    margin-top: -2vw;
+    padding: 1px 20px;
+    padding-right: 4vw;
+    background-color: #51ECC2;
+    height: 35vh;
+  
+    color: rgb(0, 0, 0);
+    border-radius: 20vmin;
+  }
+
+}
+@media only screen and (max-width: 650px){
+  .authors-carousel{
+    height: 400px;
+    transition: 0.6s;
+
+  }
+  .revolver__item {
+    transition: 0.6s;
+
+    margin-top: 7.5vh;
+    width: 40%;
+    flex-shrink: 0.1;
+    scroll-behavior: smooth;
+  }
+  .revolver {
+    
+    margin-top: 0.5vh;
+    height: 80%;
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    width: 150%;
+    
+  }
+  .revolver__image {
+    transition: 0.4s;
+
+    border-radius: 50%;
+    width: 20vw;
+    height: 20vw;
+    
+    
+  }
+  .txt2 {
+    color: white;
+    margin-left: 3vw;
+    margin-top: 2vh;
+    width: 5px;
+    text-shadow: 1px 1px white;
+    word-wrap: break-word;
+    font-size: 3.5vw;
+    font-weight: bold;
+    /* this is just for good looks */
+  }
+
+  .bluebox {
+    text-align: center;
+    margin-left: -3vw;
+    margin-top: -2vw;
+    padding: 1px 20px;
+    padding-right: 4vw;
+    background-color: #51ECC2;
+    height: 25vh;
+  
+    color: rgb(0, 0, 0);
+    border-radius: 20vmin;
+  }
+  .svg{
+    position: absolute;
+    margin-top: 5vh;
+    margin-left: 7vw;
+    width: 20vw;
+    z-index: 10;
+  }
+
 }
