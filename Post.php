@@ -7,13 +7,14 @@
     $postID = $_GET["uid"];   
     $post = getPost($postID);
     $author = getAuthor($postID);
-    $loggedIn = $_SESSION['userID'];
+    $loggedUser = $_SESSION['userID'];
+
 ?>
 
 <head>
     <title><?php echo $post['title'] ?></title>
-    <link rel="stylesheet" href="css/Post.css">
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/Post.css">
 </head>
 <header>
     <?php include "navbar.php";?>
@@ -28,7 +29,7 @@
         <div class="content">
             <article id="s1">
                 <div class="squeezed"><br>
-                    <h1><?php echo $post['groupName']; ?></h1>
+                    <h1><?php echo $post['groupID']; ?></h1>
                     <h1 class="entry-title"><?php echo $post['title']; ?></h1>
 
 
@@ -60,20 +61,11 @@
 
             <article id="s3">
                 <h3>Do you want to see more of these posts?</h3> <br><br>
-                <a onclick="subto(this.id);"id=<?php echo $post['groupID']?> class="subBtn" >subscribe</a>
+                <a <?php echo "href=subscribe.php?uid=".$loggedUser."&gid=".$post['groupID']; ?> id=<?php echo $post['groupID']?> class="subBtn" >subscribe</a>
             </article>
             <br><br><br><br><br><br><br><br><br>
         </div>
         <!--Scripts-->
-        <script>
-            function subto(id){
-                <?php 
-                    $sql = "INSERT INTO subscribedto (UserId  , GroupId)
-                            VALUES ($loggedIn,2)";
-                    $result = mysql_query($sql);
-                ?>
-            }
-        </script>
         <script type="text/javascript" src="js/Post.js"></script>
     </main>
 </body>
