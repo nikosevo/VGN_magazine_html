@@ -45,15 +45,19 @@
 			<h2>Science to Fashion</h2>
 			<h1>More than just your usual<br> Magazine</h1>
 			<div id="links">
-				<?php if(isset($_SESSION['userID'])){ ?>
-					<a href="createPost.php" id="container__item__cta">Start Writing Now!</a>
+			<?php if(isset($_SESSION['userID']) && $_SESSION['roleID']==1){ ?>
+					<a href="adminpage.php" id="container__item__cta">Admin</a>
+
+				<?php } ?>
+				<?php if(isset($_SESSION['userID']) && $_SESSION['roleID']!=1){ ?>
+					<a href="createPost.php" id="container__item__cta">Write Now!</a>
 
 				<?php } ?>
 				<?php if(!isset($_SESSION['userID'])){ ?>
 					<a href="register.php" id="container__item__cta">Sign up now</a>
 
 				<?php } ?>
-				<a href="#">Read a post</a>
+				<a href="randompostpicker.php">Read a post</a>
 			</div>
 		</div>
 		<!-- we get the random post in the top -->
