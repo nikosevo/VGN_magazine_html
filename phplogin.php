@@ -17,7 +17,7 @@
 		
 		if (empty($username) || empty($password)) {
            
-			send_message('Πρέπει να συμπληρώσετε και τα 2 πεδία (όνομα και κωδικό χρήστη)','error');
+			send_message('please fillout the form in full','error');
 
 		}
 		else{
