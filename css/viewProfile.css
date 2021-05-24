@@ -3,7 +3,7 @@
     width: 70%;
     margin: 20px auto;
     display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
 }
 
 
@@ -144,4 +144,8 @@ p{
     padding: 1vw;
     font-size: 1vw;
     letter-spacing: .2vw;
+}
+
+@media only screen and (max-width:800px){
+
 }
