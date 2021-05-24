@@ -25,6 +25,39 @@
     <?php 
     include("navbar.php"); 
     include("functions.php"); 
+
+    if(isset($_SESSION['userID'])){
+        $loggedNow = $_SESSION['userID'];
+        $sqlroles="SELECT roleId FROM hasrole WHERE userId='$loggedNow'";  
+        $result = mysqli_query($link, $sqlroles) or die(mysqli_error($link));
+        $row = mysqli_fetch_array($result);
+
+        $sqlowner="SELECT users.userID FROM posts , users WHERE posts.userID=users.userID AND posts.postID='$idofPost'";  
+        $resultowner = mysqli_query($link, $sqlroles) or die(mysqli_error($link));
+        
+        if(in_array(1,$row) || in_array(3,$row)){
+            $hasPrivilages = true;
+    
+        }
+        elseif ($resultowner) {
+            $hasPrivilages = true;
+        }
+        else{
+            
+            $hasPrivilages=false;
+        }
+    
+    
+    }
+    else{
+        
+        $hasPrivilages=false;
+    }
+    
+    if(!$hasPrivilages){
+        header("LOCATION: priv.php");
+        exit();
+    }
     ?>
 </header>
         <?php
@@ -91,7 +124,20 @@
 
             }
 
-           
+        
+            $newtitle = $_POST['title'];
+            $newdescription = $_POST['description'];
+            $newcontent = $_POST['content'];
+            $currentDate = date("Y-m-d");
+            
+            if($fileDestination==""){
+                $sql = "UPDATE posts SET `date` = '$currentDate' ,title = '$newtitle' , `description` = '$newdescription' ,  content = '$newcontent'  WHERE postID = $idofPost;";
+                $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+            }
+            else{
+                $sql = "UPDATE posts SET `date` = '$currentDate' ,title = '$newtitle' , `description` = '$newdescription' ,  content = '$newcontent' , `image` = '$fileDestination' WHERE postID = $idofPost;";
+                $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+            }
            
         }
         ?> 

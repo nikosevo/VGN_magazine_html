@@ -44,6 +44,7 @@
   
         ?>
     </header>
+    
     <!-- if i am logged in...i can edit my profile and my posts -->
     <?php if($viewer == false){ ?>
     <!-- profile sections-->

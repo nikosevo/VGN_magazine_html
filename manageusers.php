@@ -5,6 +5,33 @@ session_start();
 include "connect.php";
 include "functions.php";
 
+if(isset($_SESSION['userID'])){
+    $loggedNow = $_SESSION['userID'];
+    $sqlroles="SELECT roleId FROM hasrole WHERE userId='$loggedNow'";  
+    $result = mysqli_query($link, $sqlroles) or die(mysqli_error($link));
+    $row = [];
+    while($row = $result->fetch_row()){
+    
+        if(in_array(6,$row) || in_array(1,$row)){
+            $hasPrivilages = true;
+            break;
+        }
+        else{
+            $hasPrivilages=false;
+        }
+    }
+
+
+}
+else{
+    $hasPrivilages=false;
+}
+
+if(!$hasPrivilages){
+    header("LOCATION: priv.php");
+    exit();
+}
+
 ?>
 
 <?php 
