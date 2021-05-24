@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php 
+include("functions.php");
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +10,8 @@
     <title>Document</title>
 </head>
 <body>
-    YOU DONT HAVE RIGHT U BLACK PERSON
+    
+    <h1>You dont have access to this page!</h1>
+   
 </body>
 </html>
