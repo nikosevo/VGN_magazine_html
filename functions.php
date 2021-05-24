@@ -61,7 +61,27 @@ function getLogedUser(){
     $sql = "SELECT * FROM users,hasrole WHERE users.userID = $userID AND hasrole.userId = $userID";
     $result = mysqli_query($link,$sql);
     $loggedInUsr = mysqli_fetch_array($result);
+   
     return $loggedInUsr;
+}
+
+function isAdmin(){
+    include "connect.php";
+    
+    if(!isset($_SESSION['userID'])){
+        return false;
+    }
+    
+    $usr = $_SESSION['userID'];
+    $sql = "SELECT * FROM hasrole WHERE userId = $usr";
+    $result = mysqli_query($link,$sql);
+    while($roles = mysqli_fetch_array($result)){
+        if(in_array(1,$roles)){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
 
 ?>
