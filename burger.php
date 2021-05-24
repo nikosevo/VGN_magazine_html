@@ -15,7 +15,8 @@
 
 </head>
 <?php
-  $sqlburger = "SELECT * FROM groups";
+  $loggedIn = $_SESSION['userID'];
+  $sqlburger = "SELECT groups.groupName FROM subscribedto,groups WHERE subscribedto.GroupId=groups.groupID AND UserId=$loggedIn";
   $result = mysqli_query($link, $sqlburger);
 ?>
 
@@ -23,6 +24,14 @@
 <body>
   <div class="burger">
     <div class="cont">
+    <?php 
+      if(isset($loggedIn)){
+        echo "<h2>Here you can see all the categories you are subscribed to</h2>";
+      }else{
+        echo "<h2>Please loggin to see the categories you are subscribed to</h2>";
+      } ?>
+
+
       <?php while($row = mysqli_fetch_array($result)){ ?>
           <a onclick="idgiver4(this.id);" id=<?php echo $row['groupID']; ?> href="#"><?php echo $row['groupName']?></a>
       <?php } ?>

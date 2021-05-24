@@ -1,5 +1,5 @@
 .wrapper{
-    margin-top: 10vh;
+    margin-top: 500px;
     margin: 0px auto;
     width:80%;
     grid-gap: 30px;
@@ -10,7 +10,7 @@
 }
 
 .wrapper .card{
-    margin: 0px auto;
+    margin: 5px auto;
 }
 
 @media(min-width :1200px){
