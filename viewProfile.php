@@ -21,8 +21,12 @@
             include("navbar.php"); 
             if(isset($_GET['uid'])) {
                 $usr = $_GET['uid'];
+                $viewer = true;
+                if($usr['userID'] == $_SESSION['userID'])
+                    $viewer =false;
             }else{
                 $usr = $_SESSION['userID'];
+                $viewer = false;
             }
 
 
@@ -40,6 +44,8 @@
   
         ?>
     </header>
+    <!-- if i am logged in...i can edit my profile and my posts -->
+    <?php if($viewer == false){ ?>
     <!-- profile sections-->
     <div class="container">
         <div class="container__profile">
@@ -58,14 +64,14 @@
         <div class="container__articles">
             <div class="head">
                 <h2>your articles</h2>
-                <a href="#"><i class="fas fa-plus"></i></a>
+                <a href="createPost.php"><i class="fas fa-plus"></i></a>
             </div>
 
             <!--The articles beggin to unravel-->
             <div class="articles-wrapper">
                 <?php 
                     while($usr_articles = mysqli_fetch_array($result)) { ?>
-                    <a href="#" class="article">
+                    <a href="editPost.php?pid=<?php echo $usr_articles['postID'];?>" id=<?php echo $usr_articles['postID'];?> class="article">
                     <h1 class="title"><?php echo $usr_articles['title'];?><i class="fas fa-quote-right"></i></h1>
                     <h2><?php echo $usr_articles['description'];?></h2>
                 </a>
@@ -75,6 +81,41 @@
             </div>
         </div>
     </div>
+    <!-- otherwise i can only see the other author posts-->
+    <?php }else{ ?>
+        <div class="container">
+        <div class="container__profile">
+            <div class="black-box">
+                <span>author</span>
+                <div class="img-container"><img src=<?php echo $user['avatar'];?> alt=""></div>
+            </div>
+            <div class="details">
+                <h1><?php echo $user['fullname'];?></h1>
+                <h2><?php echo $user['username'];?></h2>
+                <p><?php echo $user['bio'];?></p>
+            </div>
+        </div>
+        <!-- my arcticles section -->
+        <div class="container__articles">
+            <div class="head">
+                <h2><?php echo $user['username']; ?>'s articles</h2>
+            </div>
+
+            <!--The articles beggin to unravel-->
+            <div class="articles-wrapper">
+                <?php 
+                    while($usr_articles = mysqli_fetch_array($result)) { ?>
+                    <a href="Post.php?uid=<?php echo $usr_articles['postID'];?>" id=<?php echo $usr_articles['postID'];?> class="article">
+                    <h1 class="title"><?php echo $usr_articles['title'];?><i class="fas fa-quote-right"></i></h1>
+                    <h2><?php echo $usr_articles['description'];?></h2>
+                </a>
+                    
+                <?php } ?> 
+               
+            </div>
+        </div>
+    </div>
+    <?php } ?>
     
 </body>
 </html>

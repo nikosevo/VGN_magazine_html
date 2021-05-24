@@ -14,15 +14,13 @@
     <title><?php echo $post['title'] ?></title>
     <link rel="stylesheet" href="css/Post.css">
 </head>
-<header class="zoom">
-    
-    <img src=<?php echo $post['image'] ?>>
-</header>
-
-<nav>
+<header>
     <?php include "navbar.php";?>
-</nav>
-
+</header>
+<div class="zoom">
+    <img src=<?php echo $post['image'] ?>>
+</div>
+    
 <body>
     <main role="main">
 

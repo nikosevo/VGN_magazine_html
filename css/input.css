@@ -1,5 +1,5 @@
 .container-box {
-    background-color: rgb(255, 255, 255);
+    background:white;
     margin: 100px auto;
     padding-bottom: 30px;
     width: 500px;
@@ -31,6 +31,7 @@
 .form input {
     font-size: 20px;
     width: 100%;
+    background-color: transparent;
     height: 100%;
     color: #595f6e;
     padding-top: 20px;
