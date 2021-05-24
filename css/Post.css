@@ -122,3 +122,13 @@ a {
 a:hover, a:focus {
   color: black;
 }
+.subBtn{
+  color: white;
+  padding: 10px 20px;
+  background-color:#FC0EDC;
+  border-radius: 12px;
+}
+
+.subBtn:hover{
+  cursor: pointer;
+}

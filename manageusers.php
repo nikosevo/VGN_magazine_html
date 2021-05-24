@@ -51,6 +51,7 @@ if(isset($_GET["uid"]) && $_GET["action"]=="delete"){
         <!-- Left Sidebar -->
         <div class="left-sidebar">
             <ul>
+                <li><a href="graphpage.php">Main Page</a></li>
                 <li><a href="adminpage.php">Manage Posts</a></li>
                 <li><a href="manageusers.php">Manage Users</a></li>
                 <li><a href="managecategories.php">Manage Categories</a></li>
