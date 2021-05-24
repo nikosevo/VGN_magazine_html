@@ -4,14 +4,16 @@
     session_start();
     include "connect.php";
     include "article.php";
-    $postID = $_GET["uid"];   //the most important line ever dont move or change it thanks to this everythin works -valantis- :3
+    $postID = $_GET["uid"];   
     $post = getPost($postID);
     $author = getAuthor($postID);
+    $loggedUser = $_SESSION['userID'];
+
 ?>
 
 <head>
-
     <title><?php echo $post['title'] ?></title>
+    <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/Post.css">
 </head>
 <header>
@@ -26,7 +28,8 @@
 
         <div class="content">
             <article id="s1">
-                <div class="squeezed">
+                <div class="squeezed"><br>
+                    <h1><?php echo $post['groupID']; ?></h1>
                     <h1 class="entry-title"><?php echo $post['title']; ?></h1>
 
 
@@ -38,14 +41,12 @@
             <br>
             <div class="post-meta">
                 <div class="entry-author">
-                    <a href="#author">
                         <div>
                             <img class="author-avatar" src=<?php echo $author['avatar']; ?> alt="DesignRevision Editorial">
                         </div>
                         <div class="author-details vcard author author_name">
-                            <p class="fn">By <span><?php echo $author['fullname']; ?></span></p>
+                            <a href="viewProfile.php?uid=<?php echo $author['userID']; ?>" class="fn">By <span><?php echo $author['fullname']; ?></span></a>
                         </div>
-                    </a>
                 </div>
 
                 <div class="updated-date">
@@ -56,15 +57,13 @@
 
             <article id="s2"><p>
             <?php echo $post['content']; ?></p>
-                <footer>
-                    <p>A <a href="http://www.webdeisgnerwall.com" alt="web designer wall"
-                            target="_blank">webdesignerwall.com</a> Tutorial</p>
-                </footer>
             </article>
 
             <article id="s3">
-                Hello test
+                <h3>Do you want to see more of these posts?</h3> <br><br>
+                <a <?php echo "href=subscribe.php?uid=".$loggedUser."&gid=".$post['groupID']; ?> id=<?php echo $post['groupID']?> class="subBtn" >subscribe</a>
             </article>
+            <br><br><br><br><br><br><br><br><br>
         </div>
         <!--Scripts-->
         <script type="text/javascript" src="js/Post.js"></script>

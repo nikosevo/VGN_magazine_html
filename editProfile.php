@@ -40,25 +40,25 @@
                 <div id="wrap">
                     <div class="grid">
                         <div class="form">
-                            <input type="text" name="name" autocomplete="off" required value=<?php echo $user['username']; ?> />
+                            <input type="text" name="name" autocomplete="off" required value="<?php echo $user['username']; ?>" />
                             <label for="name" class="label-name">
                                 <span class="content-name">Username</span>
                             </label>
                         </div>
                         <div class="form">
-                            <input type="text" name="email" autocomplete="off" required  value=<?php echo $user['email']; ?> />
+                            <input type="text" name="email" autocomplete="off" required  value="<?php echo $user['email']; ?>" />
                             <label for="name" class="label-name">
                                 <span class="content-name">email</span>
                             </label>
                         </div>
                         <div class="form">
-                            <input type="password" name="password" autocomplete="off" required  value=<?php echo $user['passwd'];?> />
+                            <input type="password" name="password" autocomplete="off" required  value="<?php echo $user['passwd'];?>" />
                             <label for="name" class="label-name">
                                 <span class="content-name">new password</span>
                             </label>
                         </div>
                         <div class="form">
-                            <input type="text" name="fewWords" autocomplete="off" required  value=<?php echo $user['bio'];?> />
+                            <input type="text" name="fewWords" autocomplete="off" required  value="<?php echo $user['bio'];?>" />
                             <label for="name" class="label-name">
                                 <span class="content-name">fewWords</span>
                             </label>
