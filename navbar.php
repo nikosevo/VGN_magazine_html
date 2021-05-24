@@ -26,7 +26,7 @@ require_once("connect.php");
 
 <a class="logo" href="index.php"><img src="assets/logo.png" alt="logo"></a>
 <ul class="nav__links">
-  <li><a href="index.php">Home</a></li>
+  <li><a href="index.php">home</a></li>
   <li><a href="blog.php">Blog</a></li>
   <li><a href="contact.php">Contact</a></li>
 </ul>
@@ -56,12 +56,12 @@ require_once("connect.php");
 <div class="overlay">
   <a class="close">&times;</a>
   <div class="overlay__content">
-    <a href="index.php">Home</a>
-    <a href="Blog.php">Blog</a>
-    <a href="Contact.php">Contact</a>
-    <a href="createPost.php">New Post  <i class="fas fa-plus"></i></a>
-    <a href="viewProfile.php">View Profile  <i class="fas fa-address-card"></i></a>
-    <a href="LogoutScript.php">Log out  <i class="fas fa-sign-out-alt"></i></a>
+    <a href="index.php">home</a>
+    <a href="blog.php">Blog</a>
+    <a href="contact.php">Contact</a>
+    <a href="createPost.php">new Post  <i class="fas fa-plus"></i></a>
+    <a href="editProfile.php">View Profile  <i class="fas fa-address-card"></i></a>
+    <a href="#">logg out  <i class="fas fa-sign-out-alt"></i></a>
   </div>
 
 </div>
