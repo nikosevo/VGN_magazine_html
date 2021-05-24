@@ -3,8 +3,15 @@ html, body {
 }
 
 header {
-    background: #4a72e9;
+    background: #344153;
     color: white;
+}
+
+.nav__links li a {
+    color: white !important;
+}
+.nav__links li a:hover{
+    color: #00AEFB !important;
 }
 
 .admin-wrapper {
@@ -30,7 +37,8 @@ header {
     text-decoration: none;
     padding: 18px;
     display: block;
-    border-bottom: 1px solid #2f3a49;
+    border-top: 1px solid #2f3a49;
+   
 }
 
 .admin-wrapper .left-sidebar ul li a:hover {
