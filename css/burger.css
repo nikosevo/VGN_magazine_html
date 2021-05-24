@@ -1,7 +1,7 @@
 .burger__toggler {
   position: absolute;
   top: 150px;
-  left: 50px;
+  left: 5%;
   z-index: 2;
   height: 28px;
   width: 28px;

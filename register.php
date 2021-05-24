@@ -70,6 +70,8 @@ if(isset($_POST['submit']) && $_POST['submit']== "Insert"){
         if($result){
             mysqli_commit($link);
             echo"<font color=\"#3300FF\"><strong><br>Η εγγραφή ολοκληρώθηκε με επιτυχία!<br></font>";
+            header("Location: Login.php.php");
+            exit();
         }else{
             mysqli_rollback($link);
             echo"<font color=\"#FF0000\"><strong><br>Η εγγραφή ακυρώθηκε λόγω λαθών !<br></font>";
