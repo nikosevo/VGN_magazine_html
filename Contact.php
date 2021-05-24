@@ -60,6 +60,7 @@
             </div>
         </form>
     </div>
+	<?php include("footer.html"); ?>
 
     <!--Scripts-->
     <script type="text/javascript" src="js/mobile.js"></script>

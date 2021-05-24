@@ -75,7 +75,8 @@
     <?php }} ?>        
     </div>
         
-
+    <?php include("footer.html"); ?>
+    
     <!--Scripts-->
     <script>
        function idgiver(id) {window.location.href="Post.php?uid=" + id;}     
