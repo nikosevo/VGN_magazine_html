@@ -93,7 +93,8 @@ p{
 }
 
 .head h2 {
-    padding: 3vw;
+    padding: 2vw;
+    margin-top: -1vw;
 }
 .head a{
     margin-top: 1vw;
