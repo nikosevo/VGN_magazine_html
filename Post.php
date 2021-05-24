@@ -4,10 +4,16 @@
     session_start();
     include "connect.php";
     include "article.php";
-    $postID = $_GET["pid"];   
+
+    $postID = $_GET["pid"];  
+    if(!isset($postID)) {
+        header("LOCATION:404.html");
+    }
     $post = getPost($postID);
     $author = getAuthor($postID);
-    $loggedUser = $_SESSION['userID'];
+    if(isset($_SESSION['userID'])){
+        $loggedUser = $_SESSION['userID'];
+    }
 
 ?>
 
@@ -70,3 +76,12 @@
     </main>
 </body>
 </html>
+
+
+
+
+
+
+
+
+

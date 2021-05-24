@@ -79,7 +79,7 @@
     
     <!--Scripts-->
     <script>
-       function idgiver(id) {window.location.href="Post.php?uid=" + id;}     
+       function idgiver(id) {window.location.href="Post.php?pid=" + id;}     
     </script>
     <script type="text/javascript" src="js/mobile.js"></script> 
 

@@ -1,14 +1,8 @@
 <!DOCTYPE html>
 
 <?php
-session_start();
-if(isset($_GET["pid"])){
-    $_SESSION['postID'] = $_GET["pid"];   //the most important line ever dont move or change it thanks to this everythin works -valantis- :3
-    $idofPost= $_GET["pid"];
-}
-
-
-include "connect.php";
+    include "connect.php";
+    session_start();
 ?>
 <html lang="en">
 
@@ -67,7 +61,7 @@ include "connect.php";
     ?>
 </header>
         <?php
-        $postID = $_GET["pid"];
+        $post = $_GET["pid"];
         if(isset($_POST['submit'])){
             $file = $_FILES['file'];
             $fileName = $_FILES['file']['name']; 
@@ -86,11 +80,8 @@ include "connect.php";
                 if(in_array($fileActualExt,$allowed)){
                     if($fileError === 0){
                         if($fileSize < 5000000){
-                            echo $fileActualExt;
                             $fileNameNew = uniqid('',true).".".$fileActualExt;
-                            echo $fileNameNew;
                             $fileDestination='assets/'.$fileNameNew;
-                            echo $fileDestination;
                             move_uploaded_file($fileTmpName,$fileDestination);
                         }else{
                             echo "Very large file";
@@ -109,22 +100,28 @@ include "connect.php";
                 $newdescription = $_POST['description'];
                 $newcontent = $_POST['content'];
                 $currentDate = date("Y-m-d");
-                
-                $sql = "UPDATE posts SET date = '$currentDate' ,title = '$newtitle' , description = '$newdescription' ,  content = '$newcontent' , image = '$fileDestination' WHERE postID = $postID";
+                echo "<script> alert(".$fineName.");</script>";
+                echo "<script> alert('omggg noog');</script>";
+
+                $omgfack = $_SESSION['postID'];
+
+                $sql = "UPDATE posts SET date='$currentDate',title='$newtitle',description='$newdescription',content='$newcontent',image='$fileDestination' WHERE postID='$post'";
                 $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+                header("LOCATION:viewProfile.php");
+                exit();
             }else{
                 $newtitle = $_POST['title'];
                 $newdescription = $_POST['description'];
                 $newcontent = $_POST['content'];
                 $currentDate = date("Y-m-d");
                 
-                $sql = "UPDATE posts SET 
-                `date` = '$currentDate',
-                `title` = '$newtitle', 
-                `description` = '$newdescription',  
-                `content` = '$newcontent' WHERE postID = '$postID'";
+                $sql = "UPDATE posts SET date='$currentDate',title='$newtitle',description='$newdescription',content='$newcontent' WHERE postID='$post'";
 
-                $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+
+                $result = mysqli_query($link, $sql);
+                header("LOCATION:viewProfile.php");
+                exit();
+
             }
 
         
@@ -147,11 +144,9 @@ include "connect.php";
 <body>
 
     <?php 
-        if (isset($_SESSION['postID'])){
-            $postID = $_SESSION['postID'];
+        $postID = $_GET["pid"];
         $sql2 = "SELECT * FROM posts,users WHERE postID=$postID AND posts.userID = users.userID;";
         $result2 = mysqli_query($link,$sql2);
-        }
 
         $row = mysqli_fetch_array($result2);
         $title = $row['title'];
@@ -160,7 +155,7 @@ include "connect.php";
     ?>
 
                 
-    <form class="wrapper" method="post" enctype="multipart/form-data" action="editPost.php">
+    <form class="wrapper" method="post" enctype="multipart/form-data" action="editPost.php?pid=<?php echo $postID?>">
         <div class="container">
             <div class="textFields">
 
