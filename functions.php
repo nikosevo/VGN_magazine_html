@@ -54,6 +54,9 @@ function getCategoriesResult(){
 function getLogedUser(){
 
     include "connect.php";
+    if(!isset($_SESSION['userID'])){
+        return NULL;
+    }
     $userID = $_SESSION['userID'];
     $sql = "SELECT * FROM users,hasrole WHERE users.userID = $userID AND hasrole.userId = $userID";
     $result = mysqli_query($link,$sql);

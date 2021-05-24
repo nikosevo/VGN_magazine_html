@@ -17,9 +17,8 @@
 		
 		if (empty($username) || empty($password)) {
            
-			// send_message('Πρέπει να συμπληρώσετε και τα 2 πεδία (όνομα και κωδικό χρήστη)','error');
-			header("Location: index.html");
-			exit();
+			send_message('Πρέπει να συμπληρώσετε και τα 2 πεδία (όνομα και κωδικό χρήστη)','error');
+
 		}
 		else{
 			

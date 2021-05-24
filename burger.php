@@ -16,7 +16,7 @@
 </head>
 <?php
   $loggedIn = $_SESSION['userID'];
-  $sqlburger = "SELECT groups.groupName FROM subscribedto,groups WHERE subscribedto.GroupId=groups.groupID AND UserId=$loggedIn";
+  $sqlburger = "SELECT groups.groupName , groups.groupID FROM subscribedto,groups WHERE subscribedto.GroupId=groups.groupID AND UserId=$loggedIn";
   $result = mysqli_query($link, $sqlburger);
 ?>
 
@@ -33,7 +33,7 @@
 
 
       <?php while($row = mysqli_fetch_array($result)){ ?>
-          <a onclick="idgiver4(this.id);" id=<?php echo $row['groupID']; ?> href="#"><?php echo $row['groupName']?></a>
+          <a href="Blog.php?gid=<?php echo $row['groupID']; ?>"><?php echo $row['groupName']?></a>
       <?php } ?>
     </div>
   </div>
