@@ -14,6 +14,7 @@ include "connect.php";
 
         $username = $_POST['name'];
         $password = $_POST['password'];
+        $password = md5($password);
         $email = $_POST['email'];
         $bio = $_POST['fewWords'];
 
@@ -59,19 +60,25 @@ include "connect.php";
                         $im2 = imagecrop($im, ['x' => $xoffset, 'y' => $yoffset, 'width' => $size, 'height' => $size]);
                         imagepng($im2, $fileDestination);
                         
-                        
+                        if($password == ''){
+                            $sql = "UPDATE users 
+                            SET 
+                            avatar = '$fileDestination',
+                            bio = '$bio',
+                            email = '$email',
+                            username = '$username'
+                            WHERE userID = '$userID'";
+                        }else{
+                            $sql = "UPDATE users 
+                            SET 
+                            avatar = '$fileDestination',
+                            passwd = '$password',                
+                            bio = '$bio',
+                            email = '$email',
+                            username = '$username'
+                            WHERE userID = '$userID'";
 
-                        $sql = "UPDATE users 
-                        SET 
-                        avatar = '$fileDestination',
-                        bio = '$bio',
-                        email = '$email',
-                        passwd = '$password',                
-                        username = '$username'
-                        WHERE
-                        userID = '$userID'";
-                       
-
+                        }
                         $result = mysqli_query($link,$sql);
                         header("LOCATION: viewProfile.php");
                         exit();
@@ -88,14 +95,23 @@ include "connect.php";
 
         }else{
             
-            $sql = "UPDATE users 
+            if($password == ''){
+                $sql = "UPDATE users 
                 SET 
                 bio = '$bio',
                 email = '$email',
-                passwd = '$password',                
                 username = '$username'
-                WHERE
-                userID = '$userID'";
+                WHERE userID = '$userID'";
+            }else{
+                $sql = "UPDATE users 
+                SET 
+                passwd = '$password',                
+                bio = '$bio',
+                email = '$email',
+                username = '$username'
+                WHERE userID = '$userID'";
+
+            }
             $result = mysqli_query($link,$sql);
             header("LOCATION: viewProfile.php");
             exit();

@@ -50,6 +50,47 @@
 #wrap .grid {
     display: flex;
     flex-direction: column;
+    
+}
+
+#info{
+    margin-left: -110px;
+    margin-top:260px ;
+    position: absolute;
+    text-align: right;
+    float: right;
+    color:#00AEFB;
+    
+}
+
+#info p{
+    padding-top: 6px;
+    font-size: 16px;;
+    font-weight: .4px !important;
+    width: 100px;
+    color: black;
+    opacity: 0;
+    cursor: default;
+    transition: all .3s ease-in-out;
+    z-index: 100;
+}
+
+#info:hover{
+    cursor: pointer;
+}
+
+#info:hover > p {
+    opacity: .8;
+}
+
+@media only screen and (max-width:600px){
+    #info{
+        margin-left: -20px;
+        text-align: left;
+    }
+    #info p{
+        width:300px;
+    }
 }
 
 @media only screen and (max-width:1500px) {
