@@ -23,7 +23,7 @@ if(isset($_POST['submit']) && $_POST['submit']== "Insert"){
     $error = 0;
 
     if($fullname == ""){
-        echo "<font color=\"#FF0000\">Πρεπει να συμπληρώσετε το Όνομα!<br></font>";
+        echo "<font color=\"#FF0000\">Please give a name!<br></font>";
         $error = 1;
     }
     if($username == ""){
@@ -49,19 +49,19 @@ if(isset($_POST['submit']) && $_POST['submit']== "Insert"){
         }
     }
     if($password == ""){
-        echo "<font color=\"#FF0000\">Πρεπει να συμπληρώσετε τον κωδικό!<br></font>";
+        echo "<font color=\"#FF0000\">Fill password!<br></font>";
         $error = 1;
     }
     if($password != $password2){
-        echo "<font color=\"#FF0000\">Οι κωδικοί δεν ειναι ίδιοι!<br></font>";
+        echo "<font color=\"#FF0000\">Passwords dont match!<br></font>";
         $error = 1;
     }
     if($email == ""){
-        echo "<font color=\"#FF0000\">Πρεπει να συμπληρώσετε το mail!<br></font>";
+        echo "<font color=\"#FF0000\">Give your mail!<br></font>";
         $error = 1;
     }
     if($error){
-        echo "<font color=\"#FF0000\">Η εγγραφή ακυρώθηκε λόγω λαθών στα στοιχεία εισόδου!<br></font>" ;
+        echo "<font color=\"#FF0000\">Wrong inputs Registration canceled!<br></font>" ;
     }else{
         mysqli_autocommit($link, false);
         $password = md5($password);
@@ -69,12 +69,12 @@ if(isset($_POST['submit']) && $_POST['submit']== "Insert"){
         $result = mysqli_query($link,$sql) ;
         if($result){
             mysqli_commit($link);
-            echo"<font color=\"#3300FF\"><strong><br>Η εγγραφή ολοκληρώθηκε με επιτυχία!<br></font>";
-            header("Location: Login.php.php");
+            echo"<font color=\"#3300FF\"><strong><br>Registration successful!<br></font>";
+            header("Location: Login.php");
             exit();
         }else{
             mysqli_rollback($link);
-            echo"<font color=\"#FF0000\"><strong><br>Η εγγραφή ακυρώθηκε λόγω λαθών !<br></font>";
+            echo"<font color=\"#FF0000\"><strong><br>Registration canceled due to errors !<br></font>";
         }
     }
 }

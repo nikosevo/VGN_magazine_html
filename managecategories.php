@@ -9,8 +9,7 @@ include "functions.php";
 
 <?php 
 if(isset($_GET["uid"]) && $_GET["action"]=="delete"){
-    $_SESSION['groupID'] = $_GET["uid"];
-    $groupID = $_SESSION['groupID'];
+    $groupID = $_GET["uid"];
     $error = 0;
 
     
@@ -52,6 +51,7 @@ if(isset($_GET["uid"]) && $_GET["action"]=="delete"){
         <!-- Left Sidebar -->
         <div class="left-sidebar">
             <ul>
+                <li><a href="graphpage.php">Main Page</a></li>
                 <li><a href="adminpage.php">Manage Posts</a></li>
                 <li><a href="manageusers.php">Manage Users</a></li>
                 <li><a href="managecategories.php">Manage Categories</a></li>
@@ -112,7 +112,7 @@ if(isset($_GET["uid"]) && $_GET["action"]=="delete"){
         window.location.href="editPost.php?uid=" + id;
         }
         function idgiver2(id) {
-        window.location.href="adminpage.php?uid=" + id + "&action=delete";
+        window.location.href="managecategories.php?uid=" + id + "&action=delete";
         }
            
     </script>
