@@ -8,7 +8,8 @@
 	$authors_result = getAuthorsResult();
 	$categories_result = getCategoriesResult();
 	$user = getLogedUser();
-	if($user['roleID' == 1]) 
+	
+	if(isset($user['roleID']) && $user['roleID' ==1]) 
 		$isAdmin = true;
 
 

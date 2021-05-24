@@ -26,7 +26,7 @@ require_once("connect.php");
 
 <a class="logo" href="index.php"><img src="assets/logo.png" alt="logo"></a>
 <ul class="nav__links">
-  <li><a href="index.php">home</a></li>
+  <li><a href="index.php">Home</a></li>
   <li><a href="blog.php">Blog</a></li>
   <li><a href="contact.php">Contact</a></li>
 </ul>
