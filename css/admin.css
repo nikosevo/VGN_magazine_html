@@ -1,64 +1,71 @@
-html, body
-{
+html, body {
     height: 93.3%;
 }
-header{
+
+header {
     background: #4a72e9;
     color: white;
 }
-.admin-wrapper{
-    display:flex;
+
+.admin-wrapper {
+    display: flex;
     height: 100%;
 }
-.admin-wrapper .left-sidebar{
-    flex:2;
+
+.admin-wrapper .left-sidebar {
+    flex: 2;
     height: 100%;
     background: #344153;
-
 }
-.admin-wrapper .left-sidebar ul{
+
+.admin-wrapper .left-sidebar ul {
     list-style: none;
     margin: 0px;
     padding: 0px;
     color: aliceblue;
-    
 }
-.admin-wrapper .left-sidebar ul li a{
-    color : #Bcbfc2;
-	text-decoration : none;
+
+.admin-wrapper .left-sidebar ul li a {
+    color: #Bcbfc2;
+    text-decoration: none;
     padding: 18px;
     display: block;
     border-bottom: 1px solid #2f3a49;
 }
-.admin-wrapper .left-sidebar ul li a:hover{
+
+.admin-wrapper .left-sidebar ul li a:hover {
     background: #2f3a49;
 }
-.admin-wrapper .admin-content{
-    flex:8;
+
+.admin-wrapper .admin-content {
+    flex: 8;
     height: 100%;
     padding: 15px 100px 100px;
     overflow-y: scroll;
 }
-.admin-content .page-title{
+
+.admin-content .page-title {
     text-align: center;
     margin-bottom: 1.5rem;
 }
-table{
+
+table {
     width: 100%;
     border-collapse: collapse;
     font-size: 1.1rem;
 }
-th , td{
+
+th, td {
     padding: 15px;
     text-align: left;
     border-bottom: 1px solid #d3d3d3;
-    
 }
-a{
-    text-decoration: none;
 
+a {
+    text-decoration: none;
 }
-.edit{
+
+.edit {
     padding: 0;
     border: none;
     background: none;
@@ -66,8 +73,8 @@ a{
     cursor: pointer;
     color: green;
 }
-.delete{
-    
+
+.delete {
     padding: 0;
     border: none;
     background: none;
@@ -75,15 +82,18 @@ a{
     cursor: pointer;
     color: red;
 }
-.edit:hover{
-    text-decoration:underline;
+
+.edit:hover {
+    text-decoration: underline;
 }
-.delete:hover{
-    text-decoration:underline;
+
+.delete:hover {
+    text-decoration: underline;
 }
-.btn-big{
+
+.btn-big {
     border-radius: 5px;
-    background-color: #2f3a49; 
+    background-color: #2f3a49;
     border: none;
     color: white;
     padding: 13px 20px;
@@ -93,17 +103,19 @@ a{
     display: inline-block;
     font-size: 16px;
     transition: linear 0.2s;
-    
 }
-.btn-big:hover{
-	transform: scale(0.95);
-	/* background: #13D0D0; */
+
+.btn-big:hover {
+    transform: scale(0.95);
+    /* background: #13D0D0; */
 }
-form div{
-  margin-bottom: 15px;  
+
+form div {
+    margin-bottom: 15px;
 }
-.text-input{
-    width:100%;
+
+.text-input {
+    width: 100%;
     border: 1px solid #ccc;
     border-radius: 2px;
     height: 35px;
@@ -111,22 +123,24 @@ form div{
     padding-left: 10px;
     font-size: 16px;
 }
-select{
-    width:100%;
+
+select {
+    width: 100%;
     border: 1px solid #ccc;
     border-radius: 2px;
     height: 35px;
     outline: none;
     font-size: 16px;
 }
+
 .textarea {
     border: 1px solid #ccc;
     font-family: inherit;
     font-size: inherit;
     padding: 1px 6px;
-  }
+}
 
-  .textarea {
+.textarea {
     padding: 10px;
     display: block;
     width: 100%;
@@ -134,18 +148,17 @@ select{
     min-height: 40px;
     line-height: 20px;
     resize: none;
-  }
-  textarea#styled {
-	width: 100%;
-    height: 75px;
-	border: 1px solid #ccc;
-	padding: 5px;
-	resize: none;
-    font-size: 16px;
-
 }
-textarea:focus{
-    
+
+textarea#styled {
+    width: 100%;
+    height: 75px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    resize: none;
+    font-size: 16px;
+}
+
+textarea:focus {
     outline: #4a72e9;
 }
-  
