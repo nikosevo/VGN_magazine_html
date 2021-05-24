@@ -3,7 +3,7 @@
     width: 70%;
     margin: 20px auto;
     display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
 }
 
 
@@ -146,6 +146,25 @@ p{
     letter-spacing: .2vw;
 }
 
-@media only screen and (max-width:800px){
+@media only screen and (max-width:1285px){
+
+    .container__articles{
+        border-left: none;
+        border-top: 2px solid #FCA50E;
+    }
+    .black-box{
+        float:right;
+        display:grid;
+        grid-template-columns: .8fr .1fr .2fr;
+        text-align:center;
+        align-items:center;
+        background-color: #1B2329;
+        margin-right: 40px;
+        padding-right: 0;
+        border-radius: 12px;
+        height: 5vw;
+        width: 160%;    
+        
+    }
 
 }
