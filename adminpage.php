@@ -120,7 +120,7 @@ if(isset($_GET["pid"]) && $_GET["action"]=="delete"){
            
     </script>
 </body>
-    <div>
+    <div class="feet">
         <?php include("footer.html"); ?>
     </div>
 </html>
