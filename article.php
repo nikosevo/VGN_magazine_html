@@ -14,7 +14,7 @@ function getAuthor($postID){
 
     include "connect.php";
 
-    $sql = "SELECT avatar , fullname FROM posts , users WHERE postID=$postID and posts.userID=users.userID";
+    $sql = "SELECT avatar , fullname , users.userID  FROM posts , users WHERE postID=$postID and posts.userID=users.userID";
     $result = mysqli_query($link,$sql);
     $author = mysqli_fetch_array($result);
     return $author;
