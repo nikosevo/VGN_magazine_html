@@ -1,8 +1,11 @@
 /* --- General Pen Styles --- */
 header{
-  z-index: 9999;
-  position: absolute;
+  z-index: 100;
+  position: fixed !important;
+  background: white !important ;
+  opacity: 0.9;
   top: 0;
+
 }
 body {
   font-family: Georgia, serif;
@@ -51,6 +54,7 @@ footer a {
 }
 
 .zoom img {
+  /* object-fit: cover; */
   position: fixed;
   top: 0%;
   left: 50%;

@@ -9,8 +9,7 @@ include "functions.php";
 
 <?php 
 if(isset($_GET["pid"]) && $_GET["action"]=="delete"){
-    $_SESSION['postID'] = $_GET["pid"];
-    $postID = $_SESSION['postID'];
+    $postID = $_GET["pid"];
     $error = 0;
 
     

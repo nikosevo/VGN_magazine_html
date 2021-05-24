@@ -9,8 +9,7 @@ include "functions.php";
 
 <?php 
 if(isset($_GET["uid"]) && $_GET["action"]=="delete"){
-    $_SESSION['userID'] = $_GET["uid"];
-    $userID = $_SESSION['userID'];
+    $userID = $_GET["uid"];
     $error = 0;
 
     
@@ -114,7 +113,7 @@ if(isset($_GET["uid"]) && $_GET["action"]=="delete"){
         window.location.href="editPost.php?uid=" + id;
         }
         function idgiver2(id) {
-        window.location.href="adminpage.php?uid=" + id + "&action=delete";
+        window.location.href="manageusers.php?uid=" + id + "&action=delete";
         }
            
     </script>
