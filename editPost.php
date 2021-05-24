@@ -4,6 +4,7 @@
 session_start();
 if(isset($_GET["pid"])){
     $_SESSION['postID'] = $_GET["pid"];   //the most important line ever dont move or change it thanks to this everythin works -valantis- :3
+    $idofPost= $_GET["pid"];
 }
 
 
@@ -74,8 +75,14 @@ include "connect.php";
             $newcontent = $_POST['content'];
             $currentDate = date("Y-m-d");
             
-            $sql = "UPDATE posts SET date = '$currentDate' ,title = '$newtitle' , description = '$newdescription' ,  content = '$newcontent' , image = '$fileDestination' WHERE postID = 1;";
-            $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+            if($fileDestination==""){
+                $sql = "UPDATE posts SET `date` = '$currentDate' ,title = '$newtitle' , `description` = '$newdescription' ,  content = '$newcontent'  WHERE postID = $idofPost;";
+                $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+            }
+            else{
+                $sql = "UPDATE posts SET `date` = '$currentDate' ,title = '$newtitle' , `description` = '$newdescription' ,  content = '$newcontent' , `image` = '$fileDestination' WHERE postID = $idofPost;";
+                $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+            }
            
         }
         ?> 
