@@ -44,7 +44,7 @@
 		switch ($_SESSION['roleID']) {
 		case 1: //admin
             echo "success!";
-            header("Location: adminpage.php");
+            header("Location: graphpage.php");
             exit();
             break;
 		case 2: //writer

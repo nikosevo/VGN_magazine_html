@@ -8,24 +8,6 @@ include "functions.php";
 
 ?>
 
-<?php 
-if(isset($_GET["uid"]) && $_GET["action"]=="delete"){
-    $userID = $_GET["uid"];
-    $error = 0;
-
-    
-    $sql = "DELETE FROM users
-    WHERE userID = '$userID'";
-    $result = mysqli_query($link, $sql) or die(mysqli_error($link));
-    
-    if($result){
-            mysqli_commit($link);
-            send_message('User Deleted !', 'notice');
-        }
-    
-}
-
-?>
 <html lang="en">
 
 <head>
@@ -50,7 +32,7 @@ if(isset($_GET["uid"]) && $_GET["action"]=="delete"){
     ?>
 </header>
 
-<body>
+<body id="reportsPage">
     
     <div class="admin-wrapper">
         <!-- Left Sidebar -->
@@ -65,20 +47,21 @@ if(isset($_GET["uid"]) && $_GET["action"]=="delete"){
         <!-- Left Sidebar -->
 
         <!-- Admin Content -->
-        <body id="reportsPage">
-<div class="tm-col tm-col-big">
-    <div class="bg-white tm-block h-100">
-        <h2 class="tm-block-title">Performance</h2>
-        <canvas id="barChart"></canvas>
+        
+        <div class="tm-col tm-col-big">
+            <div class="bg-white tm-block h-100">
+                <h2 class="tm-block-title">Performance</h2>
+                <canvas id="barChart"></canvas>
+            </div>
+        </div>
+        <div class="tm-col tm-col-small">
+            <div class="bg-white tm-block h-100">
+                <canvas id="pieChart" class="chartjs-render-monitor"></canvas>
+            </div>
+        </div>
+        
     </div>
-</div>
-<div class="tm-col tm-col-small">
-    <div class="bg-white tm-block h-100">
-        <canvas id="pieChart" class="chartjs-render-monitor"></canvas>
-    </div>
-</div>
-</div>
-<script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/Chart.min.js"></script>
     
@@ -123,5 +106,8 @@ if(isset($_GET["uid"]) && $_GET["action"]=="delete"){
         }
            
     </script>
+    <div>
+            <?php include("footer.html"); ?>
+    </div>
 </body>
 </html>
