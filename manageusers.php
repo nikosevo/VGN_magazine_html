@@ -8,19 +8,19 @@ include "functions.php";
 ?>
 
 <?php 
-if(isset($_GET["pid"]) && $_GET["action"]=="delete"){
-    $_SESSION['postID'] = $_GET["pid"];
-    $postID = $_SESSION['postID'];
+if(isset($_GET["uid"]) && $_GET["action"]=="delete"){
+    $_SESSION['userID'] = $_GET["uid"];
+    $userID = $_SESSION['userID'];
     $error = 0;
 
     
-    $sql = "DELETE FROM posts
-    WHERE postID = '$postID'";
+    $sql = "DELETE FROM users
+    WHERE userID = '$userID'";
     $result = mysqli_query($link, $sql) or die(mysqli_error($link));
     
     if($result){
             mysqli_commit($link);
-            send_message('Post Deleted !', 'notice');
+            send_message('User Deleted !', 'notice');
         }
     
 }
@@ -61,43 +61,42 @@ if(isset($_GET["pid"]) && $_GET["action"]=="delete"){
 
         <!-- Admin Content -->
         <?php 
-        $sql1 = "SELECT * FROM posts";
+        $sql1 = "SELECT * FROM users";
         $result1 = mysqli_query($link,$sql1);
         ?>
 
     
         <div class="admin-content">
-            <div class="button-group">
-                <a href="createPost.php"class="btn-big">Create Post</a>
-                <a href="adminpage.php" class="btn-big">Manage Posts</a>
-            </div>
+            
             <div class="admContent">
-                <h2 class="page-title">Manage Posts</h2>
+                <h2 class="page-title">Manage Users</h2>
                 <table>
                     <thead>
                         <th>N</th>
-                        <th>Title</th>
-                        <th>Author</th>
+                        <th>Fullname</th>
+                        <th>Username</th>
+                        <th>Email</th>
                         <th colspan="2">Action</th>
                     </thead>  
                     <tbody>
                     <?php 
                     while ($row = mysqli_fetch_array($result1)) {
-                    $postid = $row['postID'];
+                    $userID = $row['userID'];
                     $sql2 = "SELECT  *
-                    FROM posts, users
-                    WHERE postID=$postid
-                    AND posts.userID = users.userID;";
+                    FROM  users 
+                    WHERE users.userID=$userID";
+                    //  AND hasrole.userID = users.userID;
                     $result2 = mysqli_query($link,$sql2);
                     $usrRow = mysqli_fetch_array($result2);
-                    $_SESSION['postID'] = $usrRow['postID'];
+                    $_SESSION['userID'] = $usrRow['userID'];
                     ?>
                         <tr>
-                            <td><?php echo $usrRow['postID']; ?></td>
-                            <td><?php echo $usrRow['title']; ?></td>
+                            <td><?php echo $usrRow['userID']; ?></td>
                             <td><?php echo $usrRow['fullname']; ?></td>
-                            <td><button onclick="idgiver(this.id)" id=<?php echo $_SESSION['postID']; ?> href="editPost.php" class="edit">edit</button></td>
-                            <td><button onclick="idgiver2(this.id)" id=<?php echo $_SESSION['postID']; ?> href="adminpage.php" name="del" class="delete">delete</button></td>
+                            <td><?php echo $usrRow['username']; ?></td>
+                            <td><?php echo $usrRow['email']; ?></td>
+                            <td><button onclick="idgiver(this.id)" id=<?php echo $_SESSION['userID']; ?> href="editPost.php" class="edit">edit</button></td>
+                            <td><button onclick="idgiver2(this.id)" id=<?php echo $_SESSION['userID']; ?> href="manageusers.php" name="del" class="delete">delete</button></td>
                             
                         </tr>
                     <?php }?>
@@ -112,10 +111,10 @@ if(isset($_GET["pid"]) && $_GET["action"]=="delete"){
     <script>
        function idgiver(id) {
            
-        window.location.href="editPost.php?pid=" + id;
+        window.location.href="editPost.php?uid=" + id;
         }
         function idgiver2(id) {
-        window.location.href="adminpage.php?pid=" + id + "&action=delete";
+        window.location.href="adminpage.php?uid=" + id + "&action=delete";
         }
            
     </script>
