@@ -10,6 +10,9 @@
 	$randPost = getRandPost(); 
 	$authors_result = getAuthorsResult();
 	$categories_result = getCategoriesResult();
+	$user = getLogedUser();
+	if($user['roleID' == 1]) 
+		$isAdmin = true;
 
 
 ?>
@@ -46,9 +49,11 @@
 			<h1>More than just your usual<br> Magazine</h1>
 			<div id="links">
 				<?php if(isset($_SESSION['userID'])){ ?>
-					<a href="createPost.php" id="container__item__cta">Start Writing Now!</a>
-
-				<?php } ?>
+					<?php if($isAdmin){ ?>
+						<a href="adminpage.php" id="container__item__cta">do admin stuff</a>
+					<?php }else{ ?>
+						<a href="createPost.php" id="container__item__cta">Publish now!</a>
+				<?php }} ?>
 				<?php if(!isset($_SESSION['userID'])){ ?>
 					<a href="register.php" id="container__item__cta">Sign up now</a>
 

@@ -55,7 +55,7 @@ function getLogedUser(){
 
     include "connect.php";
     $userID = $_SESSION['userID'];
-    $sql = "SELECT * FROM users WHERE userID = $userID";
+    $sql = "SELECT * FROM users,hasrole WHERE users.userID = $userID AND hasrole.userId = $userID";
     $result = mysqli_query($link,$sql);
     $loggedInUsr = mysqli_fetch_array($result);
     return $loggedInUsr;
