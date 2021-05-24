@@ -54,7 +54,7 @@ if(isset($_GET["uid"]) && $_GET["action"]=="delete"){
             <ul>
                 <li><a href="adminpage.php">Manage Posts</a></li>
                 <li><a href="manageusers.php">Manage Users</a></li>
-                <li><a href="#">Manage Categories</a></li>
+                <li><a href="managecategories.php">Manage Categories</a></li>
             </ul>
         </div>
         <!-- Left Sidebar -->
@@ -67,10 +67,7 @@ if(isset($_GET["uid"]) && $_GET["action"]=="delete"){
 
     
         <div class="admin-content">
-            <div class="button-group">
-                <a href="createPost.php"class="btn-big">Create User</a>
-                <a href="adminpage.php" class="btn-big">Manage Users</a>
-            </div>
+            
             <div class="admContent">
                 <h2 class="page-title">Manage Users</h2>
                 <table>
