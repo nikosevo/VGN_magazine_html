@@ -33,6 +33,7 @@ include "connect.php";
     ?>
 </header>
         <?php
+        $postID = $_GET["pid"];
         if(isset($_POST['submit'])){
             $file = $_FILES['file'];
             $fileName = $_FILES['file']['name']; 
@@ -42,40 +43,57 @@ include "connect.php";
             $fileType = $_FILES['file']['type']; 
             $fileDestination="";
 
-            $fileExt = explode('.', $fileName);
-            $fileActualExt = strtolower(end($fileExt));
-
-            $allowed = array('jpg','jpeg','png');
-
-            if(in_array($fileActualExt,$allowed)){
-                if($fileError === 0){
-                    if($fileSize < 500000){
-                        echo $fileActualExt;
-                        $fileNameNew = uniqid('',true).".".$fileActualExt;
-                        echo $fileNameNew;
-                        $fileDestination='assets/'.$fileNameNew;
-                        echo $fileDestination;
-                        move_uploaded_file($fileTmpName,$fileDestination);
+            if($fileName != ''){
+                $fileExt = explode('.', $fileName);
+                $fileActualExt = strtolower(end($fileExt));
+    
+                $allowed = array('jpg','jpeg','png');
+    
+                if(in_array($fileActualExt,$allowed)){
+                    if($fileError === 0){
+                        if($fileSize < 5000000){
+                            echo $fileActualExt;
+                            $fileNameNew = uniqid('',true).".".$fileActualExt;
+                            echo $fileNameNew;
+                            $fileDestination='assets/'.$fileNameNew;
+                            echo $fileDestination;
+                            move_uploaded_file($fileTmpName,$fileDestination);
+                        }else{
+                            echo "Very large file";
+                        }
+                        
                     }else{
-                        echo "Very large file";
+                        echo "There was an error uploading your file";
                     }
-                    
                 }else{
-                    echo "There was an error uploading your file";
+                    echo "You cannot upload files of this type";
                 }
+    
+    
+            
+                $newtitle = $_POST['title'];
+                $newdescription = $_POST['description'];
+                $newcontent = $_POST['content'];
+                $currentDate = date("Y-m-d");
+                
+                $sql = "UPDATE posts SET date = '$currentDate' ,title = '$newtitle' , description = '$newdescription' ,  content = '$newcontent' , image = '$fileDestination' WHERE postID = $postID";
+                $result = mysqli_query($link, $sql) or die(mysqli_error($link));
             }else{
-                echo "You cannot upload files of this type";
+                $newtitle = $_POST['title'];
+                $newdescription = $_POST['description'];
+                $newcontent = $_POST['content'];
+                $currentDate = date("Y-m-d");
+                
+                $sql = "UPDATE posts SET 
+                `date` = '$currentDate',
+                `title` = '$newtitle', 
+                `description` = '$newdescription',  
+                `content` = '$newcontent' WHERE postID = '$postID'";
+
+                $result = mysqli_query($link, $sql) or die(mysqli_error($link));
             }
 
-
-        
-            $newtitle = $_POST['title'];
-            $newdescription = $_POST['description'];
-            $newcontent = $_POST['content'];
-            $currentDate = date("Y-m-d");
-            
-            $sql = "UPDATE posts SET date = '$currentDate' ,title = '$newtitle' , description = '$newdescription' ,  content = '$newcontent' , image = '$fileDestination' WHERE postID = 1;";
-            $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+           
            
         }
         ?> 

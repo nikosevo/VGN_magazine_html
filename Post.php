@@ -4,7 +4,7 @@
     session_start();
     include "connect.php";
     include "article.php";
-    $postID = $_GET["uid"];   
+    $postID = $_GET["pid"];   
     $post = getPost($postID);
     $author = getAuthor($postID);
     $loggedUser = $_SESSION['userID'];

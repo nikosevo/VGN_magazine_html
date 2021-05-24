@@ -105,7 +105,7 @@
             <div class="articles-wrapper">
                 <?php 
                     while($usr_articles = mysqli_fetch_array($result)) { ?>
-                    <a href="Post.php?uid=<?php echo $usr_articles['postID'];?>" id=<?php echo $usr_articles['postID'];?> class="article">
+                    <a href="Post.php?pid=<?php echo $usr_articles['postID'];?>" id=<?php echo $usr_articles['postID'];?> class="article">
                     <h1 class="title"><?php echo $usr_articles['title'];?><i class="fas fa-quote-right"></i></h1>
                     <h2><?php echo $usr_articles['description'];?></h2>
                 </a>

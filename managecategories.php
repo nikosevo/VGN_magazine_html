@@ -5,6 +5,27 @@ session_start();
 include "connect.php";
 include "functions.php";
 
+$loggenNow = $_SESSION['userID'];
+
+$row = [1,5,6];
+
+//if 3 is in array row
+if(in_array(3,$row)){
+    $hasPrivilages = true;
+
+}
+
+if(admin){
+    $hasPrivilages = true;
+}
+
+
+
+if(!$hasPrivilages){
+    header("LOCATION:priv.html");
+    exit();
+}
+
 ?>
 
 <?php 
