@@ -1,8 +1,16 @@
 <?php
-include "connect.php";
+    include "connect.php";
+
     if(isset($_POST['submit'])){
         session_start();
-        $userID = $_SESSION['userID'];
+        if(isset($_GET("uid"))){
+            $userId = $_GET("uid");
+        }else{
+            $userID = $_SESSION['userID'];
+            
+        }
+
+
         $file = $_FILES['file'];
         $fileName = $_FILES['file']['name']; 
         $fileTmpName = $_FILES['file']['tmp_name']; 
