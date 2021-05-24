@@ -50,7 +50,7 @@
 			<div id="links">
 				<?php if(isset($_SESSION['userID'])){ ?>
 					<?php if($isAdmin){ ?>
-						<a href="adminpage.php" id="container__item__cta">do admin stuff</a>
+						<a href="graphpage.php" id="container__item__cta">do admin stuff</a>
 					<?php }else{ ?>
 						<a href="createPost.php" id="container__item__cta">Publish now!</a>
 				<?php }} ?>

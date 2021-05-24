@@ -8,14 +8,16 @@ if(isset($_SESSION['userID'])){
     $loggedNow = $_SESSION['userID'];
     $sqlroles="SELECT roleId FROM hasrole WHERE userId='$loggedNow'";  
     $result = mysqli_query($link, $sqlroles) or die(mysqli_error($link));
-    $row = mysqli_fetch_array($result);
+    $row = [];
+    while($row = $result->fetch_row()){
     
-    if(in_array(3,$row) || in_array(1,$row)){
-        $hasPrivilages = true;
-
-    }
-    else{
-        $hasPrivilages=false;
+        if(in_array(3,$row) || in_array(1,$row)){
+            $hasPrivilages = true;
+            break;
+        }
+        else{
+            $hasPrivilages=false;
+        }
     }
 
 
@@ -143,7 +145,5 @@ if(isset($_GET["pid"]) && $_GET["action"]=="delete"){
            
     </script>
 </body>
-    <div class="feet">
-        <?php include("footer.html"); ?>
-    </div>
+    
 </html>
