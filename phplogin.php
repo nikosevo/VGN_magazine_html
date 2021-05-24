@@ -13,7 +13,7 @@
 
 		$_SESSION['roleID'] = 0;
 		$username = mysqli_real_escape_string($link,$_POST['username']);
-		$password = md5(mysqli_real_escape_string($link, $_POST['password']));
+		$password = mysqli_real_escape_string($link, $_POST['password']);
 		
 		if (empty($username) || empty($password)) {
            
