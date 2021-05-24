@@ -2,6 +2,9 @@
     session_start();
     include("functions.php");
     $user = getLogedUser();
+    $sql = "SELECT * FROM hasrole WHERE userId = $user AND roleId = 1";
+    $result = mysqli_query($link,$sql);
+    $row = mysqli_
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,6 +67,7 @@
                                 <span class="content-name">fewWords</span>
                             </label>
                         </div>
+                        <?php if($user)
                     </div>
                 </div>
             </div>
