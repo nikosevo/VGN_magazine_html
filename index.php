@@ -53,7 +53,6 @@
 					<a href="register.php" id="container__item__cta">Sign up now</a>
 
 				<?php } ?>
-
 				<a href="#">Read a post</a>
 			</div>
 		</div>
