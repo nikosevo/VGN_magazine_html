@@ -62,9 +62,3 @@
 		
 	?>
 
-Notice: Undefined index: uid in C:\xampp\htdocs\VGN\Post.php on line 7 Warning: mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in C:\xampp\htdocs\VGN\article.php on line 8 Warning: mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in C:\xampp\htdocs\VGN\article.php on line 19 Notice: Undefined index: userID in C:\xampp\htdocs\VGN\Post.php on line 10
-Notice: Undefined index: pid in C:\xampp\htdocs\VGN\Post.php on line 7
-
-Warning: mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in C:\xampp\htdocs\VGN\article.php on line 8
-
-Warning: mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in C:\xampp\htdocs\VGN\article.php on line 19
