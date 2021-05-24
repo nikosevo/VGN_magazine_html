@@ -132,8 +132,6 @@ if(!$hasPrivilages){
         }
            
     </script>
-    <div>
-            <?php include("footer.html"); ?>
-    </div>
+    
 </body>
 </html>

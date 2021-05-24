@@ -146,7 +146,5 @@ if(isset($_GET["uid"]) && $_GET["action"]=="delete"){
            
     </script>
 </body>
-    <div>
-            <?php include("footer.html"); ?>
-    </div>
+    
 </html>
