@@ -9,8 +9,7 @@ include "functions.php";
 
 <?php 
 if(isset($_GET["pid"]) && $_GET["action"]=="delete"){
-    $_SESSION['postID'] = $_GET["pid"];
-    $postID = $_SESSION['postID'];
+    $postID = $_GET["pid"];
     $error = 0;
 
     
@@ -52,6 +51,7 @@ if(isset($_GET["pid"]) && $_GET["action"]=="delete"){
         <!-- Left Sidebar -->
         <div class="left-sidebar">
             <ul>
+                <li><a href="graphpage.php">Main Page</a></li>
                 <li><a href="adminpage.php">Manage Posts</a></li>
                 <li><a href="manageusers.php">Manage Users</a></li>
                 <li><a href="managecategories.php">Manage Categories</a></li>

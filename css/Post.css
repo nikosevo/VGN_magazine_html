@@ -2,9 +2,10 @@
 header{
   z-index: 100;
   position: fixed !important;
+  background: white !important ;
+  opacity: 0.9;
   top: 0;
-  background-color: white !important;
-  opacity: .9;
+
 }
 body {
   font-family: Georgia, serif;
@@ -15,10 +16,6 @@ body {
 
 a {
   color: #000;
-}
-
-a:hover{
-  cursor: pointer;
 }
 
 h1 {
@@ -51,17 +48,18 @@ footer a {
 }
 
 .zoom {
+  margin-top: 100px;
   overflow: hidden;
   padding-bottom: 55%;
 }
 
 .zoom img {
-  
+  /* object-fit: cover; */
   position: fixed;
-  top: 0px;
+  top: 0%;
   left: 50%;
   max-width: 200%;
-  height: 90%;
+  width: 100%;
   transform: translateX(-50%);
   z-index: 0;
 }
@@ -124,7 +122,6 @@ a {
 a:hover, a:focus {
   color: black;
 }
-
 .subBtn{
   color: white;
   padding: 10px 20px;
